@@ -13,6 +13,8 @@
 #import "PHCheckViewController.h"
 #import "PHSettingViewController.h"
 
+#import "UINavigationController+FDFullscreenPopGesture.h"
+
 @interface PHTabBarController ()
 
 @end
@@ -49,6 +51,7 @@
     //我的
     PHSettingViewController *settingVC = [[PHSettingViewController alloc] init];
     [self setupViewController:settingVC title:@"我的" image:@"setting" selectedImage:@"settingS"];
+    settingVC.fd_prefersNavigationBarHidden = YES;
 }
 
 - (void)setupViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage

@@ -68,7 +68,7 @@
                             @"showapi_sign":md5Sign
                             };
     
-    [PHNetHelper postWithParam:param andPath:path andComplete:^(BOOL success, id result) {
+    [PHNetHelper POSTWithExtraUrl:path andParam:param andComplete:^(BOOL success, id result) {
         
         if (success)
         {
