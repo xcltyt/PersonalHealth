@@ -19,7 +19,7 @@ static PHNetHelper *_shareManager = nil;
         // AFHTTPSessionManager 单例对象，可以在程序短时间内发起多个请求时，降低系统开销
         _shareManager = [[super allocWithZone:NULL] initWithBaseURL:[NSURL URLWithString:@"https://route.showapi.com"]];// 这里使用 BaseUrl ，是让 AFNetworking 减少每次请求服务器时候，提升查找目标服务器地址的速度，而且这里建议直接使用 ip 地址。
         // 设置网络请求 SSL 功能，使用（HTTPS）时开启
-        //		_shareManager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+        _shareManager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
         // 设置请求内容的序列化方式
         _shareManager.requestSerializer = [AFHTTPRequestSerializer serializer];
         // 设置网络超时的时间，10秒。
@@ -63,28 +63,24 @@ static PHNetHelper *_shareManager = nil;
         }
         
     }];
-    
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
 
 
-// 封装 Post 请求，成功和失败在一个 block 里面处理
-+ (void)postWithParam:(NSDictionary *)params andPath:(NSString *)path andComplete:(void (^)(BOOL success, id result))complete
-{
-    [[self shareManager]POST:path parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
++ (void)POSTWithExtraUrl:(NSString *)url andParam:(NSDictionary *)params andComplete:(void (^)(BOOL success, id result))complete {
+    [[self shareManager] POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         complete(YES, responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        complete(NO,error.localizedDescription);
     }];
 
 }
 
-// 封装 Get 请求，成功和失败分开处理
-+ (void)getDataWithParam:(NSDictionary *)params andPath:(NSString *)path andComplete:(void (^)(BOOL success, id result))complete {
-    [[self shareManager] GET:path parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
++ (void)GETWithExtraUrl:(NSString *)url andParam:(NSDictionary *)params andComplete:(void (^)(BOOL success, id result))complete; {
+    [[self shareManager] GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         complete(YES, responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        complete(NO, error.localizedDescription);
+        complete(NO,error.localizedDescription);
     }];
 }
 
