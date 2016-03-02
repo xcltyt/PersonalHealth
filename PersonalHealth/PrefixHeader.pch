@@ -19,8 +19,16 @@
 #define MAS_SHORTHAND
 #define MAS_SHORTHAND_GLOBALS
 
+#define NAVH 44
+#define TabbarH 49
+#define BTNH 48
+#define SCRW [UIScreen mainScreen].bounds.size.width
+#define SCRH [UIScreen mainScreen].bounds.size.height
 
 #import "Masonry.h"
 #import "UIView+PHExtension.h"
+#import "NSDate+Formatter.h"
+#import "NSString+MD5.h"
+#import "PHNetHelper.h"
 
 #endif /* PrefixHeader_pch */
