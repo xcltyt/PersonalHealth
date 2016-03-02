@@ -21,7 +21,6 @@
 		CE74AEAC1C86CEFC00D0C116 /* PHLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AEAB1C86CEFC00D0C116 /* PHLibraryViewController.m */; };
 		CE74AEAF1C86CF0600D0C116 /* PHCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AEAE1C86CF0600D0C116 /* PHCheckViewController.m */; };
 		CE74AEB21C86CF0F00D0C116 /* PHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AEB11C86CF0F00D0C116 /* PHSettingViewController.m */; };
-		CE74AEB51C86DE0200D0C116 /* PHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AEB41C86DE0200D0C116 /* PHNavigationController.m */; };
 		CE74AF4F1C86DF1100D0C116 /* NSDate+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AEB91C86DF1100D0C116 /* NSDate+Formatter.m */; };
 		CE74AF501C86DF1100D0C116 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AEBB1C86DF1100D0C116 /* NSDate+Helper.m */; };
 		CE74AF511C86DF1100D0C116 /* NSDate+Reporting.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AEBD1C86DF1100D0C116 /* NSDate+Reporting.m */; };
@@ -88,6 +87,8 @@
 		CE74AF911C86DF1100D0C116 /* NSString+WPAttributedMarkup.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AF4E1C86DF1100D0C116 /* NSString+WPAttributedMarkup.m */; };
 		CE74AF931C86DF3A00D0C116 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AF921C86DF3A00D0C116 /* Foundation+Log.m */; };
 		CE74AF961C86DF8C00D0C116 /* UIView+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AF951C86DF8C00D0C116 /* UIView+PHExtension.m */; };
+		CED2F8B91C87181200694B1A /* UINavigationController+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */; };
+		CED2F8C21C87181F00694B1A /* NSObject+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */; };
 		FC452C841C8712F900CFECB7 /* PHDetailMod.m in Sources */ = {isa = PBXBuildFile; fileRef = FC452C651C8712F900CFECB7 /* PHDetailMod.m */; };
 		FC452C851C8712F900CFECB7 /* PHHMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC452C671C8712F900CFECB7 /* PHHMModel.m */; };
 		FC452C861C8712F900CFECB7 /* PHMsgTableMod.m in Sources */ = {isa = PBXBuildFile; fileRef = FC452C691C8712F900CFECB7 /* PHMsgTableMod.m */; };
@@ -220,8 +221,6 @@
 		CE74AEAE1C86CF0600D0C116 /* PHCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHCheckViewController.m; sourceTree = "<group>"; };
 		CE74AEB01C86CF0F00D0C116 /* PHSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHSettingViewController.h; sourceTree = "<group>"; };
 		CE74AEB11C86CF0F00D0C116 /* PHSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHSettingViewController.m; sourceTree = "<group>"; };
-		CE74AEB31C86DE0200D0C116 /* PHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHNavigationController.h; sourceTree = "<group>"; };
-		CE74AEB41C86DE0200D0C116 /* PHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHNavigationController.m; sourceTree = "<group>"; };
 		CE74AEB81C86DF1100D0C116 /* NSDate+Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formatter.h"; sourceTree = "<group>"; };
 		CE74AEB91C86DF1100D0C116 /* NSDate+Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatter.m"; sourceTree = "<group>"; };
 		CE74AEBA1C86DF1100D0C116 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
@@ -354,6 +353,10 @@
 		CE74AF941C86DF8C00D0C116 /* UIView+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PHExtension.h"; sourceTree = "<group>"; };
 		CE74AF951C86DF8C00D0C116 /* UIView+PHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PHExtension.m"; sourceTree = "<group>"; };
 		CE74AF971C86E06500D0C116 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CED2F8B71C87181200694B1A /* UINavigationController+PHAOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+PHAOP.h"; sourceTree = "<group>"; };
+		CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+PHAOP.m"; sourceTree = "<group>"; };
+		CED2F8C01C87181F00694B1A /* NSObject+PHAOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PHAOP.h"; sourceTree = "<group>"; };
+		CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PHAOP.m"; sourceTree = "<group>"; };
 		FC452C641C8712F900CFECB7 /* PHDetailMod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHDetailMod.h; sourceTree = "<group>"; };
 		FC452C651C8712F900CFECB7 /* PHDetailMod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHDetailMod.m; sourceTree = "<group>"; };
 		FC452C661C8712F900CFECB7 /* PHHMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHMModel.h; sourceTree = "<group>"; };
@@ -597,8 +600,6 @@
 			children = (
 				CE74AE841C86CAB900D0C116 /* PHTabBarController.h */,
 				CE74AE851C86CAB900D0C116 /* PHTabBarController.m */,
-				CE74AEB31C86DE0200D0C116 /* PHNavigationController.h */,
-				CE74AEB41C86DE0200D0C116 /* PHNavigationController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -617,6 +618,10 @@
 				CE74AF921C86DF3A00D0C116 /* Foundation+Log.m */,
 				CE74AF941C86DF8C00D0C116 /* UIView+PHExtension.h */,
 				CE74AF951C86DF8C00D0C116 /* UIView+PHExtension.m */,
+				CED2F8B71C87181200694B1A /* UINavigationController+PHAOP.h */,
+				CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */,
+				CED2F8C01C87181F00694B1A /* NSObject+PHAOP.h */,
+				CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1314,11 +1319,13 @@
 				FC452C861C8712F900CFECB7 /* PHMsgTableMod.m in Sources */,
 				CE74AF5E1C86DF1100D0C116 /* NSString+MD5.m in Sources */,
 				CE74AF8D1C86DF1100D0C116 /* UIViewController+BackButtonHandler.m in Sources */,
+				CED2F8C21C87181F00694B1A /* NSObject+PHAOP.m in Sources */,
 				CE74AF591C86DF1100D0C116 /* NSObject+GCD.m in Sources */,
 				CE74AF6F1C86DF1100D0C116 /* UIImage+Capture.m in Sources */,
 				CE74AF601C86DF1100D0C116 /* NSString+Size.m in Sources */,
 				CE74AE401C86C1F900D0C116 /* AppDelegate.m in Sources */,
 				CE74AF5A1C86DF1100D0C116 /* NSObject+KVOBlocks.m in Sources */,
+				CED2F8B91C87181200694B1A /* UINavigationController+PHAOP.m in Sources */,
 				CE74AF861C86DF1100D0C116 /* UIView+draggable.m in Sources */,
 				CE74AF531C86DF1100D0C116 /* NSDictionary+JSONString.m in Sources */,
 				CE74AF5F1C86DF1100D0C116 /* NSString+RegexCategory.m in Sources */,
@@ -1369,7 +1376,6 @@
 				CE74AF4F1C86DF1100D0C116 /* NSDate+Formatter.m in Sources */,
 				CE74AF671C86DF1100D0C116 /* UIApplication+Permissions.m in Sources */,
 				CE74AF881C86DF1100D0C116 /* UIView+Screenshot.m in Sources */,
-				CE74AEB51C86DE0200D0C116 /* PHNavigationController.m in Sources */,
 				FC452CA61C8713A600CFECB7 /* UIImage+Common.m in Sources */,
 				CE74AE3D1C86C1F900D0C116 /* main.m in Sources */,
 				CE74AF8A1C86DF1100D0C116 /* UIView+Shake.m in Sources */,
