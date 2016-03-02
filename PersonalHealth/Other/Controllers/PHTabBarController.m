@@ -7,6 +7,7 @@
 //
 
 #import "PHTabBarController.h"
+#import "PHNavigationController.h"
 //子视图
 #import "PHInformationViewController.h"
 #import "PHLibraryViewController.h"
@@ -53,7 +54,7 @@
 
 - (void)setupViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    PHNavigationController *nav = [[PHNavigationController alloc] initWithRootViewController:vc];
     [self addChildViewController:nav];
     vc.title = title;
     vc.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
