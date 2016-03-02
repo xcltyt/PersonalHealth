@@ -1,33 +1,24 @@
 //
-//  PHNavigationController.m
+//  UINavigationController+PHAOP.m
 //  PersonalHealth
 //
 //  Created by lifan on 16/3/2.
 //  Copyright © 2016年 PHTeam. All rights reserved.
 //
 
-#import "PHNavigationController.h"
+#import "UINavigationController+PHAOP.h"
+#import "NSObject+PHAOP.h"
 
+@implementation UINavigationController (PHAOP)
 
-@interface PHNavigationController ()
-
-@end
-
-@implementation PHNavigationController
-
-+(void)initialize {
-    UINavigationBar *bar = [UINavigationBar appearance];
-    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
++ (void)load {
+    [UINavigationController aop_changeMethod:@selector(pushViewController:animated:) withNewMethod:@selector(aop_changeMethod:withNewMethod:)];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
--(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    
+- (void)aop_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    //before pushing
     if (self.childViewControllers.count > 0) {
+        //设置左上角的返回按钮
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:@"返回" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -35,34 +26,20 @@
         [button setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        //        [button sizeToFit];
         button.size = CGSizeMake(70, 30);
         button.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
         [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         viewController.hidesBottomBarWhenPushed = YES;
     }
-    [super pushViewController:viewController animated:animated];
+    
+    //调用原push方法
+    [self aop_pushViewController:viewController animated:animated];
+    //after pushing
 }
 
 - (void)back {
     [self popViewControllerAnimated:YES];
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
