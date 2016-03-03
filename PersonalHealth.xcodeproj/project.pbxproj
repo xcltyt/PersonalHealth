@@ -116,6 +116,13 @@
 		CEB172EF1C880BC10054325F /* PHHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB172E01C880BC10054325F /* PHHeaderView.xib */; };
 		CED2F8B91C87181200694B1A /* UINavigationController+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */; };
 		CED2F8C21C87181F00694B1A /* NSObject+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */; };
+		FC3A6FF71C88201D009C1D90 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FEE1C88201D009C1D90 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FC3A6FF81C88201D009C1D90 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF01C88201D009C1D90 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FC3A6FF91C88201D009C1D90 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF21C88201D009C1D90 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FC3A6FFA1C88201D009C1D90 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF41C88201D009C1D90 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FC3A6FFB1C88201D009C1D90 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF61C88201D009C1D90 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FC3A6FFD1C8820CA009C1D90 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3A6FFC1C8820CA009C1D90 /* libsqlite3.tbd */; };
+		FC3A70011C882197009C1D90 /* TSDbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A70001C882197009C1D90 /* TSDbManager.m */; };
 		FC452C841C8712F900CFECB7 /* PHDetailMod.m in Sources */ = {isa = PBXBuildFile; fileRef = FC452C651C8712F900CFECB7 /* PHDetailMod.m */; };
 		FC452C851C8712F900CFECB7 /* PHHMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC452C671C8712F900CFECB7 /* PHHMModel.m */; };
 		FC452C861C8712F900CFECB7 /* PHMsgTableMod.m in Sources */ = {isa = PBXBuildFile; fileRef = FC452C691C8712F900CFECB7 /* PHMsgTableMod.m */; };
@@ -429,6 +436,19 @@
 		CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+PHAOP.m"; sourceTree = "<group>"; };
 		CED2F8C01C87181F00694B1A /* NSObject+PHAOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PHAOP.h"; sourceTree = "<group>"; };
 		CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PHAOP.m"; sourceTree = "<group>"; };
+		FC3A6FED1C88201D009C1D90 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		FC3A6FEE1C88201D009C1D90 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		FC3A6FEF1C88201D009C1D90 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		FC3A6FF01C88201D009C1D90 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		FC3A6FF11C88201D009C1D90 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		FC3A6FF21C88201D009C1D90 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		FC3A6FF31C88201D009C1D90 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		FC3A6FF41C88201D009C1D90 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		FC3A6FF51C88201D009C1D90 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		FC3A6FF61C88201D009C1D90 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		FC3A6FFC1C8820CA009C1D90 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		FC3A6FFF1C882197009C1D90 /* TSDbManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDbManager.h; sourceTree = "<group>"; };
+		FC3A70001C882197009C1D90 /* TSDbManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSDbManager.m; sourceTree = "<group>"; };
 		FC452C641C8712F900CFECB7 /* PHDetailMod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHDetailMod.h; sourceTree = "<group>"; };
 		FC452C651C8712F900CFECB7 /* PHDetailMod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHDetailMod.m; sourceTree = "<group>"; };
 		FC452C661C8712F900CFECB7 /* PHHMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHMModel.h; sourceTree = "<group>"; };
@@ -459,6 +479,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3A6FFD1C8820CA009C1D90 /* libsqlite3.tbd in Frameworks */,
 				CE74AE9F1C86CBE200D0C116 /* Alamofire.framework in Frameworks */,
 				79F969B89914AB0A901907F3 /* Pods_PersonalHealth.framework in Frameworks */,
 			);
@@ -484,6 +505,7 @@
 		8B61842EB235A0AC2E3E9EFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC3A6FFC1C8820CA009C1D90 /* libsqlite3.tbd */,
 				3A8E0F0F49631B889E482661 /* Pods_PersonalHealth.framework */,
 			);
 			name = Frameworks;
@@ -582,6 +604,7 @@
 		CE74AE731C86CA7600D0C116 /* Information(资讯) */ = {
 			isa = PBXGroup;
 			children = (
+				FC3A6FFE1C88217F009C1D90 /* DBSManager */,
 				FC452C631C8712F900CFECB7 /* Model */,
 				FC452C771C8712F900CFECB7 /* View */,
 				FC452C7D1C8712F900CFECB7 /* ViewControllers */,
@@ -631,6 +654,7 @@
 		CE74AE7E1C86CA7600D0C116 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				FC3A6FE51C882004009C1D90 /* Fmdatabase */,
 				FC452C8E1C8713A600CFECB7 /* BtnsBar */,
 				FC452C951C8713A600CFECB7 /* button */,
 				FC452C911C8713A600CFECB7 /* NetWork */,
@@ -1074,6 +1098,41 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FC3A6FE51C882004009C1D90 /* Fmdatabase */ = {
+			isa = PBXGroup;
+			children = (
+				FC3A6FEC1C88201D009C1D90 /* fmdb */,
+			);
+			name = Fmdatabase;
+			sourceTree = "<group>";
+		};
+		FC3A6FEC1C88201D009C1D90 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				FC3A6FED1C88201D009C1D90 /* FMDatabase.h */,
+				FC3A6FEE1C88201D009C1D90 /* FMDatabase.m */,
+				FC3A6FEF1C88201D009C1D90 /* FMDatabaseAdditions.h */,
+				FC3A6FF01C88201D009C1D90 /* FMDatabaseAdditions.m */,
+				FC3A6FF11C88201D009C1D90 /* FMDatabasePool.h */,
+				FC3A6FF21C88201D009C1D90 /* FMDatabasePool.m */,
+				FC3A6FF31C88201D009C1D90 /* FMDatabaseQueue.h */,
+				FC3A6FF41C88201D009C1D90 /* FMDatabaseQueue.m */,
+				FC3A6FF51C88201D009C1D90 /* FMResultSet.h */,
+				FC3A6FF61C88201D009C1D90 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		FC3A6FFE1C88217F009C1D90 /* DBSManager */ = {
+			isa = PBXGroup;
+			children = (
+				FC3A6FFF1C882197009C1D90 /* TSDbManager.h */,
+				FC3A70001C882197009C1D90 /* TSDbManager.m */,
+			);
+			name = DBSManager;
+			path = Third_Others/DBSManager;
+			sourceTree = "<group>";
+		};
 		FC452C631C8712F900CFECB7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1418,6 +1477,7 @@
 				CE74AF591C86DF1100D0C116 /* NSObject+GCD.m in Sources */,
 				CE74AF6F1C86DF1100D0C116 /* UIImage+Capture.m in Sources */,
 				CE74AF601C86DF1100D0C116 /* NSString+Size.m in Sources */,
+				FC3A6FF91C88201D009C1D90 /* FMDatabasePool.m in Sources */,
 				CE74AE401C86C1F900D0C116 /* AppDelegate.m in Sources */,
 				CE74AF5A1C86DF1100D0C116 /* NSObject+KVOBlocks.m in Sources */,
 				CED2F8B91C87181200694B1A /* UINavigationController+PHAOP.m in Sources */,
@@ -1430,6 +1490,7 @@
 				CE74AF6A1C86DF1100D0C116 /* UIButton+TouchAreaInsets.m in Sources */,
 				CE74AEB21C86CF0F00D0C116 /* PHSettingViewController.m in Sources */,
 				CEB172C01C8809350054325F /* PHCheckList.m in Sources */,
+				FC3A6FF71C88201D009C1D90 /* FMDatabase.m in Sources */,
 				FC452CA31C8713A600CFECB7 /* PHBtnsBar.m in Sources */,
 				CEB172B31C8809090054325F /* PHMoreLeftViewCell.m in Sources */,
 				CEB172B71C8809090054325F /* PHRightTableViewCell.m in Sources */,
@@ -1451,11 +1512,13 @@
 				CE74AF801C86DF1100D0C116 /* UINavigationItem+Margin.m in Sources */,
 				CE74AF871C86DF1100D0C116 /* UIView+GestureCallback.m in Sources */,
 				CE74AF851C86DF1100D0C116 /* UIView+Borders.m in Sources */,
+				FC3A6FF81C88201D009C1D90 /* FMDatabaseAdditions.m in Sources */,
 				CEB172A01C8807390054325F /* PHShowAllController.m in Sources */,
 				CE74AF581C86DF1100D0C116 /* NSObject+AutoCoding.m in Sources */,
 				FC452C871C8712F900CFECB7 /* PHMsgCell.m in Sources */,
 				CEB172E41C880BC10054325F /* PHCategory.m in Sources */,
 				CEB172EC1C880BC10054325F /* PHCategoryCell.m in Sources */,
+				FC3A70011C882197009C1D90 /* TSDbManager.m in Sources */,
 				CE74AF611C86DF1100D0C116 /* NSString+Trims.m in Sources */,
 				CE74AF721C86DF1100D0C116 /* UIImage+FX.m in Sources */,
 				CE74AF7F1C86DF1100D0C116 /* UINavigationItem+Lock.m in Sources */,
@@ -1474,6 +1537,8 @@
 				CE74AF781C86DF1100D0C116 /* UIImageView+FaceAwareFill.m in Sources */,
 				CEB172A21C8807390054325F /* PHShowController.m in Sources */,
 				CE74AF521C86DF1100D0C116 /* NSDate+Utilities.m in Sources */,
+				FC3A6FFB1C88201D009C1D90 /* FMResultSet.m in Sources */,
+				FC3A6FFA1C88201D009C1D90 /* FMDatabaseQueue.m in Sources */,
 				FC452CA51C8713A600CFECB7 /* UIButton+Common.m in Sources */,
 				CE74AF751C86DF1100D0C116 /* UIImage+Tint.m in Sources */,
 				CEB172B51C8809090054325F /* PHCheckHomeView.m in Sources */,
