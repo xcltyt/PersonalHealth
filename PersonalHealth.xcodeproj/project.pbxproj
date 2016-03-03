@@ -116,6 +116,7 @@
 		CEB172EF1C880BC10054325F /* PHHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB172E01C880BC10054325F /* PHHeaderView.xib */; };
 		CED2F8B91C87181200694B1A /* UINavigationController+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */; };
 		CED2F8C21C87181F00694B1A /* NSObject+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */; };
+		DAEFA6A61C891AF40057E63D /* PHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6A51C891AF40057E63D /* PHTextField.m */; };
 		FC3A6FF71C88201D009C1D90 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FEE1C88201D009C1D90 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FC3A6FF81C88201D009C1D90 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF01C88201D009C1D90 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FC3A6FF91C88201D009C1D90 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF21C88201D009C1D90 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -436,6 +437,8 @@
 		CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+PHAOP.m"; sourceTree = "<group>"; };
 		CED2F8C01C87181F00694B1A /* NSObject+PHAOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PHAOP.h"; sourceTree = "<group>"; };
 		CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PHAOP.m"; sourceTree = "<group>"; };
+		DAEFA6A41C891AF40057E63D /* PHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHTextField.h; sourceTree = "<group>"; };
+		DAEFA6A51C891AF40057E63D /* PHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHTextField.m; sourceTree = "<group>"; };
 		FC3A6FED1C88201D009C1D90 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		FC3A6FEE1C88201D009C1D90 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		FC3A6FEF1C88201D009C1D90 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -1005,9 +1008,11 @@
 		CEB172A31C8809080054325F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CEB172A41C8809080054325F /* left */,
 				CEB172AA1C8809080054325F /* PHCheckHomeView.h */,
 				CEB172AB1C8809080054325F /* PHCheckHomeView.m */,
+				DAEFA6A41C891AF40057E63D /* PHTextField.h */,
+				DAEFA6A51C891AF40057E63D /* PHTextField.m */,
+				CEB172A41C8809080054325F /* left */,
 				CEB172AC1C8809080054325F /* right */,
 			);
 			path = Views;
@@ -1451,6 +1456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC452C891C8712F900CFECB7 /* PHMsgTableView.m in Sources */,
+				DAEFA6A61C891AF40057E63D /* PHTextField.m in Sources */,
 				CEB172EE1C880BC10054325F /* PHHeaderView.m in Sources */,
 				FC452C851C8712F900CFECB7 /* PHHMModel.m in Sources */,
 				CE74AF661C86DF1100D0C116 /* UIApplication+ApplicationSize.m in Sources */,
@@ -1703,6 +1709,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PersonalHealth/PrefixHeader.pch";
 				INFOPLIST_FILE = PersonalHealth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.phteam.PersonalHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1721,6 +1728,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PersonalHealth/PrefixHeader.pch";
 				INFOPLIST_FILE = PersonalHealth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.phteam.PersonalHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -77,7 +77,7 @@
             NSDictionary *dict = dictjson[@"showapi_res_body"];
             if ([dict[@"ret_code"]integerValue] == 0) {
                 ;
-                
+                [SVProgressHUD dismiss];
                 self.listArray = [PHCheckList mj_objectArrayWithKeyValuesArray:dict[@"list"]];
                 self.leftView.categories = self.listArray;
                 // 默认选中首行

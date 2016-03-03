@@ -62,6 +62,7 @@
         });
         return;
     }
+    text = [self cutSpace:text];
     NSString *dataString = [NSDate currentDateStringWithFormat:@"yyyyMMdd HHmmss"];
     dataString = [dataString stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *sign = [NSString stringWithFormat:@"key%@showapi_appid%@showapi_timestamp%@%@",text ,@"16299",dataString,secret];
@@ -105,34 +106,7 @@
 
 
 - (void)homeView:(PHCheckHomeView *)homeView didClickShowAllButton:(UIButton *)showAllButton {
-//    NSString *dataString = [NSDate currentDateStringWithFormat:@"yyyyMMdd HHmmss"];
-//    dataString = [dataString stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    NSString *sign = [NSString stringWithFormat:@"showapi_appid%@showapi_timestamp%@%@" ,@"16299",dataString,secret];
-//    sign = [sign md532BitLower];
-//    NSDictionary *param = @{
-//                            @"showapi_appid" : @"16299",
-//                            @"showapi_sign" : sign,
-//                            @"showapi_timestamp": dataString,
-//                            };
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/xml", @"text/plain", nil];
-//    
-//#warning －请求－
-//    [manager GET:@"http://route.showapi.com/546-3" parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSDictionary *dict = responseObject[@"showapi_res_body"];
-//        NSDictionary *pageBean = dict[@"pagebean"];
-//        if ([dict[@"ret_code"]integerValue] == 0) {
-//            NSArray *sickList = [PHSickList mj_objectArrayWithKeyValuesArray:pageBean[@"contentlist"]];
-//            [self showSickList:sickList];
-//        }else {
-//            [self.homeView showText:@"抱歉,未找到"];
-//        }
-//        
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        [self.homeView showText:@"抱歉,未找到相关信息"];
-//        [self.homeView showEnd];
-//    }];
+    
     if (self.sickList == nil || self.sickList.count == 0) return;
     PHSickList *sickList = self.sickList[0];
     if (!sickList.ID) return;
@@ -160,6 +134,24 @@
         if ([str characterAtIndex:i] != ' ') return NO;
     }
     return YES;
+}
+
+- (NSString *)cutSpace:(NSString *)str {
+
+    for (int i = 0 ; i < str.length - 1; i++) {
+        if ([str characterAtIndex:i] != ' ') {
+            str = [str substringFromIndex:i];
+            break;
+        }
+    }
+    
+    for (long i = str.length - 1 ; i > 0; i--) {
+        if ([str characterAtIndex:i] != ' ') {
+            str = [str substringToIndex:i+1];
+            break;
+        }
+    }
+    return str;
 }
 
 - (void)showSickList:(NSArray *)sickList {
