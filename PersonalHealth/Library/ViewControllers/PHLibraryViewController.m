@@ -60,9 +60,6 @@ static NSString *bookListId = @"bookListId";
     // 添加刷新控件
     [self setupRefresh];
     
-    
-    
-    
 }
 
 #pragma mark - Private Methods
