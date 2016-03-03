@@ -13,12 +13,12 @@
 #define PHSerect @"b034a3a7f7b144debe727ccebff2fd23"
 #define NavH 44
 #define TabBarH 49
+#define ButtonH 48
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
-#define ButtonH 48
 #define MAS_SHORTHAND
 #define MAS_SHORTHAND_GLOBALS
-
+#define StatusBarH 20
 #define NAVH 44
 #define TabbarH 49
 #define BTNH 48
@@ -30,5 +30,8 @@
 #import "NSDate+Formatter.h"
 #import "NSString+MD5.h"
 #import "PHNetHelper.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
+#import "SVProgressHUD.h"
 
 #endif /* PrefixHeader_pch */

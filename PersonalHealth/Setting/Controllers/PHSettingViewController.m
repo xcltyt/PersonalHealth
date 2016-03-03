@@ -9,8 +9,10 @@
 #import "PHSettingViewController.h"
 
 
-@interface PHSettingViewController ()
+@interface PHSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIView *headerView;
 @end
 
 @implementation PHSettingViewController
@@ -21,13 +23,60 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    
+    [self.view addSubview:self.tableView];
+    [self.tableView.tableHeaderView addSubview:self.headerView];
+    //配置子视图布局约束
+    [self configSubviewsConstraints];
 }
 
 #pragma mark - UITableViewDelegate
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 6;
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+
+    switch (indexPath.row) {
+        case 0:
+            cell.textLabel.text = @"附近医院";
+            break;
+        case 1:
+            cell.textLabel.text = @"今日步数";
+            break;
+        case 2:
+            cell.textLabel.text = @"精华文章";
+            break;
+        case 3:
+            cell.textLabel.text = @"好书常阅";
+            break;
+        case 4:
+            cell.textLabel.text = @"分享应用";
+            break;
+        case 5:
+            cell.textLabel.text = @"意见反馈";
+            break;
+        default:
+            break;
+    }
+    return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    return self.headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 150;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
 
 #pragma mark - Custom Delegate
 
@@ -39,10 +88,32 @@
 
 #pragma mark - Private Methods
 
-
+- (void)configSubviewsConstraints {
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(StatusBarH, 0, 0, 0);
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).with.insets(edgeInsets);
+    }];
+}
 
 #pragma mark - Setter & Getter
 
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] init];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.scrollEnabled = NO;
+    }
+    return _tableView;
+}
 
+- (UIView *)headerView {
+    if (!_headerView) {
+        _headerView = [[UIView alloc] init];
+        _headerView.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
+    }
+    return _headerView;
+}
 
 @end
