@@ -18,4 +18,5 @@
 @property (nonatomic, assign) NSString *pageIndex;
 @property (nonatomic, strong) UIWebView *myWebView;
 @property (nonatomic, strong) NSDictionary *pages;
+
 @end

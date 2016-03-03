@@ -16,9 +16,19 @@
 /** 存储返回的数据 */
 @property (nonatomic, strong) NSMutableDictionary *pages;
 
+@property (nonatomic, strong) NSMutableArray *lists;
+
 @end
 
 @implementation PHPageViewController
+
+- (NSMutableArray *)lists
+{
+    if (_lists == nil) {
+        _lists = [NSMutableArray array];
+    }
+    return _lists;
+}
 
 - (NSMutableDictionary *)pages
 {
@@ -80,6 +90,9 @@
     PHShowViewController *showViewController =[[PHShowViewController alloc] init];
     showViewController.pageIndex =[self.pageContent objectAtIndex:index];
     
+    PHBookList *list = self.lists[index];
+    self.title = list.title;
+    
     showViewController.pages = self.pages;
     return showViewController;
 }
@@ -107,7 +120,10 @@
         PHBookList *list = self.book.list[i];
         
         NSString *contentString = list.ID;
+
         [pageStrings addObject:contentString];
+        
+        [self.lists addObject:list];
     }
     
     self.pageContent = pageStrings;

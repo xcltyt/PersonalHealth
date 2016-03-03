@@ -141,6 +141,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.book.ID == nil) return;
+    
     PHBookListViewController *listVc = [[PHBookListViewController alloc]init];
     
     listVc.book = self.book;

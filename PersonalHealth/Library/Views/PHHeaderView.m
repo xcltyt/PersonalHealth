@@ -41,7 +41,7 @@
     self.bookCategoryIdLabell.text = book.bookclass;
     self.fromLabel.text = book.from;
     
-    self.summaryLabel.text = book.summary;  // [NSString stringWithFormat:@"%@",book.summary];
+    self.summaryLabel.text = book.summary; 
     
 }
 
