@@ -7,7 +7,7 @@
 //
 
 #import "UIButton+Common.h"
-#import "UIImage+Common.h"
+#import "UIImage+Color.h"
 @implementation UIButton (Common)
 
 +(UIButton *)btnWithUnderLineForTitle:(NSString *)title andColor:(UIColor *)color
@@ -19,6 +19,7 @@
     [btn setAttributedTitle:attributeStr forState:UIControlStateNormal];
     return btn;
 }
+
 - (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state
 {
     self.layer.masksToBounds = YES;

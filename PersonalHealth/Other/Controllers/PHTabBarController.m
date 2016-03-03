@@ -7,12 +7,13 @@
 //
 
 #import "PHTabBarController.h"
-#import "PHNavigationController.h"
 //子视图
 #import "PHInformationViewController.h"
 #import "PHLibraryViewController.h"
 #import "PHCheckViewController.h"
 #import "PHSettingViewController.h"
+
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 @interface PHTabBarController ()
 
@@ -50,11 +51,12 @@
     //我的
     PHSettingViewController *settingVC = [[PHSettingViewController alloc] init];
     [self setupViewController:settingVC title:@"我的" image:@"setting" selectedImage:@"settingS"];
+    settingVC.fd_prefersNavigationBarHidden = YES;
 }
 
 - (void)setupViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
-    PHNavigationController *nav = [[PHNavigationController alloc] initWithRootViewController:vc];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [self addChildViewController:nav];
     vc.title = title;
     vc.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
