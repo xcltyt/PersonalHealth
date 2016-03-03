@@ -106,7 +106,7 @@
         
         PHBookList *list = self.book.list[i];
         
-        NSString *contentString = list.id;
+        NSString *contentString = list.ID;
         [pageStrings addObject:contentString];
     }
     

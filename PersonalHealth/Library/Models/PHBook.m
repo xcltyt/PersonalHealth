@@ -11,6 +11,13 @@
 
 @implementation PHBook
 
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"ID" : @"id"
+             };
+}
+
 + (NSDictionary *)objectClassInArray
 {
     return @{@"list":[PHBookList class]};

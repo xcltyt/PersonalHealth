@@ -89,11 +89,11 @@ static NSString *bookListId = @"bookListId";
     
     NSString *path = @"92-92";
     NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
-    NSString *sign = [NSString stringWithFormat:@"id%@page%@showapi_appid16299showapi_timestamp%@%@",category.id,@(category.currentPage),usefulDate,secret];
+    NSString *sign = [NSString stringWithFormat:@"id%@page%@showapi_appid16299showapi_timestamp%@%@",category.ID,@(category.currentPage),usefulDate,secret];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{
-                             @"id":category.id,
+                             @"id":category.ID,
                              @"page":@(category.currentPage),
                              @"showapi_appid":@"16299",
                              @"showapi_timestamp":usefulDate,
@@ -148,11 +148,11 @@ static NSString *bookListId = @"bookListId";
     
     NSString *path = @"92-92";
     NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
-    NSString *sign = [NSString stringWithFormat:@"id%@page%@showapi_appid16299showapi_timestamp%@%@",category.id,@(++category.currentPage),usefulDate,secret];
+    NSString *sign = [NSString stringWithFormat:@"id%@page%@showapi_appid16299showapi_timestamp%@%@",category.ID,@(++category.currentPage),usefulDate,secret];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{
-                             @"id":category.id,
+                             @"id":category.ID,
                              @"page":@(category.currentPage),
                              @"showapi_appid":@"16299",
                              @"showapi_timestamp":usefulDate,

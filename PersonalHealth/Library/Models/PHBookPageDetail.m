@@ -10,4 +10,11 @@
 
 @implementation PHBookPageDetail
 
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"ID" : @"id"
+             };
+}
+
 @end

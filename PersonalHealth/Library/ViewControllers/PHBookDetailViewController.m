@@ -85,11 +85,11 @@
     
     NSString *path = @"92-91";
     NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
-    NSString *sign = [NSString stringWithFormat:@"id%@showapi_appid16299showapi_timestamp%@%@",self.book.id,usefulDate,secret];
+    NSString *sign = [NSString stringWithFormat:@"id%@showapi_appid16299showapi_timestamp%@%@",self.book.ID,usefulDate,secret];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{
-                             @"id":self.book.id,
+                             @"id":self.book.ID,
                              @"showapi_appid":@"16299",
                              @"showapi_timestamp":usefulDate,
                              @"showapi_sign":md5Sign,

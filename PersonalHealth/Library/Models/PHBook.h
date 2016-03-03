@@ -10,7 +10,7 @@
 
 @interface PHBook : NSObject
 
-@property (nonatomic,copy) NSString *id;
+@property (nonatomic,copy) NSString *ID;
 /** 标题 */
 @property (nonatomic,copy) NSString *name;
 /** 浏览次数 */
