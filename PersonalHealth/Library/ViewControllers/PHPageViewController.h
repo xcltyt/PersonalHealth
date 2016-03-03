@@ -11,7 +11,6 @@
 @class PHBook;
 
 @interface PHPageViewController : UIViewController
-
 @property (strong, nonatomic) UIPageViewController *pageController;
 @property (strong, nonatomic) NSArray *pageContent;
 @property (nonatomic, strong) PHBook *book;
