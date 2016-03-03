@@ -15,6 +15,7 @@
 #import "PHBookList.h"
 #import "PHBookListViewController.h"
 #import "SVProgressHUD.h"
+#import "PHPageViewController.h"
 
 @interface PHBookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -70,7 +71,7 @@
     headerView.frame = frame;
     
     self.tableView.tableHeaderView = headerView;
-    tableView.rowHeight = 50;
+    tableView.rowHeight = 40;
     
 }
 
@@ -106,7 +107,14 @@
                 
                 [SVProgressHUD showErrorWithStatus:@"解析失败"];
             }
+            
             NSDictionary *tmpDict = dict[@"showapi_res_body"][@"bookDetails"];
+            
+            if (tmpDict == nil) {
+                
+                [self loadDeailData];
+                return;
+            }
             
             self.book = [PHBook mj_objectWithKeyValues:tmpDict];
             
@@ -126,29 +134,54 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc]init];
+    UITableViewCell *cell = nil;
     
-    cell.textLabel.text = @"点击查看目录";
-  
+    if (indexPath.row == 0) {
+        
+        cell = [[UITableViewCell alloc]init];
+        
+        cell.textLabel.text = @"    开始阅读";
+        cell.textLabel.textColor = [UIColor colorWithRed:1.000 green:0.496 blue:0.573 alpha:1.000];
+        
+    } else
+    {
+        cell = [[UITableViewCell alloc]init];
+        
+        cell.textLabel.text = @"    点击查看目录";
+        cell.textLabel.textColor = [UIColor colorWithRed:1.000 green:0.656 blue:0.591 alpha:1.000];
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.book.ID == nil) return;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     
-    PHBookListViewController *listVc = [[PHBookListViewController alloc]init];
-    
-    listVc.book = self.book;
-    
-    [self.navigationController pushViewController:listVc animated:YES];
-  
+    if (indexPath.row == 0) {
+        PHPageViewController *pageVc = [[PHPageViewController alloc]init];
+        
+        pageVc.book = self.book;
+        pageVc.currentIndex = 0;
+        //    [self presentViewController:pageVc animated:YES completion:nil];
+        
+        [self.navigationController pushViewController:pageVc animated:YES];
+        
+        
+    } else {
+        
+        PHBookListViewController *listVc = [[PHBookListViewController alloc]init];
+        
+        listVc.book = self.book;
+        
+        [self.navigationController pushViewController:listVc animated:YES];
+    }
 }
 
 

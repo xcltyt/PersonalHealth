@@ -192,10 +192,12 @@ static NSString *bookListId = @"bookListId";
     UITableView *categoryTableView = [[UITableView alloc]init];
     [self.view addSubview:categoryTableView];
     self.categoryTableView = categoryTableView;
+    self.categoryTableView.backgroundColor = PHGlobalBg;
     
+    self.categoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [categoryTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(@0);
-        make.width.equalTo(@100);
+        make.width.equalTo(@80);
     }];
     
     
@@ -204,13 +206,15 @@ static NSString *bookListId = @"bookListId";
     [self.view addSubview:bookListTableView];
     self.bookListTableView = bookListTableView;
     
+    self.bookListTableView.backgroundColor = self.categoryTableView.backgroundColor;
+    
     [bookListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(categoryTableView.mas_right);
         make.top.right.bottom.equalTo(@0);
     }];
     
     // 设置inset
-    self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 44, 0);
     self.bookListTableView.contentInset = self.categoryTableView.contentInset;
     
     
@@ -337,7 +341,7 @@ static NSString *bookListId = @"bookListId";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == self.categoryTableView) {
-    return 50;
+    return 45;
     }
     return 135;
 }

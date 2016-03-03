@@ -24,7 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self loadDeailData];
+   // [self loadDeailData];
+    
+    self.title = @"目录";
+    
+    self.tableView.backgroundColor = PHGlobalBg;
 }
 
 - (void)loadDeailData
@@ -34,14 +38,14 @@
     
     NSString *nowDate = [NSDate currentDateStringWithFormat:@"yyyyMM ddHHmmss"];
     NSString *usefulDate = [nowDate stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    NSString *path = @"92-91";
+//    NSString *str = [@"男" dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *path = @"92-94";
     NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
-    NSString *sign = [NSString stringWithFormat:@"id%@showapi_appid16299showapi_timestamp%@%@",self.book.ID,usefulDate,secret];
+    NSString *sign = [NSString stringWithFormat:@"id%@showapi_appid16299showapi_timestamp%@%@",@"男",usefulDate,secret];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{
-                             @"id":self.book.ID,
+                             @"keyword":@"男",
                              @"showapi_appid":@"16299",
                              @"showapi_timestamp":usefulDate,
                              @"showapi_sign":md5Sign,
@@ -52,20 +56,26 @@
             
             // 隐藏指示器
             [SVProgressHUD dismiss];
-            
+        
             NSError *error = nil;
+            
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:&error];
             if (error) {
                 
             [SVProgressHUD showErrorWithStatus:@"解析失败"];
             }
             
+            if (dict == nil) {
+                [self loadDeailData];
+                return ;
+            }
+            
+            
             NSDictionary *tmpDict = dict[@"showapi_res_body"][@"bookDetails"];
             
             self.book = [PHBook mj_objectWithKeyValues:tmpDict];
             
-            
-            [self.tableView reloadData];
+          //  [self.tableView reloadData];
             
             
         } else {
@@ -97,6 +107,8 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%ld  %@",indexPath.row + 1,list.title];
     
 
+    cell.backgroundColor = PHGlobalBg;
+    
     return cell;
     
 }

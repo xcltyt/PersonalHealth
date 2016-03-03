@@ -30,8 +30,6 @@
     _book = book;
     
     self.authorLabel.text = book.author;
-    
-  //  self.fromLabel.text = book.from;
     self.nameLabel.text = book.name;
     self.summaryLabel.text = book.summary;
     
