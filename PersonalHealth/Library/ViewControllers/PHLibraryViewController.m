@@ -16,6 +16,7 @@
 #import "MJRefresh.h"
 #import "PHBookDetailViewController.h"
 #import "SVProgressHUD.h"
+#import "PHBookSearchViewController.h"
 
 #define PHSelectedCategory self.categories[self.categoryTableView.indexPathForSelectedRow.row]
 
@@ -51,6 +52,9 @@ static NSString *bookListId = @"bookListId";
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    // 设置导航栏
+    [self setupNav];
+    
     // tableview的初始化
     [self setupTableView];
     
@@ -63,6 +67,13 @@ static NSString *bookListId = @"bookListId";
 }
 
 #pragma mark - Private Methods
+/**
+ *  设置导航栏
+ */
+- (void)setupNav
+{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchbar_textfield_search_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(searchItemClick)];
+}
 
 /**
  *  添加刷新控件
@@ -392,7 +403,12 @@ static NSString *bookListId = @"bookListId";
 
 #pragma mark - Event Response
 
-
+- (void)searchItemClick
+{
+    PHBookSearchViewController *searchVc = [[PHBookSearchViewController alloc]init];
+    
+    [self.navigationController pushViewController:searchVc animated:YES];
+}
 
 
 

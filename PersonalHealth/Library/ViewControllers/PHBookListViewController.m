@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   // [self loadDeailData];
+//    [self loadDeailData];
     
     self.title = @"目录";
     
@@ -38,10 +38,9 @@
     
     NSString *nowDate = [NSDate currentDateStringWithFormat:@"yyyyMM ddHHmmss"];
     NSString *usefulDate = [nowDate stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    NSString *str = [@"男" dataUsingEncoding:NSUTF8StringEncoding];
     NSString *path = @"92-94";
     NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
-    NSString *sign = [NSString stringWithFormat:@"id%@showapi_appid16299showapi_timestamp%@%@",@"男",usefulDate,secret];
+    NSString *sign = [NSString stringWithFormat:@"keyword%@showapi_appid16299showapi_timestamp%@%@",@"男",usefulDate,secret];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{
