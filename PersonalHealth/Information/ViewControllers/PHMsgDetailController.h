@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "PHDetailMod.h"
-
+#import "PHMsgTableMod.h"
 @interface PHMsgDetailController : UIViewController
 
+@property (nonatomic,strong)PHMsgTableMod * tableMod;
 @property (nonatomic,strong)PHDetailMod * mod;
 
 +(instancetype)phMsgDetailControllerWithPHDetailMod:(PHDetailMod *)mod;

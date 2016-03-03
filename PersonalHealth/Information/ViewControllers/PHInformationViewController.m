@@ -117,7 +117,7 @@
     [self.view addSubview:scrollView];
     self.scrollView=scrollView;
     scrollView.autoresizesSubviews=NO;
-    scrollView.backgroundColor=[UIColor greenColor];
+    scrollView.backgroundColor=[UIColor whiteColor];
     scrollView.pagingEnabled=YES;
     scrollView.delegate=self;
     
@@ -178,8 +178,9 @@
             {
                 //获取名称
                 NSDictionary * tempDict=dict[@"showapi_res_body"];
-                PHDetailMod * mod= [PHDetailMod modWithDict:tempDict[@"item"]];
-                PHMsgDetailController * detailCtl=[PHMsgDetailController phMsgDetailControllerWithPHDetailMod:mod];
+                PHDetailMod * detailMod= [PHDetailMod modWithDict:tempDict[@"item"]];
+                PHMsgDetailController * detailCtl=[PHMsgDetailController phMsgDetailControllerWithPHDetailMod:detailMod];
+                detailCtl.tableMod=mod;
                 [self.navigationController pushViewController:detailCtl animated:YES];
             }
         }
@@ -213,8 +214,6 @@
 {
     [super didReceiveMemoryWarning];
 }
-
-
 
 
 @end

@@ -27,4 +27,7 @@
 +(instancetype)phmsgTableViewWithFrame:(CGRect)frame andtid:(NSNumber *)tid;
 +(instancetype)phmsgTableViewWithFrame:(CGRect)frame andKeywords:(NSString *)keywords;
 
+//注意，array必须由tablemod组成
++(instancetype)phmsgTableViewWithFrame:(CGRect)frame andtableModArray:(NSArray *)array;
+
 @end

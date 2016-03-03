@@ -8,6 +8,7 @@
 
 #import "PHMsgDetailController.h"
 #import "UIImageView+WebCache.h"
+#import "TSDbManager.h"
 
 @interface PHMsgDetailController ()
 
@@ -118,15 +119,19 @@
         make.height.equalTo(ButtonH);
     }];
     
-    
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"收藏" style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnTouch)];
     // Do any additional setup after loading the view.
 }
-
+//执行收藏操作
+-(void)rightBtnTouch
+{
+    [[TSDbManager sharedManager]insert:self.tableMod];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

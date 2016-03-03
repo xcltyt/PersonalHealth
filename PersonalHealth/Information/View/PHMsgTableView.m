@@ -17,6 +17,25 @@
 @end
 
 @implementation PHMsgTableView
++(instancetype)phmsgTableViewWithFrame:(CGRect)frame andtableModArray:(NSArray *)array
+{
+    PHMsgTableView * table=[[PHMsgTableView alloc]initWithFrame:frame];
+    table.dataArray=(NSMutableArray *)array;
+    [table.tableView reloadData];
+    return table;
+}
++(instancetype)phmsgTableViewWithFrame:(CGRect)frame andtid:(NSNumber *)tid
+{
+    PHMsgTableView * table=[[PHMsgTableView alloc]initWithFrame:frame];
+    table.tid=tid;
+    return table;
+}
++(instancetype)phmsgTableViewWithFrame:(CGRect)frame andKeywords:(NSString *)keywords
+{
+    PHMsgTableView * table=[[PHMsgTableView alloc]initWithFrame:frame];
+    table.keywords=keywords;
+    return table;
+}
 -(UITableView *)tableView
 {
     if (_tableView==nil)
@@ -28,16 +47,11 @@
     }
     return _tableView;
 }
--(instancetype)initWithFrame:(CGRect)frame
-{
-    if (self = [super initWithFrame:frame])
-    {
-    }
-    return self;
-}
+
 -(NSMutableArray *)dataArray
 {
-    if (_dataArray==nil) {
+    if (_dataArray==nil)
+    {
         _dataArray=[NSMutableArray array];
     }
     return _dataArray;
@@ -56,17 +70,16 @@
     _keywords=keywords;
     [self downloadMsgWithkeyWords:keywords];
 }
-+(instancetype)phmsgTableViewWithFrame:(CGRect)frame andtid:(NSNumber *)tid
+
+-(instancetype)initWithFrame:(CGRect)frame
 {
-    PHMsgTableView * table=[[PHMsgTableView alloc]initWithFrame:frame];
-    table.tid=tid;
-    return table;
-}
-+(instancetype)phmsgTableViewWithFrame:(CGRect)frame andKeywords:(NSString *)keywords
-{
-    PHMsgTableView * table=[[PHMsgTableView alloc]initWithFrame:frame];
-    table.keywords=keywords;
-    return table;
+    if (self = [super initWithFrame:frame])
+    {
+//        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -TabBarH, 0);
+//        self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, -TabBarH, 0);
+        self.tableView.tableFooterView = [[UIView alloc] init];
+    }
+    return self;
 }
 -(void)downloadClassMsgWithtid:(NSNumber *)pid
 {
