@@ -126,6 +126,8 @@
 		DAEFA6B81C892DD40057E63D /* PHHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAEFA6B61C892DD40057E63D /* PHHistoryCell.xib */; };
 		DAEFA6C61C894E230057E63D /* NSArray+PHArrayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6C31C894E230057E63D /* NSArray+PHArrayTool.m */; };
 		DAEFA6C71C894E230057E63D /* NSString+PHCutSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6C51C894E230057E63D /* NSString+PHCutSpace.m */; };
+		DAEFA6D91C896E9B0057E63D /* PHPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6D71C896E9B0057E63D /* PHPushGuideView.m */; };
+		DAEFA6DA1C896E9B0057E63D /* PHPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAEFA6D81C896E9B0057E63D /* PHPushGuideView.xib */; };
 		FC3A6FF71C88201D009C1D90 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FEE1C88201D009C1D90 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FC3A6FF81C88201D009C1D90 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF01C88201D009C1D90 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FC3A6FF91C88201D009C1D90 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF21C88201D009C1D90 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -464,6 +466,9 @@
 		DAEFA6C31C894E230057E63D /* NSArray+PHArrayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PHArrayTool.m"; sourceTree = "<group>"; };
 		DAEFA6C41C894E230057E63D /* NSString+PHCutSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PHCutSpace.h"; sourceTree = "<group>"; };
 		DAEFA6C51C894E230057E63D /* NSString+PHCutSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PHCutSpace.m"; sourceTree = "<group>"; };
+		DAEFA6D61C896E9B0057E63D /* PHPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHPushGuideView.h; sourceTree = "<group>"; };
+		DAEFA6D71C896E9B0057E63D /* PHPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPushGuideView.m; sourceTree = "<group>"; };
+		DAEFA6D81C896E9B0057E63D /* PHPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHPushGuideView.xib; sourceTree = "<group>"; };
 		FC3A6FED1C88201D009C1D90 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		FC3A6FEE1C88201D009C1D90 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		FC3A6FEF1C88201D009C1D90 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -1034,11 +1039,12 @@
 		CEB172A31C8809080054325F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DAEFA6B01C892DAC0057E63D /* history */,
 				CEB172AA1C8809080054325F /* PHCheckHomeView.h */,
 				CEB172AB1C8809080054325F /* PHCheckHomeView.m */,
 				DAEFA6A41C891AF40057E63D /* PHTextField.h */,
 				DAEFA6A51C891AF40057E63D /* PHTextField.m */,
+				DAEFA6D51C896E7C0057E63D /* publish */,
+				DAEFA6B01C892DAC0057E63D /* history */,
 				CEB172A41C8809080054325F /* left */,
 				CEB172AC1C8809080054325F /* right */,
 			);
@@ -1158,6 +1164,16 @@
 				DAEFA6C51C894E230057E63D /* NSString+PHCutSpace.m */,
 			);
 			path = category;
+			sourceTree = "<group>";
+		};
+		DAEFA6D51C896E7C0057E63D /* publish */ = {
+			isa = PBXGroup;
+			children = (
+				DAEFA6D61C896E9B0057E63D /* PHPushGuideView.h */,
+				DAEFA6D71C896E9B0057E63D /* PHPushGuideView.m */,
+				DAEFA6D81C896E9B0057E63D /* PHPushGuideView.xib */,
+			);
+			path = publish;
 			sourceTree = "<group>";
 		};
 		FC3A6FE51C882004009C1D90 /* Fmdatabase */ = {
@@ -1438,6 +1454,7 @@
 				CEB172B81C8809090054325F /* PHRightTableViewCell.xib in Resources */,
 				CEB172EB1C880BC10054325F /* PHBookListCell.xib in Resources */,
 				CEB172EF1C880BC10054325F /* PHHeaderView.xib in Resources */,
+				DAEFA6DA1C896E9B0057E63D /* PHPushGuideView.xib in Resources */,
 				CEB172A11C8807390054325F /* PHShowAllController.xib in Resources */,
 				CE74AE481C86C1F900D0C116 /* Assets.xcassets in Resources */,
 				DAEFA6B81C892DD40057E63D /* PHHistoryCell.xib in Resources */,
@@ -1571,6 +1588,7 @@
 				CE74AF7C1C86DF1100D0C116 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				CE74AF7B1C86DF1100D0C116 /* UINavigationController+BATransitions.m in Sources */,
 				CE74AF8C1C86DF1100D0C116 /* UIView+Visuals.m in Sources */,
+				DAEFA6D91C896E9B0057E63D /* PHPushGuideView.m in Sources */,
 				CE74AF551C86DF1100D0C116 /* NSDictionary+SafeAccess.m in Sources */,
 				CE74AF821C86DF1100D0C116 /* UITableViewCell+Config.m in Sources */,
 				CE74AE861C86CAB900D0C116 /* PHTabBarController.m in Sources */,

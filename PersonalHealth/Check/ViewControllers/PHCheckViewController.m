@@ -15,6 +15,7 @@
 #import "PHShowAllController.h"
 #import "NSString+PHCutSpace.h"
 
+
 #define secret @"b034a3a7f7b144debe727ccebff2fd23"
 
 @interface PHCheckViewController () <PHCheckHomeViewDelegate>
@@ -45,7 +46,6 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"分类" style:UIBarButtonItemStylePlain target:self action:@selector(goMore)];
     
-    self.navigationController.hidesBottomBarWhenPushed = YES;
 }
 
 #pragma mark - UITableViewDelegate
