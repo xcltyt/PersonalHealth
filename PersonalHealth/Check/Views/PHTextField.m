@@ -8,8 +8,12 @@
 
 #import "PHTextField.h"
 
-@implementation PHTextField
+@interface PHTextField ()
 
+
+@end
+
+@implementation PHTextField
 
 /**
  * 当前文本框聚焦时就会调用

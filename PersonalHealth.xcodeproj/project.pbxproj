@@ -117,6 +117,11 @@
 		CED2F8B91C87181200694B1A /* UINavigationController+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */; };
 		CED2F8C21C87181F00694B1A /* NSObject+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */; };
 		DAEFA6A61C891AF40057E63D /* PHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6A51C891AF40057E63D /* PHTextField.m */; };
+		DAEFA6B31C892DAC0057E63D /* PHHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6B21C892DAC0057E63D /* PHHistoryView.m */; };
+		DAEFA6B71C892DD40057E63D /* PHHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6B51C892DD40057E63D /* PHHistoryCell.m */; };
+		DAEFA6B81C892DD40057E63D /* PHHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAEFA6B61C892DD40057E63D /* PHHistoryCell.xib */; };
+		DAEFA6BC1C8931BB0057E63D /* NSArray+PHArrayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6BB1C8931BB0057E63D /* NSArray+PHArrayTool.m */; };
+		DAEFA6BF1C89354E0057E63D /* NSString+PHCutSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6BE1C89354E0057E63D /* NSString+PHCutSpace.m */; };
 		FC3A6FF71C88201D009C1D90 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FEE1C88201D009C1D90 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FC3A6FF81C88201D009C1D90 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF01C88201D009C1D90 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FC3A6FF91C88201D009C1D90 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF21C88201D009C1D90 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -439,6 +444,15 @@
 		CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PHAOP.m"; sourceTree = "<group>"; };
 		DAEFA6A41C891AF40057E63D /* PHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHTextField.h; sourceTree = "<group>"; };
 		DAEFA6A51C891AF40057E63D /* PHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHTextField.m; sourceTree = "<group>"; };
+		DAEFA6B11C892DAC0057E63D /* PHHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHistoryView.h; sourceTree = "<group>"; };
+		DAEFA6B21C892DAC0057E63D /* PHHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHistoryView.m; sourceTree = "<group>"; };
+		DAEFA6B41C892DD40057E63D /* PHHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHistoryCell.h; sourceTree = "<group>"; };
+		DAEFA6B51C892DD40057E63D /* PHHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHistoryCell.m; sourceTree = "<group>"; };
+		DAEFA6B61C892DD40057E63D /* PHHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHHistoryCell.xib; sourceTree = "<group>"; };
+		DAEFA6BA1C8931BB0057E63D /* NSArray+PHArrayTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PHArrayTool.h"; sourceTree = "<group>"; };
+		DAEFA6BB1C8931BB0057E63D /* NSArray+PHArrayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PHArrayTool.m"; sourceTree = "<group>"; };
+		DAEFA6BD1C89354E0057E63D /* NSString+PHCutSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PHCutSpace.h"; sourceTree = "<group>"; };
+		DAEFA6BE1C89354E0057E63D /* NSString+PHCutSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PHCutSpace.m"; sourceTree = "<group>"; };
 		FC3A6FED1C88201D009C1D90 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		FC3A6FEE1C88201D009C1D90 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		FC3A6FEF1C88201D009C1D90 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -1008,6 +1022,8 @@
 		CEB172A31C8809080054325F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DAEFA6B91C89311F0057E63D /* category */,
+				DAEFA6B01C892DAC0057E63D /* history */,
 				CEB172AA1C8809080054325F /* PHCheckHomeView.h */,
 				CEB172AB1C8809080054325F /* PHCheckHomeView.m */,
 				DAEFA6A41C891AF40057E63D /* PHTextField.h */,
@@ -1101,6 +1117,29 @@
 				CEB172E01C880BC10054325F /* PHHeaderView.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DAEFA6B01C892DAC0057E63D /* history */ = {
+			isa = PBXGroup;
+			children = (
+				DAEFA6B11C892DAC0057E63D /* PHHistoryView.h */,
+				DAEFA6B21C892DAC0057E63D /* PHHistoryView.m */,
+				DAEFA6B41C892DD40057E63D /* PHHistoryCell.h */,
+				DAEFA6B51C892DD40057E63D /* PHHistoryCell.m */,
+				DAEFA6B61C892DD40057E63D /* PHHistoryCell.xib */,
+			);
+			path = history;
+			sourceTree = "<group>";
+		};
+		DAEFA6B91C89311F0057E63D /* category */ = {
+			isa = PBXGroup;
+			children = (
+				DAEFA6BA1C8931BB0057E63D /* NSArray+PHArrayTool.h */,
+				DAEFA6BB1C8931BB0057E63D /* NSArray+PHArrayTool.m */,
+				DAEFA6BD1C89354E0057E63D /* NSString+PHCutSpace.h */,
+				DAEFA6BE1C89354E0057E63D /* NSString+PHCutSpace.m */,
+			);
+			path = category;
 			sourceTree = "<group>";
 		};
 		FC3A6FE51C882004009C1D90 /* Fmdatabase */ = {
@@ -1382,6 +1421,7 @@
 				CEB172EF1C880BC10054325F /* PHHeaderView.xib in Resources */,
 				CEB172A11C8807390054325F /* PHShowAllController.xib in Resources */,
 				CE74AE481C86C1F900D0C116 /* Assets.xcassets in Resources */,
+				DAEFA6B81C892DD40057E63D /* PHHistoryCell.xib in Resources */,
 				CEB172B41C8809090054325F /* PHMoreLeftViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1476,6 +1516,7 @@
 				CE74AF741C86DF1100D0C116 /* UIImage+RoundedCorner.m in Sources */,
 				CE74AF571C86DF1100D0C116 /* NSObject+AppInfo.m in Sources */,
 				FC452C861C8712F900CFECB7 /* PHMsgTableMod.m in Sources */,
+				DAEFA6BC1C8931BB0057E63D /* NSArray+PHArrayTool.m in Sources */,
 				CE74AF5E1C86DF1100D0C116 /* NSString+MD5.m in Sources */,
 				CEB172B61C8809090054325F /* PHMoreRightView.m in Sources */,
 				CE74AF8D1C86DF1100D0C116 /* UIViewController+BackButtonHandler.m in Sources */,
@@ -1515,6 +1556,7 @@
 				CE74AE861C86CAB900D0C116 /* PHTabBarController.m in Sources */,
 				FC452C841C8712F900CFECB7 /* PHDetailMod.m in Sources */,
 				CE74AF731C86DF1100D0C116 /* UIImage+Resize.m in Sources */,
+				DAEFA6B71C892DD40057E63D /* PHHistoryCell.m in Sources */,
 				CE74AF801C86DF1100D0C116 /* UINavigationItem+Margin.m in Sources */,
 				CE74AF871C86DF1100D0C116 /* UIView+GestureCallback.m in Sources */,
 				CE74AF851C86DF1100D0C116 /* UIView+Borders.m in Sources */,
@@ -1545,6 +1587,7 @@
 				CE74AF521C86DF1100D0C116 /* NSDate+Utilities.m in Sources */,
 				FC3A6FFB1C88201D009C1D90 /* FMResultSet.m in Sources */,
 				FC3A6FFA1C88201D009C1D90 /* FMDatabaseQueue.m in Sources */,
+				DAEFA6B31C892DAC0057E63D /* PHHistoryView.m in Sources */,
 				FC452CA51C8713A600CFECB7 /* UIButton+Common.m in Sources */,
 				CE74AF751C86DF1100D0C116 /* UIImage+Tint.m in Sources */,
 				CEB172B51C8809090054325F /* PHCheckHomeView.m in Sources */,
@@ -1567,6 +1610,7 @@
 				CE74AF6B1C86DF1100D0C116 /* UIControl+ActionBlocks.m in Sources */,
 				CEB172EA1C880BC10054325F /* PHBookListCell.m in Sources */,
 				CE74AF6C1C86DF1100D0C116 /* UIImage+Alpha.m in Sources */,
+				DAEFA6BF1C89354E0057E63D /* NSString+PHCutSpace.m in Sources */,
 				CE74AF7E1C86DF1100D0C116 /* UINavigationItem+Loading.m in Sources */,
 				CE74AF831C86DF1100D0C116 /* UIView+Animation.m in Sources */,
 			);

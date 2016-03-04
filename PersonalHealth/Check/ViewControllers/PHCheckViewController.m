@@ -13,6 +13,7 @@
 #import "MJExtension.h"
 #import "PHSickList.h"
 #import "PHShowAllController.h"
+#import "NSString+PHCutSpace.h"
 
 #define secret @"b034a3a7f7b144debe727ccebff2fd23"
 
@@ -62,7 +63,7 @@
         });
         return;
     }
-    text = [self cutSpace:text];
+    text = [NSString cutSpace:text];
     NSString *dataString = [NSDate currentDateStringWithFormat:@"yyyyMMdd HHmmss"];
     dataString = [dataString stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *sign = [NSString stringWithFormat:@"key%@showapi_appid%@showapi_timestamp%@%@",text ,@"16299",dataString,secret];
@@ -136,23 +137,6 @@
     return YES;
 }
 
-- (NSString *)cutSpace:(NSString *)str {
-
-    for (int i = 0 ; i < str.length - 1; i++) {
-        if ([str characterAtIndex:i] != ' ') {
-            str = [str substringFromIndex:i];
-            break;
-        }
-    }
-    
-    for (long i = str.length - 1 ; i > 0; i--) {
-        if ([str characterAtIndex:i] != ' ') {
-            str = [str substringToIndex:i+1];
-            break;
-        }
-    }
-    return str;
-}
 
 - (void)showSickList:(NSArray *)sickList {
     [self.homeView showEnd];
