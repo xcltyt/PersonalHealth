@@ -152,7 +152,6 @@
 - (void)checkHealthy {
 
     if ((self.moreButton.selected = !self.moreButton.selected)) {
-        
         if (![[NSString cutSpace:self.textField.text] isEqual:@""]) {
             [NSArray storeHistoryString:self.textField.text];
             [self.historyView reloadData];
