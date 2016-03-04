@@ -25,8 +25,6 @@
 @property (nonatomic,copy) NSString *from;
 /** 作者 */
 @property (nonatomic,copy) NSString *author;
-
-
 /** 关键词 */
 @property (nonatomic,copy) NSString *keywords;
 /** 内容 */
@@ -35,7 +33,6 @@
 /******  自己添加的属性       ******/
 /** 这个类别对应的图书目录数据 */
 @property (nonatomic, strong) NSArray *list;
-
 /** cell的高度 */
 @property (nonatomic, assign) CGFloat headerViewHeight;
 
