@@ -133,6 +133,7 @@
         self.speratorView = speratorView;
         [self constraintSperatorView];
         speratorView.backgroundColor = [UIColor greenColor];
+        speratorView.hidden = YES;
         
     }
     return self;

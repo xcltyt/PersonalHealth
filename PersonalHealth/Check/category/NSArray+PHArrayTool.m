@@ -19,7 +19,6 @@
     NSMutableArray *checkHistory = [defaults objectForKey:PHHistoryKey];
     if (![checkHistory containsObject:str]) {
         [historyArray addObject:str];
-        return;
     }else {
         [historyArray removeObject:str];
         [historyArray addObject:str];

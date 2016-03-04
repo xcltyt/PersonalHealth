@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.page = 0;
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     [self loadData];
     
 }
