@@ -85,6 +85,10 @@
 		CE74AF911C86DF1100D0C116 /* NSString+WPAttributedMarkup.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AF4E1C86DF1100D0C116 /* NSString+WPAttributedMarkup.m */; };
 		CE74AF931C86DF3A00D0C116 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AF921C86DF3A00D0C116 /* Foundation+Log.m */; };
 		CE74AF961C86DF8C00D0C116 /* UIView+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AF951C86DF8C00D0C116 /* UIView+PHExtension.m */; };
+		CE922C3C1C896593006FEA0C /* PHHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C3B1C896593006FEA0C /* PHHospitalViewController.m */; };
+		CE922C451C89660E006FEA0C /* PHStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C441C89660E006FEA0C /* PHStepViewController.m */; };
+		CE922C481C896643006FEA0C /* PHArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C471C896643006FEA0C /* PHArticleViewController.m */; };
+		CE922C4B1C896656006FEA0C /* PHBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C4A1C896656006FEA0C /* PHBookViewController.m */; };
 		CEB1729F1C8807390054325F /* PHCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172961C8807390054325F /* PHCheckViewController.m */; };
 		CEB172A01C8807390054325F /* PHShowAllController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172981C8807390054325F /* PHShowAllController.m */; };
 		CEB172A11C8807390054325F /* PHShowAllController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB172991C8807390054325F /* PHShowAllController.xib */; };
@@ -386,6 +390,14 @@
 		CE74AF941C86DF8C00D0C116 /* UIView+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PHExtension.h"; sourceTree = "<group>"; };
 		CE74AF951C86DF8C00D0C116 /* UIView+PHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PHExtension.m"; sourceTree = "<group>"; };
 		CE74AF971C86E06500D0C116 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CE922C3A1C896593006FEA0C /* PHHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHospitalViewController.h; sourceTree = "<group>"; };
+		CE922C3B1C896593006FEA0C /* PHHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHospitalViewController.m; sourceTree = "<group>"; };
+		CE922C431C89660E006FEA0C /* PHStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHStepViewController.h; sourceTree = "<group>"; };
+		CE922C441C89660E006FEA0C /* PHStepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHStepViewController.m; sourceTree = "<group>"; };
+		CE922C461C896643006FEA0C /* PHArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHArticleViewController.h; sourceTree = "<group>"; };
+		CE922C471C896643006FEA0C /* PHArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHArticleViewController.m; sourceTree = "<group>"; };
+		CE922C491C896656006FEA0C /* PHBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBookViewController.h; sourceTree = "<group>"; };
+		CE922C4A1C896656006FEA0C /* PHBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBookViewController.m; sourceTree = "<group>"; };
 		CEB172951C8807390054325F /* PHCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHCheckViewController.h; sourceTree = "<group>"; };
 		CEB172961C8807390054325F /* PHCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHCheckViewController.m; sourceTree = "<group>"; };
 		CEB172971C8807390054325F /* PHShowAllController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHShowAllController.h; sourceTree = "<group>"; };
@@ -711,6 +723,14 @@
 			children = (
 				CE74AEB01C86CF0F00D0C116 /* PHSettingViewController.h */,
 				CE74AEB11C86CF0F00D0C116 /* PHSettingViewController.m */,
+				CE922C3A1C896593006FEA0C /* PHHospitalViewController.h */,
+				CE922C3B1C896593006FEA0C /* PHHospitalViewController.m */,
+				CE922C431C89660E006FEA0C /* PHStepViewController.h */,
+				CE922C441C89660E006FEA0C /* PHStepViewController.m */,
+				CE922C461C896643006FEA0C /* PHArticleViewController.h */,
+				CE922C471C896643006FEA0C /* PHArticleViewController.m */,
+				CE922C491C896656006FEA0C /* PHBookViewController.h */,
+				CE922C4A1C896656006FEA0C /* PHBookViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1537,6 +1557,7 @@
 				CE74AEB21C86CF0F00D0C116 /* PHSettingViewController.m in Sources */,
 				CEB172C01C8809350054325F /* PHCheckList.m in Sources */,
 				FC3A6FF71C88201D009C1D90 /* FMDatabase.m in Sources */,
+				CE922C3C1C896593006FEA0C /* PHHospitalViewController.m in Sources */,
 				FC452CA31C8713A600CFECB7 /* PHBtnsBar.m in Sources */,
 				CEB172B31C8809090054325F /* PHMoreLeftViewCell.m in Sources */,
 				CEB172B71C8809090054325F /* PHRightTableViewCell.m in Sources */,
@@ -1582,6 +1603,8 @@
 				CE74AF8F1C86DF1100D0C116 /* UIViewController+MJPopupViewController.m in Sources */,
 				CEB172E61C880BC10054325F /* PHBookListViewController.m in Sources */,
 				CE74AF781C86DF1100D0C116 /* UIImageView+FaceAwareFill.m in Sources */,
+				CE922C481C896643006FEA0C /* PHArticleViewController.m in Sources */,
+				CE922C4B1C896656006FEA0C /* PHBookViewController.m in Sources */,
 				CEB172A21C8807390054325F /* PHShowController.m in Sources */,
 				CE74AF521C86DF1100D0C116 /* NSDate+Utilities.m in Sources */,
 				FC3A6FFB1C88201D009C1D90 /* FMResultSet.m in Sources */,
@@ -1602,6 +1625,7 @@
 				CE74AE3D1C86C1F900D0C116 /* main.m in Sources */,
 				CE74AF8A1C86DF1100D0C116 /* UIView+Shake.m in Sources */,
 				FC452C8A1C8712F900CFECB7 /* PHInformationViewController.m in Sources */,
+				CE922C451C89660E006FEA0C /* PHStepViewController.m in Sources */,
 				CE74AEA51C86CC3900D0C116 /* ShowApiRequest.swift in Sources */,
 				CE74AF791C86DF1100D0C116 /* UIImageView+Letters.m in Sources */,
 				CE74AF641C86DF1100D0C116 /* NSTimer+Blocks.m in Sources */,

@@ -7,11 +7,28 @@
 //
 
 #import "PHSettingViewController.h"
+//附近医院
+#import "PHHospitalViewController.h"
+//今日步数
+#import "PHStepViewController.h"
+//精华文章
+#import "PHArticleViewController.h"
+//好书常阅
+#import "PHBookViewController.h"
 
 
 @interface PHSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
-
+//附近医院
+@property (nonatomic, strong) UIViewController *hospitalVC;
+//今日步数
+@property (nonatomic, strong) UIViewController *stepVC;
+//精华文章
+@property (nonatomic, strong) UIViewController *articleVC;
+//好书常阅
+@property (nonatomic, strong) UIViewController *bookVC;
+//主体
 @property (nonatomic, strong) UITableView *tableView;
+//头部
 @property (nonatomic, strong) UIView *headerView;
 @end
 
@@ -75,7 +92,22 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    switch (indexPath.row) {
+        case 0:
+            [self.navigationController pushViewController:self.hospitalVC animated:YES];
+            break;
+        case 1:
+            [self.navigationController pushViewController:self.stepVC animated:YES];
+            break;
+        case 2:
+            [self.navigationController pushViewController:self.articleVC animated:YES];
+            break;
+        case 3:
+            [self.navigationController pushViewController:self.bookVC animated:YES];
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - Custom Delegate
@@ -103,7 +135,6 @@
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.scrollEnabled = NO;
     }
     return _tableView;
 }
@@ -114,6 +145,34 @@
         _headerView.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
     }
     return _headerView;
+}
+
+- (UIViewController *)hospitalVC {
+    if (!_hospitalVC) {
+        _hospitalVC = [[PHHospitalViewController alloc] init];
+    }
+    return _hospitalVC;
+}
+
+- (UIViewController *)stepVC {
+    if (!_stepVC) {
+        _stepVC = [[PHStepViewController alloc] init];
+    }
+    return _stepVC;
+}
+
+- (UIViewController *)articleVC {
+    if (!_articleVC) {
+        _articleVC = [[PHArticleViewController alloc] init];
+    }
+    return _articleVC;
+}
+
+- (UIViewController *)bookVC {
+    if (!_bookVC) {
+        _bookVC = [[PHBookViewController alloc] init];
+    }
+    return _bookVC;
 }
 
 @end

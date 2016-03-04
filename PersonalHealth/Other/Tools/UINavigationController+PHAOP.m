@@ -12,7 +12,7 @@
 @implementation UINavigationController (PHAOP)
 
 + (void)load {
-    [UINavigationController aop_changeMethod:@selector(pushViewController:animated:) withNewMethod:@selector(aop_changeMethod:withNewMethod:)];
+    [UINavigationController aop_changeMethod:@selector(pushViewController:animated:) withNewMethod:@selector(aop_pushViewController:animated:)];
     NSLog(@"load");
 }
 
