@@ -10,6 +10,7 @@
 #import "NSDate+Formatter.h"
 #import "PHSickList.h"
 #import "SVProgressHUD.h"
+#import "PHPushGuideView.h"
 
 #define secret @"b034a3a7f7b144debe727ccebff2fd23"
 
@@ -29,6 +30,8 @@
     self.page = 0;
     self.view.backgroundColor = [UIColor whiteColor];
     [self loadData];
+    
+    [PHPushGuideView show];
     
 }
 - (IBAction)goPreious:(id)sender {
