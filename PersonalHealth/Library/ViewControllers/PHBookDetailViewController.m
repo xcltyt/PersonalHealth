@@ -45,23 +45,22 @@
     
     // 设置tableview
     self.automaticallyAdjustsScrollViewInsets = NO;
-    UITableView *tableView = [[UITableView alloc]init];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     [self.view addSubview:tableView];
     self.tableView = tableView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(@0);
-    }];
-    
     // 设置inset
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     
-    
+    // 添加headerView
     PHHeaderView *headerView = [PHHeaderView headerView];
     self.headerView = headerView;
     headerView.book = self.book;
@@ -184,6 +183,13 @@
     }
 }
 
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    PHBook *book = self.book;
+//    
+//    return book.headerViewHeight;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

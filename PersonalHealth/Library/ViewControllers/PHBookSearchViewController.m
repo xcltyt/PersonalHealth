@@ -11,8 +11,12 @@
 #import "SVProgressHUD.h"
 #import "PHBook.h"
 #import "MJExtension.h"
+#import "PHBookDetailViewController.h"
+#import "PHBookSearchCell.h"
 
-@interface PHBookSearchViewController ()
+static NSString *searchCellId = @"searchCellId";
+
+@interface PHBookSearchViewController () <UIScrollViewDelegate>
 
 /** 搜索到的图书数据 */
 @property (nonatomic, strong) NSArray *books;
@@ -29,10 +33,14 @@
     
     [self setupNav];
     
+    // 注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PHBookSearchCell class]) bundle:nil] forCellReuseIdentifier:searchCellId];
+    
 }
 
 - (void)setupNav
 {
+    self.view.backgroundColor = [UIColor whiteColor];
     // 创建搜索框对象
     PHSearchBar *searchBar = [PHSearchBar searchBar];
     searchBar.width = 260;
@@ -49,6 +57,8 @@
 
 - (void)searchItemClick
 {
+    [self.searchBar resignFirstResponder];
+    
     NSString *tmpStr = [self.searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     if (tmpStr.length > 0) {
@@ -107,11 +117,6 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
 
@@ -122,29 +127,42 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc]init];
     
-
-    PHBook *book = self.books[indexPath.row];
-    cell.textLabel.text = book.name;
+    PHBookSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:searchCellId];
+    
+    cell.book = self.books[indexPath.row];
     
     return cell;
 }
 
-
-#warning TOGO
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    PHBookDetailViewController *detailVc = [[PHBookDetailViewController alloc]init];
     
+    detailVc.book = self.books[indexPath.row];
+    
+    [self.navigationController pushViewController:detailVc animated:YES];
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 135;
 }
 
 
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self.view endEditing:YES];
+    [self.searchBar resignFirstResponder];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.searchBar resignFirstResponder];
+}
 
 
 /*

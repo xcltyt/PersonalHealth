@@ -406,7 +406,7 @@ static NSString *bookListId = @"bookListId";
 - (void)searchItemClick
 {
     PHBookSearchViewController *searchVc = [[PHBookSearchViewController alloc]init];
-    
+    searchVc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:searchVc animated:YES];
 }
 

@@ -1,28 +1,30 @@
 //
-//  PHBookListCell.m
-//  PersonalHealthHelper
+//  PHBookSearchCell.m
+//  PersonalHealth
 //
-//  Created by qianfeng on 16/3/1.
-//  Copyright © 2016年 PH. All rights reserved.
+//  Created by qianfeng on 16/3/3.
+//  Copyright © 2016年 PHTeam. All rights reserved.
 //
 
-#import "PHBookListCell.h"
+#import "PHBookSearchCell.h"
 #import "PHBook.h"
 #import "UIImageView+WebCache.h"
 
-@interface PHBookListCell ()
+@interface PHBookSearchCell ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *bookImageView;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fromLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
 @end
 
-@implementation PHBookListCell
+@implementation PHBookSearchCell
 
 - (void)awakeFromNib {
     // Initialization code
 }
-
 
 - (void)setBook:(PHBook *)book
 {
@@ -30,10 +32,10 @@
     
     self.authorLabel.text = book.author;
     self.nameLabel.text = book.name;
-    self.summaryLabel.text = book.summary;
+    self.contentLabel.text = book.content;
     
     [self.bookImageView sd_setImageWithURL:[NSURL URLWithString:book.img]];
-
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

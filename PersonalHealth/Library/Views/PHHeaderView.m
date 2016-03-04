@@ -41,14 +41,12 @@
     self.bookCategoryIdLabell.text = book.bookclass;
     self.fromLabel.text = book.from;
     
-    self.summaryLabel.text = book.summary; 
+    self.summaryLabel.text = book.summary ? book.summary : book.content;
     
 }
 
 - (void)setFrame:(CGRect)frame
 {
-    
-    
     frame.size.height = self.book.headerViewHeight;
     
     [super setFrame:frame];
