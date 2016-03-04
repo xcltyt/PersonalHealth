@@ -8,6 +8,9 @@
 
 #import "PHCheckHomeView.h"
 #import "Masonry.h"
+#import "PHHistoryView.h"
+#import "NSString+PHCutSpace.h"
+#import "NSArray+PHArrayTool.h"
 
 #define PHBtnNormalTitle @"疾病查询"
 #define PHBtnHeightTitle @"停止查询"
@@ -15,7 +18,9 @@
 #define PHScreenW [UIScreen mainScreen].bounds.size.width
 #define PHScreenH [UIScreen mainScreen].bounds.size.height
 
-@interface PHCheckHomeView () <UITextFieldDelegate>
+@interface PHCheckHomeView () <UITextFieldDelegate, PHTextFieldDelegate, PHHistoryViewDelegate>
+
+@property (weak, nonatomic)PHHistoryView *historyView;
 
 @property (weak, nonatomic) UIWebView *textView ;
 @property (weak, nonatomic) UIView *rectView;
@@ -38,12 +43,42 @@
 @end
 
 @implementation PHCheckHomeView
+
+/**
+ *  懒加载
+ *
+ *  @return UITableView
+ */
+- (PHHistoryView *)historyView {
+    if (nil == _historyView) {
+        PHHistoryView *historyView = [[PHHistoryView alloc]init];
+        _historyView = historyView;
+        historyView.delegate = self;
+        [self addSubview:historyView];
+        [self constraintHistoryView];
+        historyView.backgroundColor = [UIColor colorWithRed:0.0824 green:1.0 blue:0.5903 alpha:1.0];
+    }
+    return _historyView;
+}
+
+
+
 + (instancetype)homeView{
     return [[self alloc]initWithFrame:CGRectZero];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        
+        //4 添加button
+        UIButton *moreButton = [[UIButton alloc]init];
+        self.moreButton = moreButton;
+        [self addSubview:moreButton];
+        [moreButton setTitle:PHBtnNormalTitle forState:UIControlStateNormal];
+        [moreButton addTarget:self action:@selector(checkHealthy) forControlEvents:UIControlEventTouchUpInside];
+        [self constraintMoreButton];
+        moreButton.backgroundColor = [UIColor greenColor];
+        self.speratorView.hidden = YES;
         
         //1 添加label
         UILabel *label = [[UILabel alloc]init];
@@ -55,6 +90,17 @@
         self.label = label;
         [self addSubview:label];
         [self constraintLabel];
+        
+        // 3 添加搜索框
+        PHTextField *textField = [[PHTextField alloc]init];
+        [self addSubview:textField];
+        self.textField = textField;
+        textField.placeholder = @"输入要搜索的疾病哦";
+        textField.backgroundColor = [UIColor greenColor];
+        textField.returnKeyType = UIReturnKeyDone;
+        textField.delegate = self;
+        textField.showHistoryDelegate = self;
+        [self constraintTextField];
         
         //2 添加rectview
         UIView *rectView = [[UIView alloc]init];
@@ -71,15 +117,7 @@
         [self.rectView addSubview:textView];
         [self constraintTextView];
         
-        // 3 添加搜索框
-        UITextField *textField = [[UITextField alloc]init];
-        [self addSubview:textField];
-        self.textField = textField;
-        textField.placeholder = @"输入要搜索的疾病哦";
-        textField.backgroundColor = [UIColor greenColor];
-        textField.returnKeyType = UIReturnKeyDone;
-        textField.delegate = self;
-        [self constraintTextField];
+
         
         // 4 添加详情按钮
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -95,16 +133,8 @@
         self.speratorView = speratorView;
         [self constraintSperatorView];
         speratorView.backgroundColor = [UIColor greenColor];
+        speratorView.hidden = YES;
         
-        //4 添加button
-        UIButton *moreButton = [[UIButton alloc]init];
-        self.moreButton = moreButton;
-        [self addSubview:moreButton];
-        [moreButton setTitle:PHBtnNormalTitle forState:UIControlStateNormal];
-        [moreButton addTarget:self action:@selector(checkHealthy) forControlEvents:UIControlEventTouchUpInside];
-        [self constraintMoreButton];
-        moreButton.backgroundColor = [UIColor greenColor];
-        self.speratorView.hidden = YES;
     }
     return self;
 }
@@ -112,7 +142,7 @@
 - (void)constraintMoreButton {
     __weak typeof(self)weakSelf = self;
     [self.moreButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.label.mas_bottom).offset(5);
+        make.bottom.equalTo(weakSelf).offset(-52);
         make.centerX.equalTo(weakSelf);
         make.height.equalTo(@40);
         make.width.equalTo(@200);
@@ -120,7 +150,13 @@
 }
 
 - (void)checkHealthy {
+
     if ((self.moreButton.selected = !self.moreButton.selected)) {
+        if (![[NSString cutSpace:self.textField.text] isEqual:@""]) {
+            [NSArray storeHistoryString:self.textField.text];
+            [self.historyView reloadData];
+        }
+        
         [self.moreButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
         self.moreButton.backgroundColor = [UIColor colorWithRed:0.2496 green:1.0 blue:0.174 alpha:0.357866379310345];
         [self.moreButton setTitle:PHBtnHeightTitle forState:UIControlStateNormal];
@@ -166,10 +202,11 @@
     }
     self.speratorView.hidden = NO;
     self.timeInterval++;
+    CGFloat height = PHScreenH - 64 - 49 - 2 - 40 - 35 - 60;
     [UIView animateWithDuration:0.75 animations:^{
         [self updateSperatorViewConstraintsWithY:0];
     } completion:^(BOOL finished) {
-        [self updateSperatorViewConstraintsWithY:PHRectHeight];
+        [self updateSperatorViewConstraintsWithY:height];
     }];
 }
 
@@ -193,21 +230,21 @@
  *  约束imageview
  */
 - (void)constraintRectView {
-    CGFloat rectWidth = PHScreenW * 2 / 3;
     __weak typeof(self)weakSelf = self;
     [self.rectView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(weakSelf.label.mas_top).offset(-2);
         make.left.equalTo(@(30));
-        make.height.equalTo(@(rectWidth));
+        make.top.equalTo(weakSelf.textField.mas_bottom).offset(@5);
         make.centerX.equalTo(weakSelf);
     }];
 }
 
 - (void)constraintLabel {
+    __weak typeof(self)weakSelf = self;
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@300);
         make.centerX.equalTo(@0);
-        make.centerY.equalTo(@120);
+        make.bottom.equalTo(weakSelf.moreButton.top).offset(@(-3));
     }];
 }
 
@@ -224,16 +261,17 @@
 - (void)constraintTextField {
     __weak typeof(self)weakSelf = self;
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(weakSelf.rectView);
+        make.left.equalTo(@20);
         make.height.equalTo(@35);
-        make.bottom.equalTo(weakSelf.rectView.mas_top).offset(-5);
-        make.centerX.equalTo(weakSelf.rectView);
+        make.top.equalTo(weakSelf).offset(66);
+        make.centerX.equalTo(weakSelf);
     }];
 }
 
 - (void)constraintTextView {
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.right.equalTo(@0);
+        make.top.left.equalTo(@2);
+        make.bottom.right.equalTo(@-2);
     }];
 }
 
@@ -243,6 +281,16 @@
         make.bottom.right.equalTo(@0);
     }];
 }
+
+- (void)constraintHistoryView {
+    __weak typeof(self)weakSelf = self;
+    [self.historyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.textField.mas_bottom);
+        make.centerX.width.equalTo(weakSelf.textField);
+        make.height.equalTo(@250);
+    }];
+}
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.textField endEditing:YES];
@@ -262,6 +310,17 @@
     if ([self.delegate respondsToSelector:@selector(homeView:didClickShowAllButton:)]) {
         [self.delegate homeView:self didClickShowAllButton:self.btn];
     }
+}
+
+- (void)textField:(PHTextField *)textField isBecomeFirstResponder:(BOOL)flag {
+    self.historyView.hidden = !flag;
+    
+}
+
+- (void)historyView:(PHHistoryView *)historyView didSelectRow:(long)row {
+    NSArray *historyArray = [NSArray history];
+    historyView.hidden = YES;
+    self.textField.text = historyArray[row];
 }
 
 @end

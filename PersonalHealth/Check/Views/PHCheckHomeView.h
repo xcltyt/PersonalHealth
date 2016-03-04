@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PHTextField.h"
 
 @class PHCheckHomeView;
 
@@ -24,7 +25,7 @@
 
 @property (weak, nonatomic)id<PHCheckHomeViewDelegate> delegate;
 
-@property (weak, nonatomic) UITextField *textField;
+@property (weak, nonatomic) PHTextField *textField;
 
 @property (weak, nonatomic) UIButton *btn;
 
