@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		79F969B89914AB0A901907F3 /* Pods_PersonalHealth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8E0F0F49631B889E482661 /* Pods_PersonalHealth.framework */; };
+		BC66786B1C88809200273418 /* PHBookSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC66786A1C88809200273418 /* PHBookSearchViewController.m */; };
+		BC6678751C8881FA00273418 /* PHSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6678741C8881FA00273418 /* PHSearchBar.m */; };
+		BC6678861C88917200273418 /* PHBookSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6678841C88917200273418 /* PHBookSearchCell.m */; };
+		BC6678871C88917200273418 /* PHBookSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC6678851C88917200273418 /* PHBookSearchCell.xib */; };
 		CE74AE3D1C86C1F900D0C116 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AE3C1C86C1F900D0C116 /* main.m */; };
 		CE74AE401C86C1F900D0C116 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AE3F1C86C1F900D0C116 /* AppDelegate.m */; };
 		CE74AE481C86C1F900D0C116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE74AE471C86C1F900D0C116 /* Assets.xcassets */; };
@@ -234,6 +238,13 @@
 		3A8E0F0F49631B889E482661 /* Pods_PersonalHealth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersonalHealth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE76EA111BD5778C607E41C /* Pods-PersonalHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-PersonalHealth/Pods-PersonalHealth.release.xcconfig"; sourceTree = "<group>"; };
 		906D24C5850C5F8486FDC7F0 /* Pods-PersonalHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalHealth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PersonalHealth/Pods-PersonalHealth.debug.xcconfig"; sourceTree = "<group>"; };
+		BC6678691C88809200273418 /* PHBookSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBookSearchViewController.h; sourceTree = "<group>"; };
+		BC66786A1C88809200273418 /* PHBookSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBookSearchViewController.m; sourceTree = "<group>"; };
+		BC6678731C8881FA00273418 /* PHSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHSearchBar.h; sourceTree = "<group>"; };
+		BC6678741C8881FA00273418 /* PHSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHSearchBar.m; sourceTree = "<group>"; };
+		BC6678831C88917200273418 /* PHBookSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBookSearchCell.h; sourceTree = "<group>"; };
+		BC6678841C88917200273418 /* PHBookSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBookSearchCell.m; sourceTree = "<group>"; };
+		BC6678851C88917200273418 /* PHBookSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHBookSearchCell.xib; sourceTree = "<group>"; };
 		CE74AE381C86C1F900D0C116 /* PersonalHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE74AE3C1C86C1F900D0C116 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE74AE3E1C86C1F900D0C116 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1099,6 +1110,8 @@
 				CEB172D41C880BC10054325F /* PHPageViewController.m */,
 				CEB172D51C880BC10054325F /* PHShowViewController.h */,
 				CEB172D61C880BC10054325F /* PHShowViewController.m */,
+				BC6678691C88809200273418 /* PHBookSearchViewController.h */,
+				BC66786A1C88809200273418 /* PHBookSearchViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1115,6 +1128,11 @@
 				CEB172DE1C880BC10054325F /* PHHeaderView.h */,
 				CEB172DF1C880BC10054325F /* PHHeaderView.m */,
 				CEB172E01C880BC10054325F /* PHHeaderView.xib */,
+				BC6678731C8881FA00273418 /* PHSearchBar.h */,
+				BC6678741C8881FA00273418 /* PHSearchBar.m */,
+				BC6678831C88917200273418 /* PHBookSearchCell.h */,
+				BC6678841C88917200273418 /* PHBookSearchCell.m */,
+				BC6678851C88917200273418 /* PHBookSearchCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1413,6 +1431,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6678871C88917200273418 /* PHBookSearchCell.xib in Resources */,
 				CE74AE4B1C86C1F900D0C116 /* LaunchScreen.storyboard in Resources */,
 				CEB172ED1C880BC10054325F /* PHCategoryCell.xib in Resources */,
 				FC452C881C8712F900CFECB7 /* PHMsgCell.xib in Resources */,
@@ -1517,6 +1536,7 @@
 				CE74AF571C86DF1100D0C116 /* NSObject+AppInfo.m in Sources */,
 				FC452C861C8712F900CFECB7 /* PHMsgTableMod.m in Sources */,
 				CE74AF5E1C86DF1100D0C116 /* NSString+MD5.m in Sources */,
+				BC6678751C8881FA00273418 /* PHSearchBar.m in Sources */,
 				CEB172B61C8809090054325F /* PHMoreRightView.m in Sources */,
 				CE74AF8D1C86DF1100D0C116 /* UIViewController+BackButtonHandler.m in Sources */,
 				CED2F8C21C87181F00694B1A /* NSObject+PHAOP.m in Sources */,
@@ -1545,6 +1565,7 @@
 				CEB172B21C8809090054325F /* PHMoreLeftView.m in Sources */,
 				CE74AF961C86DF8C00D0C116 /* UIView+PHExtension.m in Sources */,
 				FC452C8B1C8712F900CFECB7 /* PHMsgDetailController.m in Sources */,
+				BC66786B1C88809200273418 /* PHBookSearchViewController.m in Sources */,
 				CE74AF5D1C86DF1100D0C116 /* NSString+JsonValue.m in Sources */,
 				CE74AF501C86DF1100D0C116 /* NSDate+Helper.m in Sources */,
 				CE74AF7C1C86DF1100D0C116 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
@@ -1557,6 +1578,7 @@
 				CE74AF731C86DF1100D0C116 /* UIImage+Resize.m in Sources */,
 				DAEFA6B71C892DD40057E63D /* PHHistoryCell.m in Sources */,
 				CE74AF801C86DF1100D0C116 /* UINavigationItem+Margin.m in Sources */,
+				BC6678861C88917200273418 /* PHBookSearchCell.m in Sources */,
 				CE74AF871C86DF1100D0C116 /* UIView+GestureCallback.m in Sources */,
 				CE74AF851C86DF1100D0C116 /* UIView+Borders.m in Sources */,
 				FC3A6FF81C88201D009C1D90 /* FMDatabaseAdditions.m in Sources */,

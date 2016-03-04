@@ -11,7 +11,7 @@
 @interface PHBookPageDetail : NSObject
 
 /** 页面ID */
-@property (nonatomic, copy) NSString *id;
+@property (nonatomic, copy) NSString *ID;
 /** 页面标题 */
 @property (nonatomic, copy) NSString *title;
 /** 页面内容 */

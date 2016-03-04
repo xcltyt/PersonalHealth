@@ -11,7 +11,7 @@
 @interface PHCategory : NSObject
 
 /** 分类ID */
-@property (nonatomic,copy) NSString *id;
+@property (nonatomic,copy) NSString *ID;
 /** 分类名称 */
 @property (nonatomic,copy) NSString *name;
 

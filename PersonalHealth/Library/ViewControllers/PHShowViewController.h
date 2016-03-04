@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
+#define  PHShowVcFinishNotification @"PHShowVcFinishNotification"
+
 @class PHBookPageDetail;
 
 @interface PHShowViewController : UIViewController
 
 @property (nonatomic, assign) NSString *pageIndex;
 @property (nonatomic, strong) UIWebView *myWebView;
-//@property (nonatomic, strong) id pageDetail;
+@property (nonatomic, strong) NSDictionary *pages;
+
 @end
