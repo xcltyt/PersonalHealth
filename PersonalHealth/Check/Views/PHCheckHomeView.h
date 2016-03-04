@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PHTextField;
 
 @class PHCheckHomeView;
 

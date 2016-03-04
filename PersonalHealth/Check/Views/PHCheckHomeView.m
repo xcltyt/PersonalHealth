@@ -16,7 +16,7 @@
 #define PHScreenW [UIScreen mainScreen].bounds.size.width
 #define PHScreenH [UIScreen mainScreen].bounds.size.height
 
-@interface PHCheckHomeView () <UITextFieldDelegate>
+@interface PHCheckHomeView () <UITextFieldDelegate, PHTextFieldDelegate>
 
 @property (weak, nonatomic) UIWebView *textView ;
 @property (weak, nonatomic) UIView *rectView;
@@ -68,13 +68,14 @@
         [self constraintLabel];
         
         // 3 添加搜索框
-        PHTextField *textField = [[PHTextField alloc]init];
+        UITextField *textField = [[UITextField alloc]init];
         [self addSubview:textField];
         self.textField = textField;
         textField.placeholder = @"输入要搜索的疾病哦";
         textField.backgroundColor = [UIColor greenColor];
         textField.returnKeyType = UIReturnKeyDone;
         textField.delegate = self;
+//        textField.showHistoryDelegate = self;
         [self constraintTextField];
         
         //2 添加rectview
@@ -269,6 +270,10 @@
     if ([self.delegate respondsToSelector:@selector(homeView:didClickShowAllButton:)]) {
         [self.delegate homeView:self didClickShowAllButton:self.btn];
     }
+}
+
+- (void)textField:(PHTextField *)textField isBecomeFirstResponder:(BOOL)flag {
+    
 }
 
 @end
