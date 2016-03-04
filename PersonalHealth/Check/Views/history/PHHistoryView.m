@@ -57,6 +57,7 @@
     if (nil == _historyTableView) {
         UITableView *historyTableView = [[UITableView alloc]init];
         _historyTableView = historyTableView;
+        historyTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self addSubview:historyTableView];
         
         historyTableView.delegate = self;

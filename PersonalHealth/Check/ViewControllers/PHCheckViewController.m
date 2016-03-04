@@ -131,7 +131,7 @@
 
 - (BOOL)isEqualSpace:(NSString *)str {
     if ([str isEqualToString:@""]) return YES;
-    for (int i = 0 ; i < str.length - 1; i++) {
+    for (int i = 0 ; i < str.length; i++) {
         if ([str characterAtIndex:i] != ' ') return NO;
     }
     return YES;

@@ -16,18 +16,34 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpU-1N-Ey8">
-                        <rect key="frame" x="13" y="13" width="294" height="17.5"/>
+                        <rect key="frame" x="13" y="13" width="294" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79h-K3-8fd" userLabel="bottom">
+                        <rect key="frame" x="10" y="35" width="300" height="1"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="DV1-24-jxE"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="79h-K3-8fd" secondAttribute="bottom" id="Acn-pb-IZT"/>
+                    <constraint firstItem="79h-K3-8fd" firstAttribute="centerX" secondItem="vpU-1N-Ey8" secondAttribute="centerX" id="KaC-9Z-YUU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vpU-1N-Ey8" secondAttribute="trailing" constant="5" id="Wqj-oe-eHY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="79h-K3-8fd" secondAttribute="trailing" constant="2" id="ged-2p-qkC"/>
+                    <constraint firstItem="79h-K3-8fd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="qFf-dv-9Qc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="vpU-1N-Ey8" secondAttribute="bottom" constant="5" id="rJA-SU-ejD"/>
                     <constraint firstItem="vpU-1N-Ey8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="sYL-4a-YLX"/>
                     <constraint firstItem="vpU-1N-Ey8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="ydP-lW-C9N"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="KaC-9Z-YUU"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLabel" destination="vpU-1N-Ey8" id="jD8-qb-TTU"/>
