@@ -120,6 +120,12 @@
 		CEB172EF1C880BC10054325F /* PHHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB172E01C880BC10054325F /* PHHeaderView.xib */; };
 		CED2F8B91C87181200694B1A /* UINavigationController+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */; };
 		CED2F8C21C87181F00694B1A /* NSObject+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */; };
+		DAEFA6A61C891AF40057E63D /* PHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6A51C891AF40057E63D /* PHTextField.m */; };
+		DAEFA6B31C892DAC0057E63D /* PHHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6B21C892DAC0057E63D /* PHHistoryView.m */; };
+		DAEFA6B71C892DD40057E63D /* PHHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6B51C892DD40057E63D /* PHHistoryCell.m */; };
+		DAEFA6B81C892DD40057E63D /* PHHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAEFA6B61C892DD40057E63D /* PHHistoryCell.xib */; };
+		DAEFA6C61C894E230057E63D /* NSArray+PHArrayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6C31C894E230057E63D /* NSArray+PHArrayTool.m */; };
+		DAEFA6C71C894E230057E63D /* NSString+PHCutSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEFA6C51C894E230057E63D /* NSString+PHCutSpace.m */; };
 		FC3A6FF71C88201D009C1D90 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FEE1C88201D009C1D90 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FC3A6FF81C88201D009C1D90 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF01C88201D009C1D90 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FC3A6FF91C88201D009C1D90 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A6FF21C88201D009C1D90 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -447,6 +453,17 @@
 		CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+PHAOP.m"; sourceTree = "<group>"; };
 		CED2F8C01C87181F00694B1A /* NSObject+PHAOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PHAOP.h"; sourceTree = "<group>"; };
 		CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PHAOP.m"; sourceTree = "<group>"; };
+		DAEFA6A41C891AF40057E63D /* PHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHTextField.h; sourceTree = "<group>"; };
+		DAEFA6A51C891AF40057E63D /* PHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHTextField.m; sourceTree = "<group>"; };
+		DAEFA6B11C892DAC0057E63D /* PHHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHistoryView.h; sourceTree = "<group>"; };
+		DAEFA6B21C892DAC0057E63D /* PHHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHistoryView.m; sourceTree = "<group>"; };
+		DAEFA6B41C892DD40057E63D /* PHHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHistoryCell.h; sourceTree = "<group>"; };
+		DAEFA6B51C892DD40057E63D /* PHHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHistoryCell.m; sourceTree = "<group>"; };
+		DAEFA6B61C892DD40057E63D /* PHHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHHistoryCell.xib; sourceTree = "<group>"; };
+		DAEFA6C21C894E230057E63D /* NSArray+PHArrayTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PHArrayTool.h"; sourceTree = "<group>"; };
+		DAEFA6C31C894E230057E63D /* NSArray+PHArrayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PHArrayTool.m"; sourceTree = "<group>"; };
+		DAEFA6C41C894E230057E63D /* NSString+PHCutSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PHCutSpace.h"; sourceTree = "<group>"; };
+		DAEFA6C51C894E230057E63D /* NSString+PHCutSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PHCutSpace.m"; sourceTree = "<group>"; };
 		FC3A6FED1C88201D009C1D90 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		FC3A6FEE1C88201D009C1D90 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		FC3A6FEF1C88201D009C1D90 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -604,6 +621,7 @@
 		CE74AE6F1C86CA7600D0C116 /* Check(查询) */ = {
 			isa = PBXGroup;
 			children = (
+				DAEFA6C11C894E230057E63D /* category */,
 				CEB172B91C8809350054325F /* Models */,
 				CEB172A31C8809080054325F /* Views */,
 				CEB172941C8807390054325F /* ViewControllers */,
@@ -1016,9 +1034,12 @@
 		CEB172A31C8809080054325F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CEB172A41C8809080054325F /* left */,
+				DAEFA6B01C892DAC0057E63D /* history */,
 				CEB172AA1C8809080054325F /* PHCheckHomeView.h */,
 				CEB172AB1C8809080054325F /* PHCheckHomeView.m */,
+				DAEFA6A41C891AF40057E63D /* PHTextField.h */,
+				DAEFA6A51C891AF40057E63D /* PHTextField.m */,
+				CEB172A41C8809080054325F /* left */,
 				CEB172AC1C8809080054325F /* right */,
 			);
 			path = Views;
@@ -1114,6 +1135,29 @@
 				BC6678851C88917200273418 /* PHBookSearchCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DAEFA6B01C892DAC0057E63D /* history */ = {
+			isa = PBXGroup;
+			children = (
+				DAEFA6B11C892DAC0057E63D /* PHHistoryView.h */,
+				DAEFA6B21C892DAC0057E63D /* PHHistoryView.m */,
+				DAEFA6B41C892DD40057E63D /* PHHistoryCell.h */,
+				DAEFA6B51C892DD40057E63D /* PHHistoryCell.m */,
+				DAEFA6B61C892DD40057E63D /* PHHistoryCell.xib */,
+			);
+			path = history;
+			sourceTree = "<group>";
+		};
+		DAEFA6C11C894E230057E63D /* category */ = {
+			isa = PBXGroup;
+			children = (
+				DAEFA6C21C894E230057E63D /* NSArray+PHArrayTool.h */,
+				DAEFA6C31C894E230057E63D /* NSArray+PHArrayTool.m */,
+				DAEFA6C41C894E230057E63D /* NSString+PHCutSpace.h */,
+				DAEFA6C51C894E230057E63D /* NSString+PHCutSpace.m */,
+			);
+			path = category;
 			sourceTree = "<group>";
 		};
 		FC3A6FE51C882004009C1D90 /* Fmdatabase */ = {
@@ -1396,6 +1440,7 @@
 				CEB172EF1C880BC10054325F /* PHHeaderView.xib in Resources */,
 				CEB172A11C8807390054325F /* PHShowAllController.xib in Resources */,
 				CE74AE481C86C1F900D0C116 /* Assets.xcassets in Resources */,
+				DAEFA6B81C892DD40057E63D /* PHHistoryCell.xib in Resources */,
 				CEB172B41C8809090054325F /* PHMoreLeftViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1470,6 +1515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC452C891C8712F900CFECB7 /* PHMsgTableView.m in Sources */,
+				DAEFA6A61C891AF40057E63D /* PHTextField.m in Sources */,
 				CEB172EE1C880BC10054325F /* PHHeaderView.m in Sources */,
 				FC452C851C8712F900CFECB7 /* PHHMModel.m in Sources */,
 				CE74AF661C86DF1100D0C116 /* UIApplication+ApplicationSize.m in Sources */,
@@ -1530,6 +1576,7 @@
 				CE74AE861C86CAB900D0C116 /* PHTabBarController.m in Sources */,
 				FC452C841C8712F900CFECB7 /* PHDetailMod.m in Sources */,
 				CE74AF731C86DF1100D0C116 /* UIImage+Resize.m in Sources */,
+				DAEFA6B71C892DD40057E63D /* PHHistoryCell.m in Sources */,
 				CE74AF801C86DF1100D0C116 /* UINavigationItem+Margin.m in Sources */,
 				BC6678861C88917200273418 /* PHBookSearchCell.m in Sources */,
 				CE74AF871C86DF1100D0C116 /* UIView+GestureCallback.m in Sources */,
@@ -1561,11 +1608,14 @@
 				CE74AF521C86DF1100D0C116 /* NSDate+Utilities.m in Sources */,
 				FC3A6FFB1C88201D009C1D90 /* FMResultSet.m in Sources */,
 				FC3A6FFA1C88201D009C1D90 /* FMDatabaseQueue.m in Sources */,
+				DAEFA6C61C894E230057E63D /* NSArray+PHArrayTool.m in Sources */,
+				DAEFA6B31C892DAC0057E63D /* PHHistoryView.m in Sources */,
 				FC452CA51C8713A600CFECB7 /* UIButton+Common.m in Sources */,
 				CE74AF751C86DF1100D0C116 /* UIImage+Tint.m in Sources */,
 				CEB172B51C8809090054325F /* PHCheckHomeView.m in Sources */,
 				CEB172E51C880BC10054325F /* PHBookDetailViewController.m in Sources */,
 				CE74AF8E1C86DF1100D0C116 /* UIViewController+BackButtonItemTitle.m in Sources */,
+				DAEFA6C71C894E230057E63D /* NSString+PHCutSpace.m in Sources */,
 				CE74AF5B1C86DF1100D0C116 /* NSObject+Property.m in Sources */,
 				CEB172E21C880BC10054325F /* PHBookList.m in Sources */,
 				CE74AF4F1C86DF1100D0C116 /* NSDate+Formatter.m in Sources */,
@@ -1725,6 +1775,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PersonalHealth/PrefixHeader.pch";
 				INFOPLIST_FILE = PersonalHealth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.phteam.PersonalHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1743,6 +1794,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PersonalHealth/PrefixHeader.pch";
 				INFOPLIST_FILE = PersonalHealth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.phteam.PersonalHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
