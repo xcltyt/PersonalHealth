@@ -30,24 +30,26 @@
                         </mask>
                     </variation>
                 </webView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tp4-2X-b6B">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tp4-2X-b6B">
                     <rect key="frame" x="440" y="504" width="110" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="110" id="uWs-Uc-GR1"/>
                         <constraint firstAttribute="height" constant="30" id="wV9-5p-5iT"/>
                     </constraints>
                     <state key="normal" title="➡️"/>
+                    <state key="disabled" title="👈"/>
                     <connections>
                         <action selector="goToNext:" destination="-1" eventType="touchUpInside" id="0U2-Zd-jgr"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cO8-mr-NeX">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cO8-mr-NeX">
                     <rect key="frame" x="50" y="504" width="110" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="DT9-pd-gaS"/>
                         <constraint firstAttribute="width" constant="110" id="oCw-6Q-eRw"/>
                     </constraints>
                     <state key="normal" title="⬅️"/>
+                    <state key="disabled" title="👉"/>
                     <connections>
                         <action selector="goPreious:" destination="-1" eventType="touchUpInside" id="Lo3-sA-VEq"/>
                     </connections>
