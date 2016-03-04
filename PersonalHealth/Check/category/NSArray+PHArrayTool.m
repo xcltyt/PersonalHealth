@@ -7,6 +7,10 @@
 //
 
 #import "NSArray+PHArrayTool.h"
+
+//存放最多多少条历史记录📝
+#define PHHistoryLength 10
+// 存取的key值
 #define PHHistoryKey @"checkHistory"
 
 @implementation NSArray (PHArrayTool)
@@ -25,14 +29,14 @@
     }
     if (checkHistory == nil || checkHistory.count == 0) {
 
-    }else if(checkHistory.count < 10){
+    }else if(checkHistory.count < PHHistoryLength){
         for (NSString *historyStr in checkHistory) {
             if (![historyArray containsObject:historyStr]) {
                 [historyArray addObject:historyStr];
             }
         }
     }else {
-        for (int i = 0 ; i < 9; i++) {
+        for (int i = 0 ; i < PHHistoryLength - 1; i++) {
             NSString *historyStr = checkHistory[i];
             if (![historyArray containsObject:historyStr]) {
                 [historyArray addObject:historyStr];

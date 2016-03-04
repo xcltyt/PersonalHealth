@@ -10,6 +10,13 @@
 
 @implementation PHCategory
 
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"ID" : @"id"
+             };
+}
+
 - (NSMutableArray *)books
 {
     

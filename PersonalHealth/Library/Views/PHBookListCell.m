@@ -13,7 +13,6 @@
 @interface PHBookListCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *bookImageView;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *fromLabel;
 @property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @end
@@ -30,8 +29,6 @@
     _book = book;
     
     self.authorLabel.text = book.author;
-    
-  //  self.fromLabel.text = book.from;
     self.nameLabel.text = book.name;
     self.summaryLabel.text = book.summary;
     

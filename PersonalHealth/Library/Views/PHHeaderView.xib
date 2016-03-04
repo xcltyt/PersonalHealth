@@ -73,8 +73,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJo-Gv-QZv">
-                    <rect key="frame" x="35" y="221" width="375" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="35" y="221" width="375" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -85,7 +85,6 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="4ZR-hh-LVs" firstAttribute="leading" secondItem="Qy7-tv-L9E" secondAttribute="trailing" constant="20" id="4Zk-PK-M3c"/>
                 <constraint firstItem="jJo-Gv-QZv" firstAttribute="top" secondItem="Qy7-tv-L9E" secondAttribute="bottom" constant="30" id="AQe-6z-A6D"/>
@@ -136,7 +135,7 @@
                 <outlet property="nameLabel" destination="94Q-hF-CFZ" id="rok-Yz-ZNn"/>
                 <outlet property="summaryLabel" destination="jJo-Gv-QZv" id="1Ni-dl-Jxq"/>
             </connections>
-            <point key="canvasLocation" x="476.5" y="-74"/>
+            <point key="canvasLocation" x="435.5" y="-73"/>
         </view>
     </objects>
 </document>

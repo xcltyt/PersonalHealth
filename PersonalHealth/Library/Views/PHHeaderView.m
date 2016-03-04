@@ -37,18 +37,16 @@
     
     self.nameLabel.text = book.name;
     self.authorLabel.text = book.author;
-    self.bookIdLabel.text = book.id;
+    self.bookIdLabel.text = book.ID;
     self.bookCategoryIdLabell.text = book.bookclass;
     self.fromLabel.text = book.from;
     
-    self.summaryLabel.text = book.summary;  // [NSString stringWithFormat:@"%@",book.summary];
+    self.summaryLabel.text = book.summary ? book.summary : book.content;
     
 }
 
 - (void)setFrame:(CGRect)frame
 {
-    
-    
     frame.size.height = self.book.headerViewHeight;
     
     [super setFrame:frame];

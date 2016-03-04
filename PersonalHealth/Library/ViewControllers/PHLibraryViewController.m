@@ -16,6 +16,7 @@
 #import "MJRefresh.h"
 #import "PHBookDetailViewController.h"
 #import "SVProgressHUD.h"
+#import "PHBookSearchViewController.h"
 
 #define PHSelectedCategory self.categories[self.categoryTableView.indexPathForSelectedRow.row]
 
@@ -51,6 +52,9 @@ static NSString *bookListId = @"bookListId";
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    // 设置导航栏
+    [self setupNav];
+    
     // tableview的初始化
     [self setupTableView];
     
@@ -60,12 +64,16 @@ static NSString *bookListId = @"bookListId";
     // 添加刷新控件
     [self setupRefresh];
     
-    
-    
-    
 }
 
 #pragma mark - Private Methods
+/**
+ *  设置导航栏
+ */
+- (void)setupNav
+{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchbar_textfield_search_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(searchItemClick)];
+}
 
 /**
  *  添加刷新控件
@@ -89,11 +97,11 @@ static NSString *bookListId = @"bookListId";
     
     NSString *path = @"92-92";
     NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
-    NSString *sign = [NSString stringWithFormat:@"id%@page%@showapi_appid16299showapi_timestamp%@%@",category.id,@(category.currentPage),usefulDate,secret];
+    NSString *sign = [NSString stringWithFormat:@"id%@page%@showapi_appid16299showapi_timestamp%@%@",category.ID,@(category.currentPage),usefulDate,secret];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{
-                             @"id":category.id,
+                             @"id":category.ID,
                              @"page":@(category.currentPage),
                              @"showapi_appid":@"16299",
                              @"showapi_timestamp":usefulDate,
@@ -148,11 +156,11 @@ static NSString *bookListId = @"bookListId";
     
     NSString *path = @"92-92";
     NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
-    NSString *sign = [NSString stringWithFormat:@"id%@page%@showapi_appid16299showapi_timestamp%@%@",category.id,@(++category.currentPage),usefulDate,secret];
+    NSString *sign = [NSString stringWithFormat:@"id%@page%@showapi_appid16299showapi_timestamp%@%@",category.ID,@(++category.currentPage),usefulDate,secret];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{
-                             @"id":category.id,
+                             @"id":category.ID,
                              @"page":@(category.currentPage),
                              @"showapi_appid":@"16299",
                              @"showapi_timestamp":usefulDate,
@@ -195,10 +203,12 @@ static NSString *bookListId = @"bookListId";
     UITableView *categoryTableView = [[UITableView alloc]init];
     [self.view addSubview:categoryTableView];
     self.categoryTableView = categoryTableView;
+    self.categoryTableView.backgroundColor = PHGlobalBg;
     
+    self.categoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [categoryTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(@0);
-        make.width.equalTo(@100);
+        make.width.equalTo(@80);
     }];
     
     
@@ -207,13 +217,15 @@ static NSString *bookListId = @"bookListId";
     [self.view addSubview:bookListTableView];
     self.bookListTableView = bookListTableView;
     
+    self.bookListTableView.backgroundColor = self.categoryTableView.backgroundColor;
+    
     [bookListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(categoryTableView.mas_right);
         make.top.right.bottom.equalTo(@0);
     }];
     
     // 设置inset
-    self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 44, 0);
     self.bookListTableView.contentInset = self.categoryTableView.contentInset;
     
     
@@ -340,7 +352,7 @@ static NSString *bookListId = @"bookListId";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == self.categoryTableView) {
-    return 50;
+    return 45;
     }
     return 135;
 }
@@ -391,7 +403,12 @@ static NSString *bookListId = @"bookListId";
 
 #pragma mark - Event Response
 
-
+- (void)searchItemClick
+{
+    PHBookSearchViewController *searchVc = [[PHBookSearchViewController alloc]init];
+    searchVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:searchVc animated:YES];
+}
 
 
 

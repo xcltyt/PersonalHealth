@@ -11,7 +11,7 @@
 @interface PHBookList : NSObject
 
 /** id */
-@property (nonatomic,copy) NSString *id;
+@property (nonatomic,copy) NSString *ID;
 /** 标题 */
 @property (nonatomic,copy) NSString *title;
 

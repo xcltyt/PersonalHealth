@@ -10,5 +10,12 @@
 
 @implementation PHBookList
 
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"ID" : @"id"
+             };
+}
+
 @end
 
