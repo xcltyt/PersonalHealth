@@ -93,6 +93,8 @@
 		CE922C451C89660E006FEA0C /* PHStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C441C89660E006FEA0C /* PHStepViewController.m */; };
 		CE922C481C896643006FEA0C /* PHArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C471C896643006FEA0C /* PHArticleViewController.m */; };
 		CE922C4B1C896656006FEA0C /* PHBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C4A1C896656006FEA0C /* PHBookViewController.m */; };
+		CE922C501C89AFD3006FEA0C /* PHSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C4E1C89AFD3006FEA0C /* PHSettingCell.m */; };
+		CE922C511C89AFD3006FEA0C /* PHSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE922C4F1C89AFD3006FEA0C /* PHSettingCell.xib */; };
 		CEB1729F1C8807390054325F /* PHCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172961C8807390054325F /* PHCheckViewController.m */; };
 		CEB172A01C8807390054325F /* PHShowAllController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172981C8807390054325F /* PHShowAllController.m */; };
 		CEB172A11C8807390054325F /* PHShowAllController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB172991C8807390054325F /* PHShowAllController.xib */; };
@@ -411,6 +413,9 @@
 		CE922C471C896643006FEA0C /* PHArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHArticleViewController.m; sourceTree = "<group>"; };
 		CE922C491C896656006FEA0C /* PHBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBookViewController.h; sourceTree = "<group>"; };
 		CE922C4A1C896656006FEA0C /* PHBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBookViewController.m; sourceTree = "<group>"; };
+		CE922C4D1C89AFD3006FEA0C /* PHSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHSettingCell.h; sourceTree = "<group>"; };
+		CE922C4E1C89AFD3006FEA0C /* PHSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHSettingCell.m; sourceTree = "<group>"; };
+		CE922C4F1C89AFD3006FEA0C /* PHSettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHSettingCell.xib; sourceTree = "<group>"; };
 		CEB172951C8807390054325F /* PHCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHCheckViewController.h; sourceTree = "<group>"; };
 		CEB172961C8807390054325F /* PHCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHCheckViewController.m; sourceTree = "<group>"; };
 		CEB172971C8807390054325F /* PHShowAllController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHShowAllController.h; sourceTree = "<group>"; };
@@ -761,6 +766,9 @@
 		CE74AE831C86CA7600D0C116 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE922C4D1C89AFD3006FEA0C /* PHSettingCell.h */,
+				CE922C4E1C89AFD3006FEA0C /* PHSettingCell.m */,
+				CE922C4F1C89AFD3006FEA0C /* PHSettingCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1478,6 +1486,7 @@
 				CEB172A11C8807390054325F /* PHShowAllController.xib in Resources */,
 				CE74AE481C86C1F900D0C116 /* Assets.xcassets in Resources */,
 				DAEFA6B81C892DD40057E63D /* PHHistoryCell.xib in Resources */,
+				CE922C511C89AFD3006FEA0C /* PHSettingCell.xib in Resources */,
 				CEB172B41C8809090054325F /* PHMoreLeftViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1587,6 +1596,7 @@
 				CE74AF861C86DF1100D0C116 /* UIView+draggable.m in Sources */,
 				CEB172E31C880BC10054325F /* PHBookPageDetail.m in Sources */,
 				CE74AF531C86DF1100D0C116 /* NSDictionary+JSONString.m in Sources */,
+				CE922C501C89AFD3006FEA0C /* PHSettingCell.m in Sources */,
 				CE74AF5F1C86DF1100D0C116 /* NSString+RegexCategory.m in Sources */,
 				CEB1729F1C8807390054325F /* PHCheckViewController.m in Sources */,
 				CE74AF511C86DF1100D0C116 /* NSDate+Reporting.m in Sources */,
