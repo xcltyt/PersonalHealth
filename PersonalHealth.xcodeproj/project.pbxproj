@@ -93,8 +93,6 @@
 		CE922C451C89660E006FEA0C /* PHStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C441C89660E006FEA0C /* PHStepViewController.m */; };
 		CE922C481C896643006FEA0C /* PHArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C471C896643006FEA0C /* PHArticleViewController.m */; };
 		CE922C4B1C896656006FEA0C /* PHBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C4A1C896656006FEA0C /* PHBookViewController.m */; };
-		CE922C501C89AFD3006FEA0C /* PHSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C4E1C89AFD3006FEA0C /* PHSettingCell.m */; };
-		CE922C511C89AFD3006FEA0C /* PHSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE922C4F1C89AFD3006FEA0C /* PHSettingCell.xib */; };
 		CE922C9C1C8D0FE8006FEA0C /* NSArray+PHArrayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C651C8D0FE8006FEA0C /* NSArray+PHArrayTool.m */; };
 		CE922C9D1C8D0FE8006FEA0C /* NSString+PHCutSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C671C8D0FE8006FEA0C /* NSString+PHCutSpace.m */; };
 		CE922C9E1C8D0FE8006FEA0C /* PHCheckList.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C6A1C8D0FE8006FEA0C /* PHCheckList.m */; };
@@ -123,6 +121,10 @@
 		CE922CB51C8D0FE8006FEA0C /* PHMoreRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C981C8D0FE8006FEA0C /* PHMoreRightView.m */; };
 		CE922CB61C8D0FE8006FEA0C /* PHRightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922C9A1C8D0FE8006FEA0C /* PHRightTableViewCell.m */; };
 		CE922CB71C8D0FE8006FEA0C /* PHRightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE922C9B1C8D0FE8006FEA0C /* PHRightTableViewCell.xib */; };
+		CE922CBB1C8D1470006FEA0C /* PHArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CB91C8D1470006FEA0C /* PHArticleCell.m */; };
+		CE922CBC1C8D1470006FEA0C /* PHArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE922CBA1C8D1470006FEA0C /* PHArticleCell.xib */; };
+		CE922CC01C8D4D63006FEA0C /* PHBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CBE1C8D4D63006FEA0C /* PHBookCell.m */; };
+		CE922CC11C8D4D63006FEA0C /* PHBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE922CBF1C8D4D63006FEA0C /* PHBookCell.xib */; };
 		CEB172E11C880BC10054325F /* PHBook.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172C51C880BC10054325F /* PHBook.m */; };
 		CEB172E21C880BC10054325F /* PHBookList.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172C71C880BC10054325F /* PHBookList.m */; };
 		CEB172E31C880BC10054325F /* PHBookPageDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172C91C880BC10054325F /* PHBookPageDetail.m */; };
@@ -419,9 +421,6 @@
 		CE922C471C896643006FEA0C /* PHArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHArticleViewController.m; sourceTree = "<group>"; };
 		CE922C491C896656006FEA0C /* PHBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBookViewController.h; sourceTree = "<group>"; };
 		CE922C4A1C896656006FEA0C /* PHBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBookViewController.m; sourceTree = "<group>"; };
-		CE922C4D1C89AFD3006FEA0C /* PHSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHSettingCell.h; sourceTree = "<group>"; };
-		CE922C4E1C89AFD3006FEA0C /* PHSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHSettingCell.m; sourceTree = "<group>"; };
-		CE922C4F1C89AFD3006FEA0C /* PHSettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHSettingCell.xib; sourceTree = "<group>"; };
 		CE922C641C8D0FE8006FEA0C /* NSArray+PHArrayTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PHArrayTool.h"; sourceTree = "<group>"; };
 		CE922C651C8D0FE8006FEA0C /* NSArray+PHArrayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PHArrayTool.m"; sourceTree = "<group>"; };
 		CE922C661C8D0FE8006FEA0C /* NSString+PHCutSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PHCutSpace.h"; sourceTree = "<group>"; };
@@ -470,6 +469,12 @@
 		CE922C991C8D0FE8006FEA0C /* PHRightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHRightTableViewCell.h; sourceTree = "<group>"; };
 		CE922C9A1C8D0FE8006FEA0C /* PHRightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHRightTableViewCell.m; sourceTree = "<group>"; };
 		CE922C9B1C8D0FE8006FEA0C /* PHRightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHRightTableViewCell.xib; sourceTree = "<group>"; };
+		CE922CB81C8D1470006FEA0C /* PHArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHArticleCell.h; sourceTree = "<group>"; };
+		CE922CB91C8D1470006FEA0C /* PHArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHArticleCell.m; sourceTree = "<group>"; };
+		CE922CBA1C8D1470006FEA0C /* PHArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHArticleCell.xib; sourceTree = "<group>"; };
+		CE922CBD1C8D4D63006FEA0C /* PHBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBookCell.h; sourceTree = "<group>"; };
+		CE922CBE1C8D4D63006FEA0C /* PHBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBookCell.m; sourceTree = "<group>"; };
+		CE922CBF1C8D4D63006FEA0C /* PHBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHBookCell.xib; sourceTree = "<group>"; };
 		CEB172C41C880BC10054325F /* PHBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBook.h; sourceTree = "<group>"; };
 		CEB172C51C880BC10054325F /* PHBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBook.m; sourceTree = "<group>"; };
 		CEB172C61C880BC10054325F /* PHBookList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBookList.h; sourceTree = "<group>"; };
@@ -769,9 +774,12 @@
 		CE74AE831C86CA7600D0C116 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE922C4D1C89AFD3006FEA0C /* PHSettingCell.h */,
-				CE922C4E1C89AFD3006FEA0C /* PHSettingCell.m */,
-				CE922C4F1C89AFD3006FEA0C /* PHSettingCell.xib */,
+				CE922CB81C8D1470006FEA0C /* PHArticleCell.h */,
+				CE922CB91C8D1470006FEA0C /* PHArticleCell.m */,
+				CE922CBA1C8D1470006FEA0C /* PHArticleCell.xib */,
+				CE922CBD1C8D4D63006FEA0C /* PHBookCell.h */,
+				CE922CBE1C8D4D63006FEA0C /* PHBookCell.m */,
+				CE922CBF1C8D4D63006FEA0C /* PHBookCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1510,6 +1518,7 @@
 				CE922CAE1C8D0FE8006FEA0C /* PHMoreLeftViewCell.xib in Resources */,
 				CE922CB11C8D0FE8006FEA0C /* PHListCell.xib in Resources */,
 				CE922CB71C8D0FE8006FEA0C /* PHRightTableViewCell.xib in Resources */,
+				CE922CC11C8D4D63006FEA0C /* PHBookCell.xib in Resources */,
 				BC6678871C88917200273418 /* PHBookSearchCell.xib in Resources */,
 				CE74AE4B1C86C1F900D0C116 /* LaunchScreen.storyboard in Resources */,
 				CE922CA71C8D0FE8006FEA0C /* PHShowcarefulController.xib in Resources */,
@@ -1522,7 +1531,7 @@
 				CEB172EF1C880BC10054325F /* PHHeaderView.xib in Resources */,
 				CE74AE481C86C1F900D0C116 /* Assets.xcassets in Resources */,
 				CE922CA51C8D0FE8006FEA0C /* PHShowAllController.xib in Resources */,
-				CE922C511C89AFD3006FEA0C /* PHSettingCell.xib in Resources */,
+				CE922CBC1C8D1470006FEA0C /* PHArticleCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1623,6 +1632,7 @@
 				CED2F8C21C87181F00694B1A /* NSObject+PHAOP.m in Sources */,
 				CE74AF591C86DF1100D0C116 /* NSObject+GCD.m in Sources */,
 				CE74AF6F1C86DF1100D0C116 /* UIImage+Capture.m in Sources */,
+				CE922CBB1C8D1470006FEA0C /* PHArticleCell.m in Sources */,
 				CE922CB21C8D0FE8006FEA0C /* PHTextField.m in Sources */,
 				CE922C9F1C8D0FE8006FEA0C /* PHDescription.m in Sources */,
 				CE74AF601C86DF1100D0C116 /* NSString+Size.m in Sources */,
@@ -1635,7 +1645,6 @@
 				CE74AF861C86DF1100D0C116 /* UIView+draggable.m in Sources */,
 				CEB172E31C880BC10054325F /* PHBookPageDetail.m in Sources */,
 				CE74AF531C86DF1100D0C116 /* NSDictionary+JSONString.m in Sources */,
-				CE922C501C89AFD3006FEA0C /* PHSettingCell.m in Sources */,
 				CE74AF5F1C86DF1100D0C116 /* NSString+RegexCategory.m in Sources */,
 				CE74AF511C86DF1100D0C116 /* NSDate+Reporting.m in Sources */,
 				CE74AF6A1C86DF1100D0C116 /* UIButton+TouchAreaInsets.m in Sources */,
@@ -1685,6 +1694,7 @@
 				CE74AF8B1C86DF1100D0C116 /* UIView+ViewController.m in Sources */,
 				CE74AF891C86DF1100D0C116 /* UIView+Shadow.m in Sources */,
 				CE74AF5C1C86DF1100D0C116 /* NSObject+Runtime.m in Sources */,
+				CE922CC01C8D4D63006FEA0C /* PHBookCell.m in Sources */,
 				CE74AF901C86DF1100D0C116 /* NSMutableString+TagReplace.m in Sources */,
 				CEB172E81C880BC10054325F /* PHPageViewController.m in Sources */,
 				CE74AF8F1C86DF1100D0C116 /* UIViewController+MJPopupViewController.m in Sources */,

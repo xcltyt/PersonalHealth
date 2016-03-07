@@ -23,7 +23,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:@"返回" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+        [button setTitleColor:[UIColor colorWithRed:0.343 green:0.827 blue:0.771 alpha:1.000] forState:UIControlStateHighlighted];
         [button setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
