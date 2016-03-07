@@ -7,14 +7,10 @@
 //
 
 #import "PHBookDetailViewController.h"
-#import "NSDate+Formatter.h"
 #import "PHBook.h"
-#import "MJExtension.h"
-#import "MJRefresh.h"
 #import "PHHeaderView.h"
 #import "PHBookList.h"
 #import "PHBookListViewController.h"
-#import "SVProgressHUD.h"
 #import "PHPageViewController.h" 
 
 @interface PHBookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -84,8 +80,7 @@
     NSString *usefulDate = [nowDate stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     NSString *path = @"92-91";
-    NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
-    NSString *sign = [NSString stringWithFormat:@"id%@showapi_appid16299showapi_timestamp%@%@",self.book.ID,usefulDate,secret];
+    NSString *sign = [NSString stringWithFormat:@"id%@showapi_appid16299showapi_timestamp%@%@",self.book.ID,usefulDate,PHSerect];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{

@@ -11,14 +11,10 @@
 #import "PHMsgTableView.h"
 #import "PHSearchController.h"
 #import "PHMsgDetailController.h"
-
-#import "NSDate+Formatter.h"
-#import "NSString+MD5.h"
-
 #import "PHBtnsBar.h"
-
 #import "PHHMModel.h"
 #import "PHDetailMod.h"
+
 @interface PHInformationViewController ()<PHBtnsBarDelegate,UIScrollViewDelegate,PHMsgTableViewDelegate>
 @property (nonatomic,strong)NSMutableArray * listArray;
 @property (nonatomic,strong)PHBtnsBar * scrollBtn;
@@ -130,7 +126,6 @@
         PHMsgTableView * table=[PHMsgTableView phmsgTableViewWithFrame:frame andtid:tid];
         table.delegate=self;
         [self.scrollView addSubview:table];
-        NSLog(@"%@",NSStringFromCGRect(table.frame));
     }
 }
 //配置右侧顶部导航搜索按钮

@@ -9,4 +9,5 @@ target 'PersonalHealth' do
     pod 'MJExtension'
     pod 'SVProgressHUD'
     pod 'DOPDropDownMenu-Enhanced'
+    pod 'FMDB'
 end

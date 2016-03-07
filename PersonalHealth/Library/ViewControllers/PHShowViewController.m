@@ -8,10 +8,6 @@
 
 #import "PHShowViewController.h"
 #import "PHBookPageDetail.h"
-#import "SVProgressHUD.h"
-#import "NSDate+Formatter.h"
-#import "MJExtension.h"
-#import "MJRefresh.h"
 #import "PHBookList.h"
 #import "PHBook.h"
 

@@ -51,7 +51,7 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(15);
         make.right.equalTo(-15);
-        make.width.equalTo(ScreenW-30);
+        make.width.equalTo(SCRW-30);
         make.top.equalTo(5);
         make.height.equalTo(50);
     }];
@@ -103,7 +103,7 @@
         make.left.equalTo(8);
         make.top.equalTo(contenttextView.mas_bottom).offset(10);
         make.width.equalTo(120);
-        make.height.equalTo(ButtonH);
+        make.height.equalTo(BTNH);
     }];
     
     UILabel * timeLabe=[[UILabel alloc]init];
@@ -116,7 +116,7 @@
         make.top.equalTo(contenttextView.mas_bottom).offset(10);
         make.bottom.equalTo(10);
         make.width.equalTo(150);
-        make.height.equalTo(ButtonH);
+        make.height.equalTo(BTNH);
     }];
     
 }

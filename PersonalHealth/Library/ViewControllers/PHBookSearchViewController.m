@@ -8,9 +8,7 @@
 
 #import "PHBookSearchViewController.h"
 #import "PHSearchBar.h"
-#import "SVProgressHUD.h"
 #import "PHBook.h"
-#import "MJExtension.h"
 #import "PHBookDetailViewController.h"
 #import "PHBookSearchCell.h"
 

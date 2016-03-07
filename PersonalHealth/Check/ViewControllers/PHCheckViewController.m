@@ -8,15 +8,11 @@
 
 #import "PHCheckViewController.h"
 #import "PHCheckHomeView.h"
-#import "NSDate+Formatter.h"
 #import "PHShowController.h"
-#import "MJExtension.h"
 #import "PHSickList.h"
 #import "PHShowAllController.h"
 #import "NSString+PHCutSpace.h"
 
-
-#define secret @"b034a3a7f7b144debe727ccebff2fd23"
 
 @interface PHCheckViewController () <PHCheckHomeViewDelegate>
 @property (weak, nonatomic) PHCheckHomeView *homeView;
@@ -59,14 +55,14 @@
     if ([self isEqualSpace:text]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.homeView showEnd];
-            [self.homeView showText:@"请输入搜索内容🔍"];
+            [self.homeView showText:@"请输入搜索内容"];
         });
         return;
     }
     text = [NSString cutSpace:text];
     NSString *dataString = [NSDate currentDateStringWithFormat:@"yyyyMMdd HHmmss"];
     dataString = [dataString stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *sign = [NSString stringWithFormat:@"key%@showapi_appid%@showapi_timestamp%@%@",text ,@"16299",dataString,secret];
+    NSString *sign = [NSString stringWithFormat:@"key%@showapi_appid%@showapi_timestamp%@%@",text ,@"16299",dataString,PHSerect];
     sign = [sign md532BitLower];
     NSDictionary *param = @{
                             @"showapi_appid" : @"16299",
