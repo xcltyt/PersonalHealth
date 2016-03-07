@@ -15,7 +15,8 @@
 #import "PHBookList.h"
 #import "PHBookListViewController.h"
 #import "SVProgressHUD.h"
-#import "PHPageViewController.h" 
+#import "PHPageViewController.h"
+#import "YUDBManager.h"
 
 @interface PHBookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -39,9 +40,9 @@
 
 - (void)setupBasic
 {
+    // nav
     self.title = @"图书详情";
-    
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"new_collectBtn_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(collectItemClick:)];
     
     // 设置tableview
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -73,6 +74,54 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIImage *image = nil;
+    
+    YUDBManager *manager = [YUDBManager sharedManager];
+    NSArray *tmpArray = [manager searchAllBook];
+    for (PHBook *book in tmpArray) {
+        
+        if ([self.book.ID isEqualToString:book.ID]) {
+            
+            image = [[UIImage imageNamed:@"new_collect_selected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            [self.navigationItem.rightBarButtonItem setImage:image];
+            
+            return;
+        }
+    }
+
+    image = [[UIImage imageNamed:@"new_collectBtn_normal"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    [self.navigationItem.rightBarButtonItem setImage:image];
+
+}
+/**
+ *  点击收藏/取消收藏
+ */
+- (void)collectItemClick:(UIBarButtonItem *)item
+{
+    UIImage *image = [[UIImage imageNamed:@"new_collect_selected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    YUDBManager *manager = [YUDBManager sharedManager];
+    NSArray *tmpArray = [manager searchAllBook];
+    for (PHBook *book in tmpArray) {
+        
+        if ([self.book.ID isEqualToString:book.ID]) {
+            
+            [manager deleteCollectWithBook:book];
+            
+            image = [[UIImage imageNamed:@"new_collectBtn_normal"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            [item setImage:image];
+            return;
+        }
+    }
+    [manager insertBook:self.book];
+    
+    [item setImage:image];
+}
 
 - (void)loadDeailData
 {
@@ -129,6 +178,9 @@
     }];
     
 }
+
+
+#pragma mark -tableVew代理
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

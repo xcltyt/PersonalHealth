@@ -12,6 +12,7 @@
 		BC6678751C8881FA00273418 /* PHSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6678741C8881FA00273418 /* PHSearchBar.m */; };
 		BC6678861C88917200273418 /* PHBookSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6678841C88917200273418 /* PHBookSearchCell.m */; };
 		BC6678871C88917200273418 /* PHBookSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC6678851C88917200273418 /* PHBookSearchCell.xib */; };
+		BCD3F7391C8D30810009ECB8 /* YUDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD3F7381C8D30810009ECB8 /* YUDBManager.m */; };
 		CE74AE3D1C86C1F900D0C116 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AE3C1C86C1F900D0C116 /* main.m */; };
 		CE74AE401C86C1F900D0C116 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE74AE3F1C86C1F900D0C116 /* AppDelegate.m */; };
 		CE74AE481C86C1F900D0C116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE74AE471C86C1F900D0C116 /* Assets.xcassets */; };
@@ -259,6 +260,8 @@
 		BC6678831C88917200273418 /* PHBookSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBookSearchCell.h; sourceTree = "<group>"; };
 		BC6678841C88917200273418 /* PHBookSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBookSearchCell.m; sourceTree = "<group>"; };
 		BC6678851C88917200273418 /* PHBookSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHBookSearchCell.xib; sourceTree = "<group>"; };
+		BCD3F7371C8D30810009ECB8 /* YUDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUDBManager.h; sourceTree = "<group>"; };
+		BCD3F7381C8D30810009ECB8 /* YUDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUDBManager.m; sourceTree = "<group>"; };
 		CE74AE381C86C1F900D0C116 /* PersonalHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE74AE3C1C86C1F900D0C116 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE74AE3E1C86C1F900D0C116 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -585,6 +588,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BCD3F7301C8D30660009ECB8 /* DBManager */ = {
+			isa = PBXGroup;
+			children = (
+				BCD3F7371C8D30810009ECB8 /* YUDBManager.h */,
+				BCD3F7381C8D30810009ECB8 /* YUDBManager.m */,
+			);
+			name = DBManager;
+			sourceTree = "<group>";
+		};
 		CE74AE2F1C86C1F900D0C116 = {
 			isa = PBXGroup;
 			children = (
@@ -670,6 +682,7 @@
 		CE74AE771C86CA7600D0C116 /* Library(图书) */ = {
 			isa = PBXGroup;
 			children = (
+				BCD3F7301C8D30660009ECB8 /* DBManager */,
 				CEB172C31C880BC10054325F /* Models */,
 				CEB172CC1C880BC10054325F /* ViewControllers */,
 				CEB172D71C880BC10054325F /* Views */,
@@ -1676,6 +1689,7 @@
 				FC3A70011C882197009C1D90 /* TSDbManager.m in Sources */,
 				CE74AF611C86DF1100D0C116 /* NSString+Trims.m in Sources */,
 				CE74AF721C86DF1100D0C116 /* UIImage+FX.m in Sources */,
+				BCD3F7391C8D30810009ECB8 /* YUDBManager.m in Sources */,
 				CE74AF7F1C86DF1100D0C116 /* UINavigationItem+Lock.m in Sources */,
 				CE74AF6E1C86DF1100D0C116 /* UIImage+CalculatedSize.m in Sources */,
 				CE74AF701C86DF1100D0C116 /* UIImage+Color.m in Sources */,

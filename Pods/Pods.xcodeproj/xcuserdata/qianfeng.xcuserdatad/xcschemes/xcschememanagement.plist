@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>DOPDropDownMenu-Enhanced.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -47,7 +52,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1A92DDC65D94978F874C60F3BA20A80D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2176B780AA11F1E1177C0EEA0FE2F704</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4BA1C8DF87836C291F44FF1D6A85B9C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -68,6 +88,11 @@
 			<true/>
 		</dict>
 		<key>A9A83F63385AA43314397B8DD375464B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D854E141848F47848031835C29E4240C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

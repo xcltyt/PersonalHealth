@@ -72,7 +72,7 @@ static NSString *bookListId = @"bookListId";
  */
 - (void)setupNav
 {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchbar_textfield_search_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(searchItemClick)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"searchbar_textfield_search_icon"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(searchItemClick)];
 }
 
 /**
