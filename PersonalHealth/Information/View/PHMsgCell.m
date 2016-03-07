@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *autherLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tnameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *readCountLabel;
 
 @end
 @implementation PHMsgCell
@@ -32,6 +33,7 @@
     self.autherLabel.text=mod.author;
     self.timeLabel.text=mod.time;
     self.tnameLabel.text=mod.tname;
+    self.readCountLabel.text=mod.readCount;
 }
 
 @end
