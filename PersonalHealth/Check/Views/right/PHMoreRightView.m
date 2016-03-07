@@ -84,6 +84,13 @@
     return 74;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.delegate respondsToSelector:@selector(moreRightView:didSelectRow:)]) {
+        [self.delegate moreRightView:self didSelectRow:indexPath.row];
+    }
+}
+
+
 - (NSMutableArray *)users{
     if (nil == _users) {
         _users = [NSMutableArray array];

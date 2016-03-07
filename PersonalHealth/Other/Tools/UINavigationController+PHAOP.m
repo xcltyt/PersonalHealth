@@ -13,6 +13,7 @@
 
 + (void)load {
     [UINavigationController aop_changeMethod:@selector(pushViewController:animated:) withNewMethod:@selector(aop_pushViewController:animated:)];
+    NSLog(@"load");
 }
 
 - (void)aop_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {

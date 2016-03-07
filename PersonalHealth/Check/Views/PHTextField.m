@@ -15,6 +15,17 @@
 
 @implementation PHTextField
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self setupTextField];
+    }
+    return self;
+}
+
+- (void)setupTextField {
+    self.clearButtonMode = UITextFieldViewModeAlways;
+}
+
 /**
  * 当前文本框聚焦时就会调用
  */
