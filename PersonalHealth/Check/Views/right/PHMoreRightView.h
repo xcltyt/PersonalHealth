@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class PHMoreRightView;
+
+@protocol PHMoreRightViewDelegate <NSObject>
+
+- (void)moreRightView:(PHMoreRightView *)rightView didSelectRow:(NSInteger)row;
+
+@end
+
+
 @interface PHMoreRightView : UIView
 
 
@@ -18,6 +28,8 @@
  *  显示数据的tableview
  */
 @property (weak ,nonatomic)UITableView *tableView;
+
+@property (weak, nonatomic)id<PHMoreRightViewDelegate> delegate;
 
 
 @end

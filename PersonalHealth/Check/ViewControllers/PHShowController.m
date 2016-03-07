@@ -13,17 +13,22 @@
 #import "PHCheckList.h"
 #import "MJExtension.h"
 #import "SVProgressHUD.h"
+#import "PHListViewController.h"
+#import "PHDescription.h"
 
 
 
 #define secret @"b034a3a7f7b144debe727ccebff2fd23"
 
-@interface PHShowController () <PHMoreLeftViewDelegate>
+@interface PHShowController () <PHMoreLeftViewDelegate, PHMoreRightViewDelegate>
 
 @property (weak, nonatomic) PHMoreLeftView *leftView;
 @property (weak, nonatomic) PHMoreRightView *rightView;
 
 @property (strong, nonatomic)NSArray *listArray;
+
+@property (assign, nonatomic)NSInteger leftIndex;
+
 @end
 
 @implementation PHShowController
@@ -49,7 +54,7 @@
     rightView.frame = CGRectMake(100, 0, ScreenW - 100, ScreenH);
     rightView.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.rightView = rightView;
-    
+    rightView.delegate = self;
     [self.view addSubview:rightView];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -95,6 +100,18 @@
     [self.rightView.users removeAllObjects];
     [self.rightView.users addObjectsFromArray:description.subList];
     [self.rightView.tableView reloadData];
+    self.leftIndex = index;
+    
 }
+
+- (void)moreRightView:(PHMoreRightView *)rightView didSelectRow:(NSInteger)row {
+    
+    PHListViewController *phlistVC = [[PHListViewController alloc]init];
+    PHCheckList *checkList = self.listArray[self.leftIndex];
+    PHDescription *desc = checkList.subList[row];
+    phlistVC.typeId = desc.subId;
+    [self.navigationController pushViewController:phlistVC animated:YES];
+}
+
 
 @end
