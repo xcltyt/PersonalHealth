@@ -15,6 +15,7 @@
 #import "PHBookList.h"
 #import "PHBookListViewController.h"
 #import "SVProgressHUD.h"
+#import "PHPageViewController.h" 
 
 @interface PHBookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -44,23 +45,22 @@
     
     // 设置tableview
     self.automaticallyAdjustsScrollViewInsets = NO;
-    UITableView *tableView = [[UITableView alloc]init];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     [self.view addSubview:tableView];
     self.tableView = tableView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(@0);
-    }];
-    
     // 设置inset
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     
-    
+    // 添加headerView
     PHHeaderView *headerView = [PHHeaderView headerView];
     self.headerView = headerView;
     headerView.book = self.book;
@@ -70,7 +70,7 @@
     headerView.frame = frame;
     
     self.tableView.tableHeaderView = headerView;
-    tableView.rowHeight = 50;
+    tableView.rowHeight = 40;
     
 }
 
@@ -85,11 +85,11 @@
     
     NSString *path = @"92-91";
     NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
-    NSString *sign = [NSString stringWithFormat:@"id%@showapi_appid16299showapi_timestamp%@%@",self.book.id,usefulDate,secret];
+    NSString *sign = [NSString stringWithFormat:@"id%@showapi_appid16299showapi_timestamp%@%@",self.book.ID,usefulDate,secret];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{
-                             @"id":self.book.id,
+                             @"id":self.book.ID,
                              @"showapi_appid":@"16299",
                              @"showapi_timestamp":usefulDate,
                              @"showapi_sign":md5Sign,
@@ -106,7 +106,14 @@
                 
                 [SVProgressHUD showErrorWithStatus:@"解析失败"];
             }
+            
             NSDictionary *tmpDict = dict[@"showapi_res_body"][@"bookDetails"];
+            
+            if (tmpDict == nil) {
+                
+                [self loadDeailData];
+                return;
+            }
             
             self.book = [PHBook mj_objectWithKeyValues:tmpDict];
             
@@ -126,29 +133,63 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc]init];
+    UITableViewCell *cell = nil;
     
-    cell.textLabel.text = @"点击查看目录";
-  
+    if (indexPath.row == 0) {
+        
+        cell = [[UITableViewCell alloc]init];
+        
+        cell.textLabel.text = @"    开始阅读";
+        cell.textLabel.textColor = [UIColor colorWithRed:1.000 green:0.496 blue:0.573 alpha:1.000];
+        
+    } else
+    {
+        cell = [[UITableViewCell alloc]init];
+        
+        cell.textLabel.text = @"    点击查看目录";
+        cell.textLabel.textColor = [UIColor colorWithRed:1.000 green:0.656 blue:0.591 alpha:1.000];
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PHBookListViewController *listVc = [[PHBookListViewController alloc]init];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     
-    listVc.book = self.book;
-    
-    [self.navigationController pushViewController:listVc animated:YES];
-  
+    if (indexPath.row == 0) {
+        PHPageViewController *pageVc = [[PHPageViewController alloc]init];
+        
+        pageVc.book = self.book;
+        pageVc.currentIndex = 0;
+        //    [self presentViewController:pageVc animated:YES completion:nil];
+        
+        [self.navigationController pushViewController:pageVc animated:YES];
+        
+        
+    } else {
+        
+        PHBookListViewController *listVc = [[PHBookListViewController alloc]init];
+        
+        listVc.book = self.book;
+        
+        [self.navigationController pushViewController:listVc animated:YES];
+    }
 }
 
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    PHBook *book = self.book;
+//    
+//    return book.headerViewHeight;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -15,6 +15,8 @@
 #import "PHBookList.h"
 #import "PHBook.h"
 
+
+
 @interface PHShowViewController () <UIWebViewDelegate>
 ///** 存放加载已经完成的页面数据 */
 //@property (nonatomic, strong) NSMutableDictionary *pages;
@@ -36,26 +38,23 @@
 //    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
 //    
 //    [self.myWebView loadRequest:request];
-    
-    
-    
 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    if (self.pages[_pageIndex]) {
-//        PHBookPageDetail *pageDetail = self.pages[_pageIndex];
-//        
-//        [_myWebView loadHTMLString:pageDetail.message baseURL:nil];
-//        
-//    } else {
+    if ([self.pages objectForKey:self.pageIndex]) {
+        PHBookPageDetail *pageDetail = [self.pages objectForKey:self.pageIndex];
+        
+        [_myWebView loadHTMLString:pageDetail.message baseURL:nil];
+        
+        
+    } else {
     
     [self loadpageDetailDate];
-//    }
-
-    
+        
+    }
 }
 
 - (void)loadpageDetailDate
@@ -77,7 +76,7 @@
                              @"showapi_timestamp":usefulDate,
                              @"showapi_sign":md5Sign,
                              };
-    
+    __weak typeof (self) weakSelf = self;
     [PHNetHelper POSTWithExtraUrl:path andParam:params andComplete:^(BOOL success, id result) {
         if (success) {
             NSError *error = nil;
@@ -92,14 +91,20 @@
             PHBookPageDetail *pageDetail = [PHBookPageDetail mj_objectWithKeyValues:tmpDict];
 
             // 回主线程刷新页面
-            __weak typeof (self) weakSelf = self;
+            
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 if (pageDetail.message) {
                     
                     [_myWebView loadHTMLString:pageDetail.message baseURL:nil];
                     
-//                    [NSNotificationCenter defaultCenter] postNotificationName:  object:<#(nullable id)#> userInfo:<#(nullable NSDictionary *)#>
+                    NSDictionary *dict = @{
+                                           _pageIndex:pageDetail,
+                                           };
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:PHShowVcFinishNotification  object:nil userInfo:dict
+                     ];
                     
                 } else {
                     [weakSelf loadpageDetailDate];

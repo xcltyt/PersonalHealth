@@ -13,10 +13,31 @@
 #import "PHBookPageDetail.h"
 
 @interface PHPageViewController () <UIPageViewControllerDataSource>
+/** 存储返回的数据 */
+@property (nonatomic, strong) NSMutableDictionary *pages;
+
+@property (nonatomic, strong) NSMutableArray *lists;
 
 @end
 
 @implementation PHPageViewController
+
+- (NSMutableArray *)lists
+{
+    if (_lists == nil) {
+        _lists = [NSMutableArray array];
+    }
+    return _lists;
+}
+
+- (NSMutableDictionary *)pages
+{
+    if (_pages == nil) {
+        
+        _pages = [NSMutableDictionary dictionary];
+    }
+    return _pages;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,6 +67,18 @@
     [self addChildViewController:_pageController];
     [self.view addSubview:pageController.view];
     
+    // 添加监听通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateData:) name:PHShowVcFinishNotification object:nil];
+    
+}
+
+- (void)UpdateData:(NSNotification *)noti
+{
+//    PHBookPageDetail *pageDetail = [noti.userInfo objectForKey:self.pageContent[_currentIndex]];
+//    self.title = pageDetail.title;
+    
+    [self.pages addEntriesFromDictionary:noti.userInfo];
+    
 }
 
 // 得到相应的VC对象
@@ -56,6 +89,11 @@
     // 创建一个新的控制器类，并且分配给相应的数据
     PHShowViewController *showViewController =[[PHShowViewController alloc] init];
     showViewController.pageIndex =[self.pageContent objectAtIndex:index];
+    
+    PHBookList *list = self.lists[index];
+    self.title = list.title;
+    
+    showViewController.pages = self.pages;
     return showViewController;
 }
 
@@ -81,8 +119,11 @@
         
         PHBookList *list = self.book.list[i];
         
-        NSString *contentString = list.id;
+        NSString *contentString = list.ID;
+
         [pageStrings addObject:contentString];
+        
+        [self.lists addObject:list];
     }
     
     self.pageContent = pageStrings;
@@ -122,6 +163,11 @@
     return [self viewControllerAtIndex:index];
     
     
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

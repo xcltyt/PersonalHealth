@@ -34,6 +34,9 @@
     UITabBarItem *item = [UITabBarItem appearance];
     [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
+    
+//    UINavigationBar *bar = [UINavigationBar appearance];
+    
 }
 
 - (void)viewDidLoad {

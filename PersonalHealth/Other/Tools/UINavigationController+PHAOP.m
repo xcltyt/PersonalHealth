@@ -12,7 +12,8 @@
 @implementation UINavigationController (PHAOP)
 
 + (void)load {
-    [UINavigationController aop_changeMethod:@selector(pushViewController:animated:) withNewMethod:@selector(aop_changeMethod:withNewMethod:)];
+    [UINavigationController aop_changeMethod:@selector(pushViewController:animated:) withNewMethod:@selector(aop_pushViewController:animated:)];
+    NSLog(@"load");
 }
 
 - (void)aop_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -22,7 +23,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:@"返回" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+        [button setTitleColor:[UIColor colorWithRed:0.343 green:0.827 blue:0.771 alpha:1.000] forState:UIControlStateHighlighted];
         [button setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
