@@ -59,7 +59,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    
     // 添加headerView
     PHHeaderView *headerView = [PHHeaderView headerView];
     self.headerView = headerView;

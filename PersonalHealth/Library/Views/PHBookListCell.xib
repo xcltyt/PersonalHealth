@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -36,6 +37,11 @@
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="MVF-oI-Xgg"/>
+                            </mask>
+                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者 ：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BtL-Mv-lGd">
                         <rect key="frame" x="15" y="110" width="43" height="16"/>
@@ -67,6 +73,7 @@
                     <constraint firstItem="sdP-xg-Lhd" firstAttribute="leading" secondItem="O51-AE-qQs" secondAttribute="trailing" constant="5" id="5VI-sR-wjv"/>
                     <constraint firstItem="sdP-xg-Lhd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="8sC-J2-wxU"/>
                     <constraint firstItem="wKi-LZ-YRN" firstAttribute="top" secondItem="O51-AE-qQs" secondAttribute="bottom" constant="5" id="ARe-f3-glr"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="d95-67-9Oc" secondAttribute="trailing" constant="22" id="Orl-2v-jzf"/>
                     <constraint firstItem="O51-AE-qQs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Sek-Wh-zxB"/>
                     <constraint firstItem="gq4-Qs-nJQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="XM2-Y3-PJI"/>
                     <constraint firstItem="d95-67-9Oc" firstAttribute="top" secondItem="wKi-LZ-YRN" secondAttribute="bottom" constant="-15" id="YE4-lt-VmR"/>
@@ -96,7 +103,7 @@
                 <outlet property="nameLabel" destination="sdP-xg-Lhd" id="pgm-mo-2A7"/>
                 <outlet property="summaryLabel" destination="d95-67-9Oc" id="MF8-sZ-Ld1"/>
             </connections>
-            <point key="canvasLocation" x="271" y="288.5"/>
+            <point key="canvasLocation" x="267" y="289.5"/>
         </tableViewCell>
     </objects>
 </document>
