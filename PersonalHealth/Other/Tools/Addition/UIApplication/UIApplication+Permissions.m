@@ -73,6 +73,7 @@ static char PermissionsLocationBlockFailurePropertyKey;
 }
 
 -(kPermissionAccess)hasAccessToContacts {
+
     switch (ABAddressBookGetAuthorizationStatus()) {
         case kABAuthorizationStatusAuthorized:
             return kPermissionAccessGranted;
