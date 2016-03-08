@@ -86,14 +86,14 @@
         
         if ([self.book.ID isEqualToString:book.ID]) {
             
-            image = [[UIImage imageNamed:@"new_collect_selected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            image = [UIImage imageNamed:@"new_collect_selected"];
             [self.navigationItem.rightBarButtonItem setImage:image];
             
             return;
         }
     }
 
-    image = [[UIImage imageNamed:@"new_collectBtn_normal"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    image = [UIImage imageNamed:@"new_collectBtn_normal"];
     
     [self.navigationItem.rightBarButtonItem setImage:image];
 
@@ -103,7 +103,7 @@
  */
 - (void)collectItemClick:(UIBarButtonItem *)item
 {
-    UIImage *image = [[UIImage imageNamed:@"new_collect_selected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *image = [UIImage imageNamed:@"new_collect_selected"];
     
     YUDBManager *manager = [YUDBManager sharedManager];
     NSArray *tmpArray = [manager searchAllBook];
@@ -113,7 +113,7 @@
             
             [manager deleteCollectWithBook:book];
             
-            image = [[UIImage imageNamed:@"new_collectBtn_normal"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            image = [UIImage imageNamed:@"new_collectBtn_normal"];
             [item setImage:image];
             return;
         }

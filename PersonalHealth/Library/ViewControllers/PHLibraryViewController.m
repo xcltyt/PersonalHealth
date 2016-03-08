@@ -179,8 +179,6 @@ static NSString *bookListId = @"bookListId";
             
             [category.books addObjectsFromArray:books];
             
-//            // 不是最后一次请求
-//            if (self.params != params) return;
             
             [self.bookListTableView reloadData];
             
@@ -227,7 +225,7 @@ static NSString *bookListId = @"bookListId";
     // 设置inset
     self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 44, 0);
     self.bookListTableView.contentInset = self.categoryTableView.contentInset;
-    
+    self.bookListTableView.scrollIndicatorInsets = self.categoryTableView.contentInset;
     
     // 注册cell
     [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([PHCategoryCell class]) bundle:nil] forCellReuseIdentifier:categoryId];

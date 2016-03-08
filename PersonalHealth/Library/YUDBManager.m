@@ -84,8 +84,6 @@
         UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"收藏成功" preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
         [tabbar.selectedViewController presentViewController:alert animated:YES completion:nil];
-        
-        NSLog(@"收藏成功");
     }
     else
     {
