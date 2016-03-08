@@ -17,7 +17,7 @@ static NSString *const bookSearchCell = @"bookSearchCell";
 
 @property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, strong) NSArray *collectArray;
+@property (nonatomic, strong) NSMutableArray *collectArray;
 
 @end
 
@@ -44,12 +44,12 @@ static NSString *const bookSearchCell = @"bookSearchCell";
     __weak typeof (self) weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        weakSelf.collectArray = [[YUDBManager sharedManager] searchAllBook];
+        NSArray *array = [[YUDBManager sharedManager] searchAllBook];
+        weakSelf.collectArray = [NSMutableArray arrayWithArray:array];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [weakSelf.tableView reloadData];
-            
         });
     });
 }
@@ -76,6 +76,47 @@ static NSString *const bookSearchCell = @"bookSearchCell";
     [self.navigationController pushViewController:detailVc animated:YES];
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+
+-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        PHBook *book = self.collectArray[indexPath.row];
+        
+        [[YUDBManager sharedManager] deleteCollectWithBook:book];
+        
+        //NSLog(@"%lu %ld",(unsigned long)self.dataArray.count,indexPath.row);
+        
+        [self.collectArray removeObjectAtIndex:indexPath.row];
+        
+        [self.tableView reloadData];
+        
+    }];
+    UITableViewRowAction *action2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"置顶" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        
+        [self.collectArray insertObject:self.collectArray[indexPath.row] atIndex:0];
+        
+        [self.collectArray removeObjectAtIndex:indexPath.row+1];
+        
+        [self.tableView reloadData];
+        
+        
+    }];
+    
+    UITableViewRowAction *action3 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"更多" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        
+        
+    }];
+    action2.backgroundColor = [UIColor purpleColor];
+    
+    return @[action1,action2,action3];
+}
+
+
 
 #pragma mark Private Method
 
@@ -88,7 +129,15 @@ static NSString *const bookSearchCell = @"bookSearchCell";
 }
 
 #pragma mark Getter & Setter 
-
+- (NSMutableArray *)collectArray
+{
+    if (_collectArray ==nil) {
+        
+        _collectArray = [NSMutableArray array];
+        
+    }
+    return _collectArray;
+}
 
 - (UITableView *)tableView {
     if (!_tableView) {
