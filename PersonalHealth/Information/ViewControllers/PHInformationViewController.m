@@ -136,7 +136,7 @@
 //配置右侧顶部导航搜索按钮
 -(void)configNav
 {
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"搜索资讯" style:UIBarButtonItemStylePlain target:self action:@selector(navRinghtButtonAction)];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"searchbar_textfield_search_icon"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(navRinghtButtonAction)];
 }
 -(void)navRinghtButtonAction
 {
@@ -181,6 +181,7 @@
                 PHDetailMod * detailMod= [PHDetailMod modWithDict:tempDict[@"item"]];
                 PHMsgDetailController * detailCtl=[PHMsgDetailController phMsgDetailControllerWithPHDetailMod:detailMod];
                 detailCtl.tableMod=mod;
+                
                 [self.navigationController pushViewController:detailCtl animated:YES];
             }
         }

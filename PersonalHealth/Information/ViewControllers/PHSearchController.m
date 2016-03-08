@@ -26,6 +26,10 @@
     [self configNavigation];
     self.view.backgroundColor=[UIColor whiteColor];
 }
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.searchField endEditing:YES];
+}
 -(void)configNavigation
 {
     UITextField * searchField=[[UITextField alloc]initWithFrame:CGRectMake(0, 0, SCRW*0.65, NAVH-12)];
