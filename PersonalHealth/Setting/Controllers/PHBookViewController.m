@@ -7,13 +7,17 @@
 //
 
 #import "PHBookViewController.h"
-#import "PHBookCell.h"
+#import "PHBookSearchCell.h"
+#import "YUDBManager.h"
+#import "PHBookDetailViewController.h"
 
-static NSString *const bookCellID = @"bookCellID";
+static NSString *const bookSearchCell = @"bookSearchCell";
 
 @interface PHBookViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSArray *collectArray;
 
 @end
 
@@ -23,6 +27,8 @@ static NSString *const bookCellID = @"bookCellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.tableView];
@@ -31,21 +37,50 @@ static NSString *const bookCellID = @"bookCellID";
     [self configSubviewConstraints];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    __weak typeof (self) weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        weakSelf.collectArray = [[YUDBManager sharedManager] searchAllBook];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [weakSelf.tableView reloadData];
+            
+        });
+    });
+}
+
 #pragma mark UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.collectArray.count;;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bookCellID];
+    PHBookSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:bookSearchCell];
+    cell.book = self.collectArray[indexPath.row];
+    cell.collectImageView.hidden = NO;
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PHBookDetailViewController *detailVc = [[PHBookDetailViewController alloc]init];
+    
+    detailVc.book = self.collectArray[indexPath.row];
+    
+    [self.navigationController pushViewController:detailVc animated:YES];
+}
+
 
 #pragma mark Private Method
 
 - (void)configSubviewConstraints {
-    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(StatusBarH, 0, 0, 0);
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(StatusBarH + NAVH, 0, 0, 0);
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(edgeInsets);
@@ -54,10 +89,14 @@ static NSString *const bookCellID = @"bookCellID";
 
 #pragma mark Getter & Setter 
 
+
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PHBookCell class]) bundle:nil] forCellReuseIdentifier:bookCellID];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.rowHeight = 135;
+        [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PHBookSearchCell class]) bundle:nil] forCellReuseIdentifier:bookSearchCell];
     }
     return _tableView;
 }

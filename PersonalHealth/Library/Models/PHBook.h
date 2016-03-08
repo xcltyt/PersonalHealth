@@ -22,7 +22,7 @@
 /** 图书简介 */
 @property (nonatomic,copy) NSString *summary;
 /** 出版社/来源 */
-@property (nonatomic,copy) NSString *from;
+@property (nonatomic,copy) NSString *fromer;
 /** 作者 */
 @property (nonatomic,copy) NSString *author;
 /** 关键词 */

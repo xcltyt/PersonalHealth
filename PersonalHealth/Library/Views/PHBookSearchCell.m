@@ -14,7 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *bookImageView;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *fromLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
@@ -32,7 +31,7 @@
     
     self.authorLabel.text = book.author;
     self.nameLabel.text = book.name;
-    self.contentLabel.text = book.content;
+    self.contentLabel.text = book.summary? book.summary : book.content;
     
     [self.bookImageView sd_setImageWithURL:[NSURL URLWithString:book.img]];
     
