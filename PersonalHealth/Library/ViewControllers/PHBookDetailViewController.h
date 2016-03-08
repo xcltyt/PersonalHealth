@@ -1,5 +1,3 @@
-//
-//  PHBookDetailViewController.h
 //  PersonalHealthHelper
 //
 //  Created by qianfeng on 16/3/2.

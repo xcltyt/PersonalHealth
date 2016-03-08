@@ -41,7 +41,7 @@ static NSString *searchCellId = @"searchCellId";
     self.view.backgroundColor = [UIColor whiteColor];
     // 创建搜索框对象
     PHSearchBar *searchBar = [PHSearchBar searchBar];
-    searchBar.width = 260;
+    searchBar.width = 250;
     searchBar.height = 30;
     self.searchBar = searchBar;
     

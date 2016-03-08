@@ -7,11 +7,16 @@
 //
 
 #import "PHBookDetailViewController.h"
+#import "NSDate+Formatter.h"
 #import "PHBook.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
 #import "PHHeaderView.h"
 #import "PHBookList.h"
 #import "PHBookListViewController.h"
-#import "PHPageViewController.h" 
+#import "SVProgressHUD.h"
+#import "PHPageViewController.h"
+#import "YUDBManager.h"
 
 @interface PHBookDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -35,9 +40,9 @@
 
 - (void)setupBasic
 {
+    // nav
     self.title = @"图书详情";
-    
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"new_collectBtn_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(collectItemClick:)];
     
     // 设置tableview
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -55,7 +60,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    
     // 添加headerView
     PHHeaderView *headerView = [PHHeaderView headerView];
     self.headerView = headerView;
@@ -70,6 +74,54 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIImage *image = nil;
+    
+    YUDBManager *manager = [YUDBManager sharedManager];
+    NSArray *tmpArray = [manager searchAllBook];
+    for (PHBook *book in tmpArray) {
+        
+        if ([self.book.ID isEqualToString:book.ID]) {
+            
+            image = [UIImage imageNamed:@"new_collect_selected"];
+            [self.navigationItem.rightBarButtonItem setImage:image];
+            
+            return;
+        }
+    }
+    
+    image = [UIImage imageNamed:@"new_collectBtn_normal"];
+    
+    [self.navigationItem.rightBarButtonItem setImage:image];
+    
+}
+/**
+ *  点击收藏/取消收藏
+ */
+- (void)collectItemClick:(UIBarButtonItem *)item
+{
+    UIImage *image = [UIImage imageNamed:@"new_collect_selected"];
+    
+    YUDBManager *manager = [YUDBManager sharedManager];
+    NSArray *tmpArray = [manager searchAllBook];
+    for (PHBook *book in tmpArray) {
+        
+        if ([self.book.ID isEqualToString:book.ID]) {
+            
+            [manager deleteCollectWithBook:book];
+            
+            image = [UIImage imageNamed:@"new_collectBtn_normal"];
+            [item setImage:image];
+            return;
+        }
+    }
+    [manager insertBook:self.book];
+    
+    [item setImage:image];
+}
 
 - (void)loadDeailData
 {
@@ -77,10 +129,14 @@
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     
     NSString *nowDate = [NSDate currentDateStringWithFormat:@"yyyyMM ddHHmmss"];
+    
+  //  NSLog(@"%@",[NSDate currentDateStringWithFormat:@"yyyyMMddHHmmss"]);
+    
     NSString *usefulDate = [nowDate stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     NSString *path = @"92-91";
-    NSString *sign = [NSString stringWithFormat:@"id%@showapi_appid16299showapi_timestamp%@%@",self.book.ID,usefulDate,PHSerect];
+    NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
+    NSString *sign = [NSString stringWithFormat:@"id%@showapi_appid16299showapi_timestamp%@%@",self.book.ID,usefulDate,secret];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{
@@ -126,6 +182,9 @@
     
 }
 
+
+#pragma mark -tableVew代理
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 2;
@@ -156,7 +215,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
     
     if (indexPath.row == 0) {
         PHPageViewController *pageVc = [[PHPageViewController alloc]init];
@@ -182,7 +241,7 @@
 //- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 //{
 //    PHBook *book = self.book;
-//    
+//
 //    return book.headerViewHeight;
 //}
 
@@ -192,13 +251,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

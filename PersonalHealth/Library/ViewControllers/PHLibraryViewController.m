@@ -68,7 +68,7 @@ static NSString *bookListId = @"bookListId";
  */
 - (void)setupNav
 {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchbar_textfield_search_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(searchItemClick)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"searchbar_textfield_search_icon"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(searchItemClick)];
 }
 
 /**
@@ -175,8 +175,6 @@ static NSString *bookListId = @"bookListId";
             
             [category.books addObjectsFromArray:books];
             
-//            // 不是最后一次请求
-//            if (self.params != params) return;
             
             [self.bookListTableView reloadData];
             
@@ -223,7 +221,7 @@ static NSString *bookListId = @"bookListId";
     // 设置inset
     self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 44, 0);
     self.bookListTableView.contentInset = self.categoryTableView.contentInset;
-    
+    self.bookListTableView.scrollIndicatorInsets = self.categoryTableView.contentInset;
     
     // 注册cell
     [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([PHCategoryCell class]) bundle:nil] forCellReuseIdentifier:categoryId];
