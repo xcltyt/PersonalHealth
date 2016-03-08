@@ -10,11 +10,10 @@
 #import "TLCityPickerController.h"
 #import "PHHospitalData.h"
 
-static NSString *const hospitalCellID = @"hospital";
-
-@interface PHHospitalViewController ()<UITableViewDataSource,UITableViewDelegate,TLCityPickerDelegate>
+@interface PHHospitalViewController ()<TLCityPickerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) PHHospitalData *hospitalData;
 
 @end
 
@@ -24,24 +23,17 @@ static NSString *const hospitalCellID = @"hospital";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.tableView];
     
     [self configNavigitionItem];
     
+    [self configSubviewsConstraints];
+    
 }
 
-#pragma mark - UITableViewDelegate
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:hospitalCellID];
-    return cell;
-}
 
 #pragma mark - TLCityPickerDelegate
 
@@ -49,7 +41,7 @@ static NSString *const hospitalCellID = @"hospital";
 {
     [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
         //根据城市名获取该城市的医院数据
-        [PHHospitalData dataWithCityName:city.cityName];
+        [self.hospitalData dataWithCityName:city.cityName tableView:self.tableView];
         //重载列表
         [self.tableView reloadData];
     }];
@@ -63,6 +55,14 @@ static NSString *const hospitalCellID = @"hospital";
 }
 
 #pragma mark - Private Method
+
+- (void)configSubviewsConstraints {
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(StatusBarH + NAVH, 0, 0, 0);
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).with.insets(edgeInsets);
+    }];
+}
 
 - (void)configNavigitionItem {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择城市" style:UIBarButtonItemStylePlain target:self action:@selector(cityPicker)];
@@ -86,8 +86,18 @@ static NSString *const hospitalCellID = @"hospital";
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:hospitalCellID];
+        _tableView.delegate = (id)self.hospitalData;
+        _tableView.dataSource = (id)self.hospitalData;
     }
     return _tableView;
 }
+
+- (PHHospitalData *)hospitalData {
+    if (!_hospitalData) {
+        _hospitalData = [[PHHospitalData alloc] init];
+    }
+    return _hospitalData;
+}
+
 
 @end

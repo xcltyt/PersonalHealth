@@ -133,8 +133,8 @@
 		CE922CD21C8D7C08006FEA0C /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CC91C8D7C08006FEA0C /* TLCityHeaderView.m */; };
 		CE922CD31C8D7C08006FEA0C /* TLCityPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CCB1C8D7C08006FEA0C /* TLCityPickerController.m */; };
 		CE922CD41C8D7C08006FEA0C /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CCE1C8D7C08006FEA0C /* TLCityPickerSearchResultController.m */; };
-		CE922CDE1C8DAD42006FEA0C /* PHHospitalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CDD1C8DAD42006FEA0C /* PHHospitalModel.m */; };
 		CE922CE11C8DB246006FEA0C /* PHHospitalData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CE01C8DB246006FEA0C /* PHHospitalData.m */; };
+		CE922CEE1C8EA7E5006FEA0C /* PHHospitalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CED1C8EA7E5006FEA0C /* PHHospitalModel.m */; };
 		CEB172E11C880BC10054325F /* PHBook.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172C51C880BC10054325F /* PHBook.m */; };
 		CEB172E21C880BC10054325F /* PHBookList.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172C71C880BC10054325F /* PHBookList.m */; };
 		CEB172E31C880BC10054325F /* PHBookPageDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172C91C880BC10054325F /* PHBookPageDetail.m */; };
@@ -495,10 +495,10 @@
 		CE922CCC1C8D7C08006FEA0C /* TLCityPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerDelegate.h; sourceTree = "<group>"; };
 		CE922CCD1C8D7C08006FEA0C /* TLCityPickerSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerSearchResultController.h; sourceTree = "<group>"; };
 		CE922CCE1C8D7C08006FEA0C /* TLCityPickerSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerSearchResultController.m; sourceTree = "<group>"; };
-		CE922CDC1C8DAD42006FEA0C /* PHHospitalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHospitalModel.h; sourceTree = "<group>"; };
-		CE922CDD1C8DAD42006FEA0C /* PHHospitalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHospitalModel.m; sourceTree = "<group>"; };
 		CE922CDF1C8DB246006FEA0C /* PHHospitalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHospitalData.h; sourceTree = "<group>"; };
 		CE922CE01C8DB246006FEA0C /* PHHospitalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHospitalData.m; sourceTree = "<group>"; };
+		CE922CEC1C8EA7E5006FEA0C /* PHHospitalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHospitalModel.h; sourceTree = "<group>"; };
+		CE922CED1C8EA7E5006FEA0C /* PHHospitalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHospitalModel.m; sourceTree = "<group>"; };
 		CEB172C41C880BC10054325F /* PHBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBook.h; sourceTree = "<group>"; };
 		CEB172C51C880BC10054325F /* PHBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBook.m; sourceTree = "<group>"; };
 		CEB172C61C880BC10054325F /* PHBookList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBookList.h; sourceTree = "<group>"; };
@@ -789,10 +789,10 @@
 		CE74AE821C86CA7600D0C116 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CE922CDC1C8DAD42006FEA0C /* PHHospitalModel.h */,
-				CE922CDD1C8DAD42006FEA0C /* PHHospitalModel.m */,
 				CE922CDF1C8DB246006FEA0C /* PHHospitalData.h */,
 				CE922CE01C8DB246006FEA0C /* PHHospitalData.m */,
+				CE922CEC1C8EA7E5006FEA0C /* PHHospitalModel.h */,
+				CE922CED1C8EA7E5006FEA0C /* PHHospitalModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1658,7 +1658,6 @@
 				CE922C9F1C8D0FE8006FEA0C /* PHDescription.m in Sources */,
 				CE74AF601C86DF1100D0C116 /* NSString+Size.m in Sources */,
 				CE922CAC1C8D0FE8006FEA0C /* PHMoreLeftView.m in Sources */,
-				CE922CDE1C8DAD42006FEA0C /* PHHospitalModel.m in Sources */,
 				CE922CA61C8D0FE8006FEA0C /* PHShowcarefulController.m in Sources */,
 				CE74AE401C86C1F900D0C116 /* AppDelegate.m in Sources */,
 				CE74AF5A1C86DF1100D0C116 /* NSObject+KVOBlocks.m in Sources */,
@@ -1669,6 +1668,7 @@
 				CE74AF5F1C86DF1100D0C116 /* NSString+RegexCategory.m in Sources */,
 				CE74AF511C86DF1100D0C116 /* NSDate+Reporting.m in Sources */,
 				CE74AF6A1C86DF1100D0C116 /* UIButton+TouchAreaInsets.m in Sources */,
+				CE922CEE1C8EA7E5006FEA0C /* PHHospitalModel.m in Sources */,
 				CE74AEB21C86CF0F00D0C116 /* PHSettingViewController.m in Sources */,
 				CE922CA81C8D0FE8006FEA0C /* PHShowController.m in Sources */,
 				CE922CD21C8D7C08006FEA0C /* TLCityHeaderView.m in Sources */,
