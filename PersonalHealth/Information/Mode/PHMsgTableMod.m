@@ -9,17 +9,7 @@
 #import "PHMsgTableMod.h"
 
 @implementation PHMsgTableMod
-/**
- 
- author : 南方日报,
-	img : http://img1.gtimg.com/health/pics/hv1/234/41/1886/122647839.jpg,
-	time : 2015-07-23 10:07:24,
-	id : 021088,
-	tname : 综合资讯,
-	title : 中国一年用16万吨抗生素 约占世界用量一半,
-	tid : 1
- 
- */
+
 +(PHMsgTableMod *)modWithDict:(NSDictionary * )dict
 {
     PHMsgTableMod * mod=[PHMsgTableMod new];
@@ -30,6 +20,8 @@
     mod.tname=dict[@"tname"];
     mod.title=dict[@"title"];
     mod.tid=dict[@"tid"];
+    
+    mod.readCount=[NSString stringWithFormat:@"%d人阅读过",arc4random_uniform(10000)+100];
     return mod;
 }
 @end
