@@ -11,11 +11,7 @@
 
 #define PHID @"16299"
 #define PHSerect @"b034a3a7f7b144debe727ccebff2fd23"
-#define NavH 44
-#define TabBarH 49
-#define ButtonH 48
-#define ScreenW [UIScreen mainScreen].bounds.size.width
-#define ScreenH [UIScreen mainScreen].bounds.size.height
+
 #define MAS_SHORTHAND
 #define MAS_SHORTHAND_GLOBALS
 #define StatusBarH 20

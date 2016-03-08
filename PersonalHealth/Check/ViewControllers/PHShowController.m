@@ -45,13 +45,13 @@
     
     leftView.delegate = self;
     
-    leftView.frame = CGRectMake(0, 0, 100, ScreenH);
+    leftView.frame = CGRectMake(0, 0, 100, SCRH);
     
     [self.view addSubview:leftView];
     
     PHMoreRightView *rightView = [[PHMoreRightView alloc]init];
     
-    rightView.frame = CGRectMake(100, 0, ScreenW - 100, ScreenH);
+    rightView.frame = CGRectMake(100, 0, SCRW - 100, SCRH);
     rightView.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.rightView = rightView;
     rightView.delegate = self;
@@ -65,7 +65,7 @@
 - (void)loadData {
     NSString *dataString = [NSDate currentDateStringWithFormat:@"yyyyMMdd HHmmss"];
     dataString = [dataString stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *sign = [NSString stringWithFormat:@"showapi_appid%@showapi_timestamp%@%@",@"16299",dataString,secret];
+    NSString *sign = [NSString stringWithFormat:@"showapi_appid%@showapi_timestamp%@%@",PHID,dataString,PHSerect];
     sign = [sign md532BitLower];
     NSDictionary *param = @{
                             @"showapi_appid" : @"16299",

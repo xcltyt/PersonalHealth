@@ -7,31 +7,59 @@
 //
 
 #import "PHBookViewController.h"
+#import "PHBookCell.h"
 
-@interface PHBookViewController ()
+static NSString *const bookCellID = @"bookCellID";
+
+@interface PHBookViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
 @implementation PHBookViewController
 
+#pragma mark Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:self.tableView];
+    
+    //配置子视图布局
+    [self configSubviewConstraints];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark UITableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bookCellID];
+    return cell;
 }
-*/
+
+#pragma mark Private Method
+
+- (void)configSubviewConstraints {
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(StatusBarH, 0, 0, 0);
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).with.insets(edgeInsets);
+    }];
+}
+
+#pragma mark Getter & Setter 
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] init];
+        [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PHBookCell class]) bundle:nil] forCellReuseIdentifier:bookCellID];
+    }
+    return _tableView;
+}
 
 @end
