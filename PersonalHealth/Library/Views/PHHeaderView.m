@@ -39,7 +39,7 @@
     self.authorLabel.text = book.author;
     self.bookIdLabel.text = book.ID;
     self.bookCategoryIdLabell.text = book.bookclass;
-    self.fromLabel.text = book.from;
+    self.fromLabel.text = book.fromer;
     
     self.summaryLabel.text = book.summary ? book.summary : book.content;
     

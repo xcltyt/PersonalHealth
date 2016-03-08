@@ -42,7 +42,6 @@
     }
     return self;
 }
-
 - (void)createDatabase
 {
 //    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -55,7 +54,7 @@
     BOOL ret  = [_myDatabase open];
     
     if (ret) {
-        NSString *createSql = @"create table if not exists book(ID integer primary key autoincrement,name varchar(50),author varchar(50),img varchar(50))";
+        NSString *createSql = @"create table if not exists book(ID integer primary key autoincrement,name varchar(50),author varchar(50),img varchar(50),summary varchar(50),content varchar(50),bookclass varchar(50),fromer varchar(50))";
         
         BOOL flag = [_myDatabase executeUpdate:createSql];
         
@@ -73,9 +72,9 @@
 }
 - (void)insertBook:(PHBook *)book;
 {
-    NSString *insertSql = @"insert into book (name, author, img, ID) values(?,?,?,?)";
+    NSString *insertSql = @"insert into book (name, author, img, ID,summary,content,bookclass,fromer) values(?,?,?,?,?,?,?,?)";
     
-    BOOL flag = [_myDatabase executeUpdate:insertSql,book.name,book.author,book.img,book.ID];
+    BOOL flag = [_myDatabase executeUpdate:insertSql,book.name,book.author,book.img,book.ID,book.summary,book.content,book.bookclass,book.fromer];
     
     if (flag)
     {
@@ -105,7 +104,10 @@
         book.author = [rs stringForColumn: @"author"];
         book.img = [rs stringForColumn:@"img"];
         book.ID = [rs stringForColumn:@"ID"];
-        
+        book.summary = [rs stringForColumn:@"summary"];
+        book.content = [rs stringForColumn:@"content"];
+        book.bookclass = [rs stringForColumn:@"bookclass"];
+        book.fromer = [rs stringForColumn:@"fromer"];
         [arrayM addObject:book];
         
     }

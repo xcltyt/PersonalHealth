@@ -102,7 +102,7 @@ static NSString *searchCellId = @"searchCellId";
             NSArray *tmpArray = dict[@"showapi_res_body"][@"bookList"];
             
             self.books = [PHBook mj_objectArrayWithKeyValuesArray:tmpArray];
-            
+            PHBook *book = [self.books lastObject];
             [self.tableView reloadData];
             
             
@@ -129,7 +129,7 @@ static NSString *searchCellId = @"searchCellId";
     PHBookSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:searchCellId];
     
     cell.book = self.books[indexPath.row];
-    
+    cell.collectImageView.hidden = YES;
     return cell;
 }
 
