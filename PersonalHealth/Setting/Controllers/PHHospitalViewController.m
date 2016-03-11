@@ -9,6 +9,7 @@
 #import "PHHospitalViewController.h"
 #import "TLCityPickerController.h"
 #import "PHHospitalData.h"
+#import "PHHospitalCell.h"
 
 @interface PHHospitalViewController ()<TLCityPickerDelegate>
 
@@ -85,7 +86,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:hospitalCellID];
+        [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PHHospitalCell class]) bundle:nil] forCellReuseIdentifier:hospitalCellID];
         _tableView.delegate = (id)self.hospitalData;
         _tableView.dataSource = (id)self.hospitalData;
     }

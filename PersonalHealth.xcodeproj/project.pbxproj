@@ -135,6 +135,8 @@
 		CE922CD41C8D7C08006FEA0C /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CCE1C8D7C08006FEA0C /* TLCityPickerSearchResultController.m */; };
 		CE922CE11C8DB246006FEA0C /* PHHospitalData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CE01C8DB246006FEA0C /* PHHospitalData.m */; };
 		CE922CEE1C8EA7E5006FEA0C /* PHHospitalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CED1C8EA7E5006FEA0C /* PHHospitalModel.m */; };
+		CE922CF21C8EF455006FEA0C /* PHHospitalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE922CF01C8EF455006FEA0C /* PHHospitalCell.m */; };
+		CE922CF31C8EF455006FEA0C /* PHHospitalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE922CF11C8EF455006FEA0C /* PHHospitalCell.xib */; };
 		CEB172E11C880BC10054325F /* PHBook.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172C51C880BC10054325F /* PHBook.m */; };
 		CEB172E21C880BC10054325F /* PHBookList.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172C71C880BC10054325F /* PHBookList.m */; };
 		CEB172E31C880BC10054325F /* PHBookPageDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB172C91C880BC10054325F /* PHBookPageDetail.m */; };
@@ -151,6 +153,7 @@
 		CEB172EF1C880BC10054325F /* PHHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB172E01C880BC10054325F /* PHHeaderView.xib */; };
 		CED2F8B91C87181200694B1A /* UINavigationController+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */; };
 		CED2F8C21C87181F00694B1A /* NSObject+PHAOP.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */; };
+		CEFB4EC41C910B3E00DC47BC /* PHArcView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFB4EC31C910B3E00DC47BC /* PHArcView.m */; };
 		FC3A6FFD1C8820CA009C1D90 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3A6FFC1C8820CA009C1D90 /* libsqlite3.tbd */; };
 		FC3A70011C882197009C1D90 /* TSDbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A70001C882197009C1D90 /* TSDbManager.m */; };
 		FC452C841C8712F900CFECB7 /* PHDetailMod.m in Sources */ = {isa = PBXBuildFile; fileRef = FC452C651C8712F900CFECB7 /* PHDetailMod.m */; };
@@ -269,6 +272,7 @@
 		BC9A2B381C8E624800FFA842 /* PHBookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBookDetailViewController.m; sourceTree = "<group>"; };
 		BCD3F7371C8D30810009ECB8 /* YUDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUDBManager.h; sourceTree = "<group>"; };
 		BCD3F7381C8D30810009ECB8 /* YUDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUDBManager.m; sourceTree = "<group>"; };
+		CE57B3AE1C9042B4006EC80A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		CE74AE381C86C1F900D0C116 /* PersonalHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE74AE3C1C86C1F900D0C116 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE74AE3E1C86C1F900D0C116 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -499,6 +503,9 @@
 		CE922CE01C8DB246006FEA0C /* PHHospitalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHospitalData.m; sourceTree = "<group>"; };
 		CE922CEC1C8EA7E5006FEA0C /* PHHospitalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHospitalModel.h; sourceTree = "<group>"; };
 		CE922CED1C8EA7E5006FEA0C /* PHHospitalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHospitalModel.m; sourceTree = "<group>"; };
+		CE922CEF1C8EF455006FEA0C /* PHHospitalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHospitalCell.h; sourceTree = "<group>"; };
+		CE922CF01C8EF455006FEA0C /* PHHospitalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHospitalCell.m; sourceTree = "<group>"; };
+		CE922CF11C8EF455006FEA0C /* PHHospitalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PHHospitalCell.xib; sourceTree = "<group>"; };
 		CEB172C41C880BC10054325F /* PHBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBook.h; sourceTree = "<group>"; };
 		CEB172C51C880BC10054325F /* PHBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHBook.m; sourceTree = "<group>"; };
 		CEB172C61C880BC10054325F /* PHBookList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHBookList.h; sourceTree = "<group>"; };
@@ -528,6 +535,8 @@
 		CED2F8B81C87181200694B1A /* UINavigationController+PHAOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+PHAOP.m"; sourceTree = "<group>"; };
 		CED2F8C01C87181F00694B1A /* NSObject+PHAOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PHAOP.h"; sourceTree = "<group>"; };
 		CED2F8C11C87181F00694B1A /* NSObject+PHAOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PHAOP.m"; sourceTree = "<group>"; };
+		CEFB4EC21C910B3E00DC47BC /* PHArcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHArcView.h; sourceTree = "<group>"; };
+		CEFB4EC31C910B3E00DC47BC /* PHArcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHArcView.m; sourceTree = "<group>"; };
 		FC3A6FFC1C8820CA009C1D90 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FC3A6FFF1C882197009C1D90 /* TSDbManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDbManager.h; sourceTree = "<group>"; };
 		FC3A70001C882197009C1D90 /* TSDbManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSDbManager.m; sourceTree = "<group>"; };
@@ -587,6 +596,7 @@
 		8B61842EB235A0AC2E3E9EFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE57B3AE1C9042B4006EC80A /* HealthKit.framework */,
 				FC3A6FFC1C8820CA009C1D90 /* libsqlite3.tbd */,
 				3A8E0F0F49631B889E482661 /* Pods_PersonalHealth.framework */,
 			);
@@ -806,6 +816,11 @@
 				CE922CBD1C8D4D63006FEA0C /* PHBookCell.h */,
 				CE922CBE1C8D4D63006FEA0C /* PHBookCell.m */,
 				CE922CBF1C8D4D63006FEA0C /* PHBookCell.xib */,
+				CE922CEF1C8EF455006FEA0C /* PHHospitalCell.h */,
+				CE922CF01C8EF455006FEA0C /* PHHospitalCell.m */,
+				CE922CF11C8EF455006FEA0C /* PHHospitalCell.xib */,
+				CEFB4EC21C910B3E00DC47BC /* PHArcView.h */,
+				CEFB4EC31C910B3E00DC47BC /* PHArcView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1546,6 +1561,7 @@
 				CE922CAA1C8D0FE8006FEA0C /* PHHistoryCell.xib in Resources */,
 				FC452C881C8712F900CFECB7 /* PHMsgCell.xib in Resources */,
 				CE922CB41C8D0FE8006FEA0C /* PHPushGuideView.xib in Resources */,
+				CE922CF31C8EF455006FEA0C /* PHHospitalCell.xib in Resources */,
 				CEB172EB1C880BC10054325F /* PHBookListCell.xib in Resources */,
 				CE922CA31C8D0FE8006FEA0C /* PHListViewController.xib in Resources */,
 				CEB172EF1C880BC10054325F /* PHHeaderView.xib in Resources */,
@@ -1680,6 +1696,7 @@
 				CE74AF961C86DF8C00D0C116 /* UIView+PHExtension.m in Sources */,
 				FC452C8B1C8712F900CFECB7 /* PHMsgDetailController.m in Sources */,
 				BC66786B1C88809200273418 /* PHBookSearchViewController.m in Sources */,
+				CEFB4EC41C910B3E00DC47BC /* PHArcView.m in Sources */,
 				CE74AF5D1C86DF1100D0C116 /* NSString+JsonValue.m in Sources */,
 				CE74AF501C86DF1100D0C116 /* NSDate+Helper.m in Sources */,
 				CE74AF7C1C86DF1100D0C116 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
@@ -1746,6 +1763,7 @@
 				CE922CA41C8D0FE8006FEA0C /* PHShowAllController.m in Sources */,
 				FC452C8A1C8712F900CFECB7 /* PHInformationViewController.m in Sources */,
 				CE922C451C89660E006FEA0C /* PHStepViewController.m in Sources */,
+				CE922CF21C8EF455006FEA0C /* PHHospitalCell.m in Sources */,
 				CE922CD01C8D7C08006FEA0C /* TLCity.m in Sources */,
 				CE74AEA51C86CC3900D0C116 /* ShowApiRequest.swift in Sources */,
 				CE74AF791C86DF1100D0C116 /* UIImageView+Letters.m in Sources */,

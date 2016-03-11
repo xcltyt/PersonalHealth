@@ -8,12 +8,14 @@
 
 #import "PHHospitalData.h"
 #import "PHHospitalModel.h"
+#import "PHHospitalCell.h"
 
 NSString *const hospitalCellID = @"hospital";
 
 @interface PHHospitalData()
 
 @property (nonatomic, strong) NSArray *cityList;
+@property (nonatomic, strong) PHHospitalCell *cell;
 
 @end
 
@@ -64,12 +66,20 @@ NSString *const hospitalCellID = @"hospital";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:hospitalCellID];
-    Hospitallist *hospitallist = self.cityList[indexPath.row];
-    cell.textLabel.text = hospitallist.hosName;
-    NSLog(@"-------%@",cell.textLabel.text);
-    return cell;
+    self.cell = [tableView dequeueReusableCellWithIdentifier:hospitalCellID];
+    self.cell.hospital = self.cityList[indexPath.row];
+    return self.cell;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.cell setNeedsUpdateConstraints];
+    [self.cell updateConstraintsIfNeeded];
+//    CGSize size = [self.cell.contentView systemLayoutSizeFittingSize:UILayoutFittingExpandedSize];
+//    return size.height + 1;
+    return 100;
+}
+
 
 - (NSArray *)cityList {
     if (!_cityList) {
@@ -77,6 +87,8 @@ NSString *const hospitalCellID = @"hospital";
     }
     return _cityList;
 }
+
+
 
 
 

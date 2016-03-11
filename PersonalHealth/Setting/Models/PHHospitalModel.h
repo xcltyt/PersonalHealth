@@ -52,5 +52,7 @@
 
 @property (nonatomic, copy) NSString *info;
 
+
+
 @end
 

@@ -102,7 +102,6 @@ static NSString *searchCellId = @"searchCellId";
             NSArray *tmpArray = dict[@"showapi_res_body"][@"bookList"];
             
             self.books = [PHBook mj_objectArrayWithKeyValuesArray:tmpArray];
-            PHBook *book = [self.books lastObject];
             [self.tableView reloadData];
             
             
