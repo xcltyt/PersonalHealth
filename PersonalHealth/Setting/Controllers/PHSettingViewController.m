@@ -30,6 +30,10 @@
 @property (nonatomic, strong) UITableView *tableView;
 //头部
 @property (nonatomic, strong) UIView *headerView;
+//头部图片
+@property (nonatomic, strong) UIImageView *headerImageView;
+
+
 @end
 
 @implementation PHSettingViewController
@@ -44,6 +48,7 @@
     
     [self.view addSubview:self.tableView];
     [self.tableView.tableHeaderView addSubview:self.headerView];
+    [self.headerView addSubview:self.headerImageView];
     //配置子视图布局约束
     [self configSubviewsConstraints];
 }
@@ -56,6 +61,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] init];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.font = [UIFont systemFontOfSize:20 weight:2];
+    cell.textLabel.textColor = [UIColor darkGrayColor];
     
     switch (indexPath.row) {
         case 0:
@@ -71,7 +80,7 @@
             cell.textLabel.text = @"好书常阅";
             break;
         case 4:
-            cell.textLabel.text = @"分享应用";
+            cell.textLabel.text = @"清除缓存";
             break;
         case 5:
             cell.textLabel.text = @"意见反馈";
@@ -88,7 +97,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 150;
+    return 200;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,13 +119,6 @@
     }
 }
 
-#pragma mark - Custom Delegate
-
-
-
-#pragma mark - Event Response
-
-
 
 #pragma mark - Private Methods
 
@@ -125,6 +127,10 @@
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(edgeInsets);
+    }];
+    
+    [self.headerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.headerView);
     }];
 }
 
@@ -135,6 +141,10 @@
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.contentMode = UIViewContentModeScaleToFill;
+        _tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG"]];
+        _tableView.bounces = NO;
+        _tableView.rowHeight = 55;
     }
     return _tableView;
 }
@@ -173,6 +183,14 @@
         _bookVC = [[PHBookViewController alloc] init];
     }
     return _bookVC;
+}
+
+- (UIImageView *)headerImageView {
+    if (!_headerImageView) {
+        _headerImageView = [[UIImageView alloc] init];
+        _headerImageView.image = [UIImage imageNamed:@"Snip20160309_1"];
+    }
+    return _headerImageView;
 }
 
 @end

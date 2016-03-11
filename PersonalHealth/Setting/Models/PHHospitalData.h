@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PHHospitalData : NSObject
+extern NSString *const hospitalCellID;
 
-+ (void)dataWithCityName:(NSString *)cityName;
+@interface PHHospitalData : NSObject <UITableViewDataSource,UITableViewDelegate>
+
+- (void)dataWithCityName:(NSString *)cityName tableView:(UITableView *)tableView;
 
 @end

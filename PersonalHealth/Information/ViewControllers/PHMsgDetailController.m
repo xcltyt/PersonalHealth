@@ -34,6 +34,7 @@
 {
     PHMsgDetailController * ctl=[PHMsgDetailController new];
 
+    
     ctl.mod=mod;
     
     return ctl;
@@ -100,6 +101,7 @@
     self.authorLabel= authorLable;
     [self.scrollView addSubview:authorLable];
     authorLable.font=[UIFont systemFontOfSize:15];
+    NSLog(@"%@",_mod);
     NSString * text=[@"来源：" stringByAppendingString:_mod.author];
     authorLable.text=text;
     [authorLable mas_makeConstraints:^(MASConstraintMaker *make) {
