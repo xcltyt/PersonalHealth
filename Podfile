@@ -8,4 +8,5 @@ target 'PersonalHealth' do
     pod 'MJRefresh'
     pod 'MJExtension'
     pod 'SVProgressHUD'
+    pod 'FMDB'
 end
