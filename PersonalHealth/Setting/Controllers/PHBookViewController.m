@@ -89,31 +89,14 @@ static NSString *const bookSearchCell = @"bookSearchCell";
         
         [[YUDBManager sharedManager] deleteCollectWithBook:book];
         
-        //NSLog(@"%lu %ld",(unsigned long)self.dataArray.count,indexPath.row);
-        
         [self.collectArray removeObjectAtIndex:indexPath.row];
         
         [self.tableView reloadData];
         
     }];
-    UITableViewRowAction *action2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"置顶" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-        
-        [self.collectArray insertObject:self.collectArray[indexPath.row] atIndex:0];
-        
-        [self.collectArray removeObjectAtIndex:indexPath.row+1];
-        
-        [self.tableView reloadData];
-        
-        
-    }];
+
     
-    UITableViewRowAction *action3 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"更多" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-        
-        
-    }];
-    action2.backgroundColor = [UIColor purpleColor];
-    
-    return @[action1,action2,action3];
+    return @[action1];
 }
 
 
