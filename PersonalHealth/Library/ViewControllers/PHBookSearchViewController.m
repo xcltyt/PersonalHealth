@@ -71,17 +71,17 @@ static NSString *searchCellId = @"searchCellId";
     // 显示指示器
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     
-    NSString *nowDate = [NSDate currentDateStringWithFormat:@"yyyyMM ddHHmmss"];
-    NSString *usefulDate = [nowDate stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *nowDate = [NSDate currentDateStringWithFormat:@"yyyyMMddHHmmss"];
+
     NSString *path = @"92-94";
     NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
-    NSString *sign = [NSString stringWithFormat:@"keyword%@showapi_appid16299showapi_timestamp%@%@",keyWords,usefulDate,secret];
+    NSString *sign = [NSString stringWithFormat:@"keyword%@showapi_appid16299showapi_timestamp%@%@",keyWords,nowDate,secret];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{
                              @"keyword":keyWords,
                              @"showapi_appid":@"16299",
-                             @"showapi_timestamp":usefulDate,
+                             @"showapi_timestamp":nowDate,
                              @"showapi_sign":md5Sign,
                              };
     
