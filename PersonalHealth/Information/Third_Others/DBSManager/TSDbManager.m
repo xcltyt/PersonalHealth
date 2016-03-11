@@ -35,7 +35,7 @@
 }
 -(void)createDBS
 {
-    NSString * path=[NSHomeDirectory() stringByAppendingPathComponent:@"phMsgTableMods.sqlite"];
+    NSString * path=[NSHomeDirectory() stringByAppendingPathComponent:@"Library/phMsgTableMods.sqlite"];
     _database=[[FMDatabase alloc]initWithPath:path];
     BOOL ret=[_database open];
     if (ret)

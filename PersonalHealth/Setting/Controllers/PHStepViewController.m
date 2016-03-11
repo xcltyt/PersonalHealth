@@ -55,15 +55,30 @@ static NSString *const setpID = @"setpID";
 
 - (void)start {
     if (self.startButton.selected == YES) {
-        if (![CMPedometer isStepCountingAvailable]) return;
-        [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData * _Nullable pedometerData, NSError * _Nullable error) {
+        if (![CMPedometer isStepCountingAvailable]) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"您的设备不支持计步功能！" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:alertAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+            return;
+        }
+        
+        __weak typeof(self) weakSelf = self;
+        
+        NSDate *date = [NSDate date];
+        NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
+        NSInteger interval = [timeZone secondsFromGMTForDate:date];
+        NSDate *localDate = [date dateByAddingTimeInterval:interval];
+        [self.pedometer startPedometerUpdatesFromDate:[NSDate dateWithTimeInterval:-24*60*60 sinceDate:localDate] withHandler:^(CMPedometerData * _Nullable pedometerData, NSError * _Nullable error) {
             if (error) {
                 NSLog(@"%@",error.localizedDescription);
+                return;
             } else {
-                NSString *stepStr = [NSString stringWithFormat:@"%@",pedometerData.numberOfSteps];
-                int i = [stepStr intValue];
-                self.arcView.num += i;
-                double distance = pedometerData.distance.doubleValue;
+                NSLog(@"%@",pedometerData);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    weakSelf.distanceLabel.text = [NSString stringWithFormat:@"这段时间内走过的距离为%@\n这段时间内走过的步数为%@\n这段时间内上楼的近似台阶数为%@\n这段时间内下楼的近似台阶数为%@",pedometerData.distance,pedometerData.numberOfSteps,pedometerData.floorsAscended,pedometerData.floorsDescended];
+                });
+                
                 
             }
         }];
@@ -72,6 +87,7 @@ static NSString *const setpID = @"setpID";
 
 - (void)purse {
     self.startButton.selected = NO;
+    [self.pedometer stopPedometerUpdates];
 }
 
 
@@ -167,7 +183,7 @@ static NSString *const setpID = @"setpID";
 - (UILabel *)distanceLabel {
     if (!_distanceLabel) {
         _distanceLabel = [[UILabel alloc] init];
-        _distanceLabel.text = [NSString stringWithFormat:@"今日总里程：\n总里程："];
+//        _distanceLabel.text = [NSString stringWithFormat:@"今日总里程：\n总里程："];
         _distanceLabel.numberOfLines = 0;
     }
     return _distanceLabel;
