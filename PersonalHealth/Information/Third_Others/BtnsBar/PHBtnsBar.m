@@ -36,6 +36,7 @@
 {
     PHBtnsBar * btnsBar=[[PHBtnsBar alloc]initWithFrame:frame];
     btnsBar.nameArray=nameArray;
+    btnsBar.backgroundColor=[UIColor whiteColor];
     btnsBar.selectNumber=0;
     return btnsBar;
 }
@@ -51,8 +52,12 @@
         btn.tag=i;
         //btn样式
         [btn setTitle:self.nameArray[i] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        btn.titleLabel.font=[UIFont systemFontOfSize:15];
+        //颜色设置arc4random_uniform(10000)+100
+        [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        //[UIColor color]
+        //39 94 126
+        [btn setTitleColor:[UIColor brownColor] forState:UIControlStateSelected];
         
         
         [self addSubview:btn];

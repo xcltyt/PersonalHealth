@@ -35,13 +35,13 @@
 }
 -(void)createDBS
 {
-    NSString * path=[NSHomeDirectory() stringByAppendingPathComponent:@"phMsgTableMod.sqlite"];
+    NSString * path=[NSHomeDirectory() stringByAppendingPathComponent:@"Library/phMsgTableMods.sqlite"];
     _database=[[FMDatabase alloc]initWithPath:path];
     BOOL ret=[_database open];
     if (ret)
     {
         NSLog(@"数据库 开启");
-        NSString * createStr=@"create table if not exists phMsgTableMod (ID integer primary key ,author varchar(150),time varchar(150),img varchar(150),tname varchar(150),title varchar(150),tid integer)";
+        NSString * createStr=@"create table if not exists phMsgTableMods (ID integer primary key ,author varchar(150),time varchar(150),img varchar(150),tname varchar(150),title varchar(150),tid integer,readCount varchar(150))";
         BOOL flag= [_database executeUpdate:createStr];
         if (flag)
         {
@@ -59,7 +59,7 @@
 }
 -(NSArray *)searchAllCollect
 {
-    NSString * searchAll=@"select * from phMsgTableMod";
+    NSString * searchAll=@"select * from phMsgTableMods";
     FMResultSet * set = [_database executeQuery:searchAll];
     NSMutableArray * array=[NSMutableArray array];
     while ([set next]) {
@@ -73,7 +73,7 @@
         mod.tname=[set stringForColumn:@"tname"];
         mod.ID=[set stringForColumn:@"ID"];
         mod.tid=@([set intForColumn:@"tid"]);
-        
+        mod.readCount=[set stringForColumn:@"readCount"];
         [array addObject:mod];
         
     }
@@ -81,8 +81,8 @@
 }
 -(void)insert:(PHMsgTableMod *)mod
 {
-    NSString * insertSql=@"insert into phMsgTableMod (author,img,time,title,tname,ID,tid) values (?,?,?,?,?,?,?)";
-    BOOL flag=[_database executeUpdate:insertSql,mod.author,mod.img,mod.time,mod.title,mod.tname,mod.ID,mod.tid];
+    NSString * insertSql=@"insert into phMsgTableMods (author,img,time,title,tname,ID,tid,readCount) values (?,?,?,?,?,?,?,?)";
+    BOOL flag=[_database executeUpdate:insertSql,mod.author,mod.img,mod.time,mod.title,mod.tname,mod.ID,mod.tid,mod.readCount];
     if (flag)
     {
         //此处应有弹窗
@@ -104,10 +104,16 @@
 }
 -(void)deleteCollectWithID:(NSString *)ID
 {
-    NSString * deleteStr=@"delete from phMsgTableMod where ID = ?";
+    NSString * deleteStr=@"delete from phMsgTableMods where ID = ?";
     BOOL flag=[_database executeUpdate:deleteStr,ID];
     if (flag)
     {
+        
+        UITabBarController * tabbar =(UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"取消收藏成功" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+        [tabbar.selectedViewController presentViewController:alert animated:YES completion:nil];
+        
         NSLog(@"删除成功");
     }
     else
@@ -119,4 +125,5 @@
 {
     [self deleteCollectWithID:mod.ID];
 }
+
 @end

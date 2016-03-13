@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -24,16 +25,6 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="简介 ：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYh-5p-O2E">
                         <rect key="frame" x="88" y="31" width="43" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaC-gO-Cuo" userLabel="contentLabel">
-                        <rect key="frame" x="88" y="32" width="280" height="70"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="70" id="CnQ-2v-jg8"/>
-                            <constraint firstAttribute="width" constant="280" id="Fhz-fX-Igz"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -61,12 +52,35 @@
                         <color key="textColor" red="1" green="0.0" blue="1" alpha="0.58999999999999997" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_collect_selected" translatesAutoresizingMaskIntoConstraints="NO" id="dm8-Cm-b5F">
+                        <rect key="frame" x="337" y="10" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="7f9-bV-2vV"/>
+                            <constraint firstAttribute="height" constant="25" id="zoC-Iz-G4d"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaC-gO-Cuo" userLabel="contentLabel">
+                        <rect key="frame" x="88" y="32" width="280" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="CnQ-2v-jg8"/>
+                            <constraint firstAttribute="width" constant="280" id="Fhz-fX-Igz"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Fhz-fX-Igz"/>
+                            </mask>
+                        </variation>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="j3R-vR-OxF" firstAttribute="leading" secondItem="yWv-W2-ydf" secondAttribute="leading" constant="10" id="6Bd-NF-gCa"/>
                     <constraint firstItem="ta5-xk-Smo" firstAttribute="leading" secondItem="7SD-KN-2DP" secondAttribute="trailing" constant="5" id="6Q1-EF-xGT"/>
                     <constraint firstItem="j3R-vR-OxF" firstAttribute="top" secondItem="yWv-W2-ydf" secondAttribute="top" constant="10" id="7mc-8j-jGH"/>
                     <constraint firstItem="N5n-Df-tH4" firstAttribute="top" secondItem="j3R-vR-OxF" secondAttribute="bottom" constant="10" id="EZ1-Id-2sm"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="YaC-gO-Cuo" secondAttribute="trailing" constant="9" id="IIB-bs-HJh"/>
                     <constraint firstItem="ta5-xk-Smo" firstAttribute="top" secondItem="yWv-W2-ydf" secondAttribute="top" constant="10" id="Qkx-az-Uds"/>
                     <constraint firstItem="RYh-5p-O2E" firstAttribute="leading" secondItem="j3R-vR-OxF" secondAttribute="trailing" constant="8" id="Rlf-4e-0cZ"/>
                     <constraint firstItem="7SD-KN-2DP" firstAttribute="leading" secondItem="j3R-vR-OxF" secondAttribute="trailing" constant="8" id="VLt-7r-KSX"/>
@@ -75,9 +89,11 @@
                     <constraint firstItem="iwy-B8-Xn6" firstAttribute="leading" secondItem="N5n-Df-tH4" secondAttribute="trailing" constant="5" id="dIB-Xw-rdP"/>
                     <constraint firstItem="YaC-gO-Cuo" firstAttribute="top" secondItem="RYh-5p-O2E" secondAttribute="bottom" constant="-15" id="gU9-qN-Vpn"/>
                     <constraint firstItem="ta5-xk-Smo" firstAttribute="leading" secondItem="7SD-KN-2DP" secondAttribute="trailing" constant="5" id="hXf-S8-7Bk"/>
+                    <constraint firstItem="dm8-Cm-b5F" firstAttribute="top" secondItem="yWv-W2-ydf" secondAttribute="top" constant="10" id="jhe-Xj-wIF"/>
                     <constraint firstItem="ta5-xk-Smo" firstAttribute="top" secondItem="yWv-W2-ydf" secondAttribute="top" constant="10" id="q2B-Ca-3mx"/>
                     <constraint firstItem="RYh-5p-O2E" firstAttribute="top" secondItem="7SD-KN-2DP" secondAttribute="bottom" constant="5" id="rld-Eg-BBf"/>
                     <constraint firstItem="N5n-Df-tH4" firstAttribute="leading" secondItem="yWv-W2-ydf" secondAttribute="leading" constant="15" id="tHY-xx-A7A"/>
+                    <constraint firstAttribute="trailing" secondItem="dm8-Cm-b5F" secondAttribute="trailing" constant="23" id="tbT-3b-Z9L"/>
                     <constraint firstItem="iwy-B8-Xn6" firstAttribute="top" secondItem="j3R-vR-OxF" secondAttribute="bottom" constant="10" id="u06-7i-d33"/>
                     <constraint firstItem="RYh-5p-O2E" firstAttribute="top" secondItem="yWv-W2-ydf" secondAttribute="top" constant="50" id="xbk-dv-hkW"/>
                 </constraints>
@@ -93,10 +109,14 @@
             <connections>
                 <outlet property="authorLabel" destination="iwy-B8-Xn6" id="8HW-3L-j4D"/>
                 <outlet property="bookImageView" destination="j3R-vR-OxF" id="s7v-fX-OAe"/>
+                <outlet property="collectImageView" destination="dm8-Cm-b5F" id="2Ad-w0-GZP"/>
                 <outlet property="contentLabel" destination="YaC-gO-Cuo" id="Zzs-v5-vOo"/>
                 <outlet property="nameLabel" destination="ta5-xk-Smo" id="A0u-Q0-gkB"/>
             </connections>
             <point key="canvasLocation" x="319.5" y="261.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="new_collect_selected" width="26" height="26"/>
+    </resources>
 </document>

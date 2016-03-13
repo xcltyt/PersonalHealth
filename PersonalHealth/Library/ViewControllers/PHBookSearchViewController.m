@@ -8,9 +8,7 @@
 
 #import "PHBookSearchViewController.h"
 #import "PHSearchBar.h"
-#import "SVProgressHUD.h"
 #import "PHBook.h"
-#import "MJExtension.h"
 #import "PHBookDetailViewController.h"
 #import "PHBookSearchCell.h"
 
@@ -43,7 +41,7 @@ static NSString *searchCellId = @"searchCellId";
     self.view.backgroundColor = [UIColor whiteColor];
     // 创建搜索框对象
     PHSearchBar *searchBar = [PHSearchBar searchBar];
-    searchBar.width = 260;
+    searchBar.width = 250;
     searchBar.height = 30;
     self.searchBar = searchBar;
     
@@ -73,17 +71,17 @@ static NSString *searchCellId = @"searchCellId";
     // 显示指示器
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     
-    NSString *nowDate = [NSDate currentDateStringWithFormat:@"yyyyMM ddHHmmss"];
-    NSString *usefulDate = [nowDate stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *nowDate = [NSDate currentDateStringWithFormat:@"yyyyMMddHHmmss"];
+
     NSString *path = @"92-94";
     NSString *secret = @"b034a3a7f7b144debe727ccebff2fd23";
-    NSString *sign = [NSString stringWithFormat:@"keyword%@showapi_appid16299showapi_timestamp%@%@",keyWords,usefulDate,secret];
+    NSString *sign = [NSString stringWithFormat:@"keyword%@showapi_appid16299showapi_timestamp%@%@",keyWords,nowDate,secret];
     NSString *md5Sign = [sign md532BitLower];
     
     NSDictionary *params = @{
                              @"keyword":keyWords,
                              @"showapi_appid":@"16299",
-                             @"showapi_timestamp":usefulDate,
+                             @"showapi_timestamp":nowDate,
                              @"showapi_sign":md5Sign,
                              };
     
@@ -104,7 +102,6 @@ static NSString *searchCellId = @"searchCellId";
             NSArray *tmpArray = dict[@"showapi_res_body"][@"bookList"];
             
             self.books = [PHBook mj_objectArrayWithKeyValuesArray:tmpArray];
-            
             [self.tableView reloadData];
             
             
@@ -131,7 +128,7 @@ static NSString *searchCellId = @"searchCellId";
     PHBookSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:searchCellId];
     
     cell.book = self.books[indexPath.row];
-    
+    cell.collectImageView.hidden = YES;
     return cell;
 }
 

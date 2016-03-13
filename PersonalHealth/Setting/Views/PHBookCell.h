@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class PHBook;
+
 @interface PHBookCell : UITableViewCell
+
+@property (nonatomic, strong) PHBook *book;
 
 @end

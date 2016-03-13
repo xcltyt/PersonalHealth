@@ -18,6 +18,8 @@
 @property (nonatomic,strong)UILabel * authorLabel;
 @property (nonatomic,strong)UILabel * timeLabel;
 
+@property (nonatomic,strong)UIButton * rightBtn;
+
 @property (nonatomic,strong)UIScrollView * scrollView;
 @end
 
@@ -25,14 +27,16 @@
 -(void)setMod:(PHDetailMod *)mod
 {
     _mod=mod;
+    [self configNav];
     [self configSubViews];
 }
 +(instancetype)phMsgDetailControllerWithPHDetailMod:(PHDetailMod *)mod
 {
     PHMsgDetailController * ctl=[PHMsgDetailController new];
 
-   // ctl.scrollView.contentSize=CGSizeMake(SCRW, 500);
+    
     ctl.mod=mod;
+    
     return ctl;
 }
 
@@ -51,7 +55,7 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(15);
         make.right.equalTo(-15);
-        make.width.equalTo(ScreenW-30);
+        make.width.equalTo(SCRW-30);
         make.top.equalTo(5);
         make.height.equalTo(50);
     }];
@@ -97,13 +101,14 @@
     self.authorLabel= authorLable;
     [self.scrollView addSubview:authorLable];
     authorLable.font=[UIFont systemFontOfSize:15];
+    NSLog(@"%@",_mod);
     NSString * text=[@"来源：" stringByAppendingString:_mod.author];
     authorLable.text=text;
     [authorLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(8);
         make.top.equalTo(contenttextView.mas_bottom).offset(10);
         make.width.equalTo(120);
-        make.height.equalTo(ButtonH);
+        make.height.equalTo(BTNH);
     }];
     
     UILabel * timeLabe=[[UILabel alloc]init];
@@ -116,23 +121,62 @@
         make.top.equalTo(contenttextView.mas_bottom).offset(10);
         make.bottom.equalTo(10);
         make.width.equalTo(150);
-        make.height.equalTo(ButtonH);
+        make.height.equalTo(BTNH);
     }];
     
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.view.backgroundColor=[UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"收藏" style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnTouch)];
+
+    //[self configNav];
+
     // Do any additional setup after loading the view.
+}
+-(void)configNav
+{
+    UIButton * btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, NAVH, NAVH)];
+    UIBarButtonItem * item = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    self.navigationItem.rightBarButtonItem=item;
+    [btn setBackgroundImage:[UIImage imageNamed:@"detail_icon_star"] forState:UIControlStateNormal];
+    [btn setBackgroundImage:[UIImage imageNamed:@"detail_icon_star_highlight"] forState:UIControlStateSelected];
+    self.rightBtn=btn;
+    [btn addTarget:self action:@selector(rightBtnTouch) forControlEvents:UIControlEventTouchUpInside];
+    
+    NSArray * likeArray=[[TSDbManager sharedManager]searchAllCollect];
+    for (PHMsgTableMod * mod in likeArray)
+    {
+        if ([mod.ID isEqualToString:[self.mod.ID substringFromIndex:1]])
+        {
+
+            self.rightBtn.selected=YES;
+        }
+
+    }
+    
 }
 //执行收藏操作
 -(void)rightBtnTouch
 {
-    [[TSDbManager sharedManager]insert:self.tableMod];
+    //选中状态下，即收藏状态下
+    if (self.rightBtn.selected)
+    {
+        //取消收藏
+        [[TSDbManager sharedManager]deleteCollectWithMod:self.tableMod];
+    }
+    else
+    {
+         [[TSDbManager sharedManager]insert:self.tableMod];
+    }
+    self.rightBtn.selected=!self.rightBtn.selected;
+    
+   
+    
 }
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

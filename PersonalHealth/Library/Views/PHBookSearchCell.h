@@ -12,5 +12,6 @@
 @interface PHBookSearchCell : UITableViewCell
 
 @property (nonatomic, strong) PHBook *book;
+@property (weak, nonatomic) IBOutlet UIImageView *collectImageView;
 
 @end

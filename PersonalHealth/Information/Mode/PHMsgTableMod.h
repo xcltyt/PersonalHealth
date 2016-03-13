@@ -18,6 +18,9 @@
 @property (nonatomic,strong)NSNumber * tid;//分类id
 @property (nonatomic,strong)NSString * tname;//分类名
 @property (nonatomic,strong)NSString * ID;//条目id
+
+@property (nonatomic,strong)NSString * readCount;
+
 +(PHMsgTableMod *)modWithDict:(NSDictionary * )dict;
 
 @end
