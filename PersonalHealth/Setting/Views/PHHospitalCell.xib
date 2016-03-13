@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hospital" rowHeight="122" id="KGk-i7-Jjw" customClass="PHHospitalCell">
+            <rect key="frame" x="0.0" y="0.0" width="366" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="366" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o68-HT-b8h">
+                        <rect key="frame" x="8" y="8" width="348" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" red="1" green="0.57419242510000001" blue="0.74463206339999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bp-cv-g56">
+                        <rect key="frame" x="8" y="29.5" width="348" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPj-B2-qml">
+                        <rect key="frame" x="8" y="73.5" width="348" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="mPj-B2-qml" secondAttribute="trailing" constant="10" id="2iN-tk-kPE"/>
+                    <constraint firstItem="mPj-B2-qml" firstAttribute="top" secondItem="2Bp-cv-g56" secondAttribute="bottom" id="7QW-M4-dYA"/>
+                    <constraint firstItem="2Bp-cv-g56" firstAttribute="top" secondItem="o68-HT-b8h" secondAttribute="bottom" id="93g-Cy-u2E"/>
+                    <constraint firstAttribute="bottom" secondItem="mPj-B2-qml" secondAttribute="bottom" constant="8" id="Mo2-hl-Fxd"/>
+                    <constraint firstItem="2Bp-cv-g56" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="gRP-p1-EVk"/>
+                    <constraint firstAttribute="trailing" secondItem="2Bp-cv-g56" secondAttribute="trailing" constant="10" id="rhw-M8-g6o"/>
+                    <constraint firstItem="mPj-B2-qml" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="sDq-y2-WRm"/>
+                    <constraint firstItem="o68-HT-b8h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="shq-M0-veu"/>
+                    <constraint firstItem="o68-HT-b8h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="zAR-XM-GXM"/>
+                    <constraint firstAttribute="trailing" secondItem="o68-HT-b8h" secondAttribute="trailing" constant="10" id="zXn-I6-8l9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="hospitalAddressLabel" destination="2Bp-cv-g56" id="F8p-US-loR"/>
+                <outlet property="hospitalNameLabel" destination="o68-HT-b8h" id="DkH-tC-O4P"/>
+                <outlet property="specialOfficialLabel" destination="mPj-B2-qml" id="Hfg-Ur-55o"/>
+            </connections>
+            <point key="canvasLocation" x="313" y="294"/>
+        </tableViewCell>
+    </objects>
+</document>

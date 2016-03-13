@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PHTabBarController.h"
+#import <HealthKit/HealthKit.h>
 
 @interface AppDelegate ()
 
@@ -15,11 +16,11 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self configRootViewController];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

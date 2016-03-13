@@ -1,0 +1,164 @@
+//
+//  PHCheckViewController.m
+//  PersonalHealthHelper
+//
+//  Created by lifan on 16/3/1.
+//  Copyright © 2016年 PH. All rights reserved.
+//
+
+#import "PHCheckViewController.h"
+#import "PHCheckHomeView.h"
+#import "PHShowController.h"
+#import "PHSickList.h"
+#import "PHShowAllController.h"
+#import "NSString+PHCutSpace.h"
+
+
+@interface PHCheckViewController () <PHCheckHomeViewDelegate>
+@property (weak, nonatomic) PHCheckHomeView *homeView;
+
+
+@property (strong, nonatomic) NSArray *sickList;
+@end
+
+@implementation PHCheckViewController
+
+#pragma mark - Life Cycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    PHCheckHomeView *homeView = [PHCheckHomeView homeView];
+    
+    self.homeView = homeView;
+    
+    homeView.delegate = self;
+    
+    [self.view addSubview:homeView];
+    
+    [self constraintHomeView];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"分类" style:UIBarButtonItemStylePlain target:self action:@selector(goMore)];
+    
+}
+
+#pragma mark - UITableViewDelegate
+
+
+
+#pragma mark - Custom Delegate
+- (void)homeView:(PHCheckHomeView *)homeView didClickSearchButton:(UIButton *)searchButton {
+    [self.homeView showText:@""];
+    NSString *text = self.homeView.textField.text;
+    if ([self isEqualSpace:text]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.homeView showEnd];
+            [self.homeView showText:@"请输入搜索内容"];
+        });
+        return;
+    }
+    text = [NSString cutSpace:text];
+    NSString *dataString = [NSDate currentDateStringWithFormat:@"yyyyMMdd HHmmss"];
+    dataString = [dataString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *sign = [NSString stringWithFormat:@"key%@showapi_appid%@showapi_timestamp%@%@",text ,@"16299",dataString,PHSerect];
+    sign = [sign md532BitLower];
+    NSDictionary *param = @{
+                            @"showapi_appid" : @"16299",
+                            @"showapi_sign" : sign,
+                            @"showapi_timestamp": dataString,
+                            @"key" : text
+                            };
+  
+#pragma mark －请求－
+    [PHNetHelper POSTWithExtraUrl:@"546-2" andParam:param andComplete:^(BOOL success, id result) {
+        if (success) {
+            NSError *error;
+            NSDictionary *dictjson = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:&error];
+            NSDictionary *dict = dictjson[@"showapi_res_body"];
+            NSDictionary *pageBean = dict[@"pagebean"];
+            if ([dict[@"ret_code"]integerValue] == 0) {
+                NSArray *sickList = [PHSickList mj_objectArrayWithKeyValuesArray:pageBean[@"contentlist"]];
+                if (sickList != nil && sickList.count > 0) {
+                    [self showSickList:sickList];
+                }else {
+                    [self.homeView showEnd];
+                    [self.homeView showText:@"非常抱歉,没有相关信息哦～～～～～"];
+                }
+                
+                self.sickList = sickList;
+            }else {
+                [self.homeView showText:@"抱歉,未找到"];
+            }
+            
+
+        } else {
+            [self.homeView showText:@"抱歉,未找到相关信息"];
+            [self.homeView showEnd];
+        }
+    }];
+}
+
+
+
+- (void)homeView:(PHCheckHomeView *)homeView didClickShowAllButton:(UIButton *)showAllButton {
+    
+    if (self.sickList == nil || self.sickList.count == 0) return;
+    PHSickList *sickList = self.sickList[0];
+    if (!sickList.ID) return;
+    PHShowAllController *showAllController = [[PHShowAllController alloc]init];
+    showAllController.listArray = self.sickList;
+    [self.navigationController pushViewController:showAllController animated:YES];
+}
+
+#pragma mark - Event Response
+
+
+
+#pragma mark - Private Methods
+- (void)constraintHomeView {
+    [self.homeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.right.equalTo(@0);
+    }];
+    
+}
+
+
+- (BOOL)isEqualSpace:(NSString *)str {
+    if ([str isEqualToString:@""]) return YES;
+    for (int i = 0 ; i < str.length; i++) {
+        if ([str characterAtIndex:i] != ' ') return NO;
+    }
+    return YES;
+}
+
+
+- (void)showSickList:(NSArray *)sickList {
+    [self.homeView showEnd];
+    if (sickList == nil || sickList.count == 0){
+        [self.homeView showText:@"请检查搜索的关键字🔍"];
+        return;
+    }
+    NSMutableString *sickString = [NSMutableString string];
+    for (id sicks in sickList) {
+        PHSickList *sickList = (PHSickList *)sicks;
+        if (sickList.summary == nil) {
+            [self.homeView showText:@"搜索关键字有误🔍"];
+            return;
+        }
+        [sickString appendFormat:@"%@\n", sickList.summary];
+    }
+    [self.homeView showText:sickString];
+}
+
+- (void)goMore {
+    PHShowController *showController = [[PHShowController alloc]init];
+    [self.navigationController pushViewController:showController animated:YES];
+}
+
+#pragma mark - Setter & Getter
+
+
+
+@end
