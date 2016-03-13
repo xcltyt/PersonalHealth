@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PersonalHealth/AFNetworking.framework"
+  install_framework "Pods-PersonalHealth/DOPDropDownMenu_Enhanced.framework"
   install_framework "Pods-PersonalHealth/FMDB.framework"
   install_framework "Pods-PersonalHealth/MJExtension.framework"
   install_framework "Pods-PersonalHealth/MJRefresh.framework"
@@ -94,6 +95,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PersonalHealth/AFNetworking.framework"
+  install_framework "Pods-PersonalHealth/DOPDropDownMenu_Enhanced.framework"
   install_framework "Pods-PersonalHealth/FMDB.framework"
   install_framework "Pods-PersonalHealth/MJExtension.framework"
   install_framework "Pods-PersonalHealth/MJRefresh.framework"

@@ -46,10 +46,10 @@
 {
 //    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
-    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/book.sqlite"];
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/news.sqlite"];
     
     _myDatabase  = [[FMDatabase alloc]initWithPath:path];
-//    NSLog(@"%@",path);
+  //  NSLog(@"%@",path);
     
     BOOL ret  = [_myDatabase open];
     
@@ -60,12 +60,12 @@
         
         if (flag == NO) {
             
-            NSLog(@"%@",_myDatabase.lastErrorMessage);
+          //  NSLog(@"%@",_myDatabase.lastErrorMessage);
         }
         
     }else
     {
-        NSLog(@"%@",_myDatabase.lastErrorMessage);
+      //  NSLog(@"%@",_myDatabase.lastErrorMessage);
     }
     
     

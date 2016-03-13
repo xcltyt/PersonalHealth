@@ -121,8 +121,6 @@
     //1.4 设置颜色
     [[[UIColor alloc]initWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1] set];
     
-    
-    
     CGContextAddArc(ctx, SCRW / 2, SCRW / 2, 80, 1.5 * M_PI , 3.5  *M_PI, 0);
     
     //3.绘制

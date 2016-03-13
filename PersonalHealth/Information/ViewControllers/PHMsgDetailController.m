@@ -14,7 +14,7 @@
 
 @property(nonatomic,strong)UILabel * titleLabel;
 @property(nonatomic,strong)UIImageView * imgImageView;
-@property(nonatomic,strong)UITextView * contenttextView;
+@property(nonatomic,strong)UILabel * contenttextView;
 @property (nonatomic,strong)UILabel * authorLabel;
 @property (nonatomic,strong)UILabel * timeLabel;
 
@@ -83,17 +83,26 @@
      }];
 
     //详细咨询
-    UITextView * contenttextView=[[UITextView alloc]init];
+    UILabel * contenttextView=[[UILabel alloc]init];
     self.contenttextView=contenttextView;
     [self.scrollView addSubview:contenttextView];
-    contenttextView.text=_mod.content;
-    contenttextView.editable=NO;
+    NSString * ctext=[_mod.content stringByReplacingOccurrencesOfString:@"<STRONG>" withString:@""];
+    ctext=[ctext stringByReplacingOccurrencesOfString:@"</STRONG>" withString:@""];
+    contenttextView.text=[NSString stringWithFormat:@"    %@",ctext];
+
+    contenttextView.numberOfLines = 0;
+    
+    //动态计算高度·
+    contenttextView.font=[UIFont systemFontOfSize:13];//字体大小
+    NSDictionary * dict=@{NSFontAttributeName:[UIFont systemFontOfSize:13]};//字体大小
+    CGSize size=CGSizeMake(SCRW-30,CGFLOAT_MAX);
+    size=[contenttextView.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
     [contenttextView mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.top.equalTo(imageView.mas_bottom).offset(20);
          make.left.equalTo(15);
          make.centerX.equalTo(0);
-         make.height.equalTo(80);
+         make.height.equalTo(size.height+30);
     }];
     
     //作者label
@@ -107,7 +116,7 @@
     [authorLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(8);
         make.top.equalTo(contenttextView.mas_bottom).offset(10);
-        make.width.equalTo(120);
+      //  make.width.equalTo(120);
         make.height.equalTo(BTNH);
     }];
     

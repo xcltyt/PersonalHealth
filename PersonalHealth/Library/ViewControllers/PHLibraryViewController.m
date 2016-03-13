@@ -57,11 +57,7 @@ static NSString *bookListId = @"bookListId";
     // 加载左侧的分类数据
     [self loadCategories];
     
-    // 添加刷新控件
-    [self setupRefresh];
-    
 }
-
 #pragma mark - Private Methods
 /**
  *  设置导航栏
@@ -80,6 +76,7 @@ static NSString *bookListId = @"bookListId";
     
     self.bookListTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreBooks)];
     
+    self.bookListTableView.mj_footer.hidden = YES;
 }
 
 - (void)loadNewsBooks
@@ -162,7 +159,6 @@ static NSString *bookListId = @"bookListId";
                              @"showapi_timestamp":usefulDate,
                              @"showapi_sign":md5Sign,
                              
-                             
                              };
     
     [PHNetHelper POSTWithExtraUrl:path andParam:params andComplete:^(BOOL success, id result) {
@@ -210,7 +206,7 @@ static NSString *bookListId = @"bookListId";
     UITableView *bookListTableView = [[UITableView alloc]init];
     [self.view addSubview:bookListTableView];
     self.bookListTableView = bookListTableView;
-    
+    bookListTableView.tableFooterView = [[UIView alloc]init];
     self.bookListTableView.backgroundColor = self.categoryTableView.backgroundColor;
     
     [bookListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -273,6 +269,9 @@ static NSString *bookListId = @"bookListId";
             // 默认选中首行
             [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
             
+            // 添加刷新控件
+            [self setupRefresh];
+            
             // 让用户表格进入下拉刷新状态
             [self.bookListTableView.mj_header beginRefreshing];
         
@@ -311,15 +310,11 @@ static NSString *bookListId = @"bookListId";
     if (tableView == self.categoryTableView) {
         return self.categories.count;
     } else {
-        
         // 监测footer的状态
         [self checkFooterState];
         PHCategory *category = PHSelectedCategory;
-
         return category.books.count;
     }
-    
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

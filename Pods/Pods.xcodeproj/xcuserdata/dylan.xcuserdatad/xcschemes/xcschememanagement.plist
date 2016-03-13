@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -67,6 +72,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>23CF27B2BA6AC7125EFFEDA8C5AA819F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4BA1C8DF87836C291F44FF1D6A85B9C6</key>
 		<dict>
 			<key>primary</key>
@@ -88,6 +98,21 @@
 			<true/>
 		</dict>
 		<key>A9A83F63385AA43314397B8DD375464B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1172DAE4195255AA571E6C86C56A79A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C09F321DD78C8EA6DCFA27AB3B393D13</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D14E1A60ACA6FC44B2A51DE9C501A9F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

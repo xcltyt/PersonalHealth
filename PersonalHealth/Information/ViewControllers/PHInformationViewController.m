@@ -85,8 +85,8 @@
         }
         else
         {
-            NSLog(@"%@",result);
-            NSLog(@"请求失败");
+//            NSLog(@"%@",result);
+//            NSLog(@"请求失败");
         }
     }];
 }

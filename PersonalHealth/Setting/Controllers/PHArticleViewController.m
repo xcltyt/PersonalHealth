@@ -16,7 +16,7 @@ static NSString *const cellID = @"cellID";
 
 @interface PHArticleViewController ()<PHMsgTableViewDelegate>
 
-@property (nonatomic, strong) UIView *subView;
+@property (nonatomic, strong) PHMsgTableView *subView;
 @property (nonatomic, strong) NSArray *articles;
 
 @end
@@ -25,11 +25,17 @@ static NSString *const cellID = @"cellID";
 
 
 #pragma mark Life Cycle
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _articles = [[TSDbManager sharedManager] searchAllCollect];
+    [self.view addSubview:self.subView];
+    //self.subView.x
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.automaticallyAdjustsScrollViewInsets=NO;
     [self.view addSubview:self.subView];
     
     [self configSubviewConstraints];
@@ -80,12 +86,12 @@ static NSString *const cellID = @"cellID";
         
         if (success)
         {
-            NSLog(@"请求成功");
+         //   NSLog(@"请求成功");
             NSError * error;
             NSDictionary * dict=[NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:&error];
             if (error)
             {
-                NSLog(@"解析失败%@",error);
+              //   NSLog(@"解析失败%@",error);
             }
             else
             {
@@ -100,8 +106,8 @@ static NSString *const cellID = @"cellID";
         }
         else
         {
-            NSLog(@"%@",result);
-            NSLog(@"请求失败");
+          //  NSLog(@"%@",result);
+          //  NSLog(@"请求失败");
         }
     }];
 }
@@ -111,7 +117,7 @@ static NSString *const cellID = @"cellID";
 - (UIView *)subView {
     if (!_subView) {
         //_subView
-       PHMsgTableView * tableView  = [PHMsgTableView phmsgTableViewWithFrame:CGRectMake(0, 64, SCRW, SCRH - 64) andtableModArray:self.articles];
+       PHMsgTableView * tableView  = [PHMsgTableView phmsgTableViewWithFrame:CGRectMake(0, NAVH+20, SCRW, SCRH - 64) andtableModArray:self.articles];
         tableView.delegate=self;
         _subView=tableView;
         
@@ -121,12 +127,18 @@ static NSString *const cellID = @"cellID";
     return _subView;
 }
 
-- (NSArray *)articles {
+- (NSArray *)articles
+{
     if (!_articles) {
         _articles = [[TSDbManager sharedManager] searchAllCollect];
-        NSLog(@"%ld",_articles.count);
+    //    NSLog(@"%ld",_articles.count);
     }
     return _articles;
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.subView removeFromSuperview];
+    self.subView =nil;
 }
 #pragma mark PHMsgTableViewDelegate
 -(void)phMsgTableViewRowsSelectedWithMode:(PHMsgTableMod *)mod

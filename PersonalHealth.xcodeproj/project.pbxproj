@@ -156,6 +156,7 @@
 		CEFB4EC41C910B3E00DC47BC /* PHArcView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFB4EC31C910B3E00DC47BC /* PHArcView.m */; };
 		FC3A6FFD1C8820CA009C1D90 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3A6FFC1C8820CA009C1D90 /* libsqlite3.tbd */; };
 		FC3A70011C882197009C1D90 /* TSDbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3A70001C882197009C1D90 /* TSDbManager.m */; };
+		FC3B502D1C9593A10014D7FB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3B502C1C9593A10014D7FB /* MessageUI.framework */; };
 		FC452C841C8712F900CFECB7 /* PHDetailMod.m in Sources */ = {isa = PBXBuildFile; fileRef = FC452C651C8712F900CFECB7 /* PHDetailMod.m */; };
 		FC452C851C8712F900CFECB7 /* PHHMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC452C671C8712F900CFECB7 /* PHHMModel.m */; };
 		FC452C861C8712F900CFECB7 /* PHMsgTableMod.m in Sources */ = {isa = PBXBuildFile; fileRef = FC452C691C8712F900CFECB7 /* PHMsgTableMod.m */; };
@@ -540,6 +541,7 @@
 		FC3A6FFC1C8820CA009C1D90 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FC3A6FFF1C882197009C1D90 /* TSDbManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDbManager.h; sourceTree = "<group>"; };
 		FC3A70001C882197009C1D90 /* TSDbManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSDbManager.m; sourceTree = "<group>"; };
+		FC3B502C1C9593A10014D7FB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FC452C641C8712F900CFECB7 /* PHDetailMod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHDetailMod.h; sourceTree = "<group>"; };
 		FC452C651C8712F900CFECB7 /* PHDetailMod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHDetailMod.m; sourceTree = "<group>"; };
 		FC452C661C8712F900CFECB7 /* PHHMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHMModel.h; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3B502D1C9593A10014D7FB /* MessageUI.framework in Frameworks */,
 				FC3A6FFD1C8820CA009C1D90 /* libsqlite3.tbd in Frameworks */,
 				CE74AE9F1C86CBE200D0C116 /* Alamofire.framework in Frameworks */,
 				79F969B89914AB0A901907F3 /* Pods_PersonalHealth.framework in Frameworks */,
@@ -596,6 +599,7 @@
 		8B61842EB235A0AC2E3E9EFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC3B502C1C9593A10014D7FB /* MessageUI.framework */,
 				CE57B3AE1C9042B4006EC80A /* HealthKit.framework */,
 				FC3A6FFC1C8820CA009C1D90 /* libsqlite3.tbd */,
 				3A8E0F0F49631B889E482661 /* Pods_PersonalHealth.framework */,
@@ -1456,6 +1460,7 @@
 				TargetAttributes = {
 					CE74AE371C86C1F900D0C116 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 26J52EZXXR;
 					};
 					CE74AE501C86C1F900D0C116 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1914,13 +1919,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PersonalHealth/PrefixHeader.pch";
 				INFOPLIST_FILE = PersonalHealth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.phteam.PersonalHealth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phteam.PersonalHealth2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShowApiRequest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
@@ -1933,13 +1941,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PersonalHealth/PrefixHeader.pch";
 				INFOPLIST_FILE = PersonalHealth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.phteam.PersonalHealth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phteam.PersonalHealth2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShowApiRequest-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};

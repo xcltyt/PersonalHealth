@@ -16,8 +16,11 @@
 //好书常阅
 #import "PHBookViewController.h"
 
+#import <MessageUI/MFMailComposeViewController.h>
+#import "SDImageCache.h"
 
-@interface PHSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@interface PHSettingViewController ()<UITableViewDelegate,UITableViewDataSource,MFMailComposeViewControllerDelegate>
 //附近医院
 @property (nonatomic, strong) UIViewController *hospitalVC;
 //今日步数
@@ -53,6 +56,13 @@
     [self configSubviewsConstraints];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 #pragma mark - UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -80,7 +90,11 @@
             cell.textLabel.text = @"好书常阅";
             break;
         case 4:
-            cell.textLabel.text = @"清除缓存";
+        {
+            CGFloat size = [SDImageCache sharedImageCache].getSize / 1000.0 / 1000;
+            cell.textLabel.text = [NSString stringWithFormat:@"清除缓存（%.2fMB）", size];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
             break;
         case 5:
             cell.textLabel.text = @"意见反馈";
@@ -114,11 +128,62 @@
         case 3:
             [self.navigationController pushViewController:self.bookVC animated:YES];
             break;
+        case 4:
+            // 清除缓存
+            [self clearCache];
+            break;
+        case 5:
+            [self sendMail];
+            break;
         default:
             break;
     }
 }
+/**
+ *  发送邮件
+ */
+-(void)sendMail
+{
+    if (![MFMailComposeViewController canSendMail])
+    {
+        NSLog(@"设备还没有设置邮箱");
+        return;
+    }
+    
+    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
 
+    controller.mailComposeDelegate = self;
+    [controller setToRecipients:@[@"dylan@dylancc.com"]];
+    [controller setSubject:@"随行健康助手"];
+    [controller setMessageBody:@"Hello there." isHTML:NO];
+    [self presentViewController:controller animated:YES completion:nil];
+
+}
+/**
+ *  清除缓存
+ */
+- (void)clearCache
+{
+    UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"清理缓存 ？" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        return;
+    }];
+    
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [[SDImageCache sharedImageCache] clearDisk];
+
+        [SVProgressHUD showSuccessWithStatus:@"清理成功"];
+        // 刷新表格
+        [self.tableView reloadData];
+    }];
+    [alert addAction:action1];
+    [alert addAction:action2];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 #pragma mark - Private Methods
 
@@ -192,5 +257,15 @@
     }
     return _headerImageView;
 }
-
+#pragma mark MFMailComposeViewControllerDelegate
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error;
+{
+    if (result == MFMailComposeResultSent)
+    {
+        NSLog(@"It's away!");
+    }
+    [controller dismissViewControllerAnimated:YES completion:nil];
+}
 @end

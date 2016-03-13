@@ -38,6 +38,7 @@
     [self loadDeailData];
 }
 
+
 - (void)setupBasic
 {
     // nav

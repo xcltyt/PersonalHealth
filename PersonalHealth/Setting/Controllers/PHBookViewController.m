@@ -128,6 +128,7 @@ static NSString *const bookSearchCell = @"bookSearchCell";
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.rowHeight = 135;
+        _tableView.tableFooterView = [[UIView alloc]init];
         [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PHBookSearchCell class]) bundle:nil] forCellReuseIdentifier:bookSearchCell];
     }
     return _tableView;

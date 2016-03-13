@@ -38,6 +38,7 @@
     NSString * path=[NSHomeDirectory() stringByAppendingPathComponent:@"Library/phMsgTableMods.sqlite"];
     _database=[[FMDatabase alloc]initWithPath:path];
     BOOL ret=[_database open];
+  //  NSLog(@"%@",path);
     if (ret)
     {
         NSLog(@"数据库 开启");
@@ -45,16 +46,16 @@
         BOOL flag= [_database executeUpdate:createStr];
         if (flag)
         {
-            NSLog(@"创建表格成功");
+          //  NSLog(@"创建表格成功");
         }
         else
         {
-            NSLog(@"%@",_database.lastErrorMessage);
+           // NSLog(@"%@",_database.lastErrorMessage);
         }
     }
     else
     {
-        NSLog(@"%@",_database.lastErrorMessage);
+       // NSLog(@"%@",_database.lastErrorMessage);
     }
 }
 -(NSArray *)searchAllCollect
@@ -114,11 +115,11 @@
         [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
         [tabbar.selectedViewController presentViewController:alert animated:YES completion:nil];
         
-        NSLog(@"删除成功");
+      //  NSLog(@"删除成功");
     }
     else
     {
-        NSLog(@"%@",_database.lastErrorMessage);
+     //   NSLog(@"%@",_database.lastErrorMessage);
     }
 }
 -(void)deleteCollectWithMod:(PHMsgTableMod *)mod
